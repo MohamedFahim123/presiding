@@ -1,0 +1,39 @@
+.myHomeServices__handler{
+    margin-top: 60px;
+    padding-inline-start: 80px;
+}
+.serviceItem_box{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.serviceItem_box img{
+    width: 62px;
+    height: 62px;
+    /* margin-bottom: 15px; */
+}
+.serviceItem_info h3{
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--main-dark-blue-color-text);
+    margin-bottom: 15px;
+}
+.serviceItem_info p{
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(51, 51, 51, 1);
+}
+@media screen and (max-width:600px) {
+    .myHomeServices__handler
+    {
+        padding-inline-start: 0;
+    }
+    .serviceItem_box{
+        text-align: center;
+    }
+    .serviceItem_box img {
+        margin: 0 auto;
+        width: 42px;
+        height: 42px;
+    }
+}

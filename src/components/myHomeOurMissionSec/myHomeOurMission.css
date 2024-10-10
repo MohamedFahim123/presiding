@@ -1,0 +1,29 @@
+.ourMission__handler{
+    margin-top: 60px;
+    padding-inline-start: 80px;
+}
+.mission_header{
+    margin-bottom: 30px;
+}
+.missionInfo__handler{
+    padding: 0px 0 20px 0;
+    padding-inline-start: 80px;
+    border-inline-start: 1px solid var(--main-blue-color-bg);
+}
+.missionInfo__handler p{
+    font-size: 16px;
+    font-weight: 400;
+}
+
+@media screen and (max-width:600px) {
+    .ourMission__handler
+    {
+        padding-inline-start: 0;
+    }
+    .missionInfo__handler,
+    .myTextItem__content .text_quote 
+    {
+    padding-inline-start: 40px;
+    
+    }
+}

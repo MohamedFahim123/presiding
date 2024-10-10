@@ -1,0 +1,27 @@
+.myHomeTextInfo__handler{
+    margin-top: 30px;
+}
+.myTextItem__content .text_quote{
+    padding: 60px 0 20px 0;
+    padding-inline-start: 80px;
+    border-inline-start: 1px solid var(--main-blue-color-bg);
+}
+.myTextItem__content .text_quote h5{
+    color: var(--main-dark-blue-color-text);
+    font-size: 30px;
+    font-weight: 300;
+    text-transform: capitalize;
+}
+.myTextItem__content .text_sign{
+    padding-inline-start: 80px;
+    margin-top: 20px;
+}
+.myTextItem__content .text_sign p{
+    color: var(--main-green-color);
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.myTextItem__content .text_sign p span{
+    font-weight: normal;
+}

@@ -1,0 +1,32 @@
+.subServices__handler{
+    margin: 80px 0;
+}
+.subServices__info h5{
+    color: var(--main-green-color);
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+.subServices__info p{
+    color: #000;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+.subServices__info p:last-child{
+    margin-bottom: 0;
+}
+.subServices__image img{
+    border-radius: 12px;
+    margin: 30px 0;
+
+}
+
+@media screen and (max-width: 992px) {
+    .subServices__info h5{
+        font-size: 22px;
+    }
+    .subServices__info p{
+        font-size: 16px;
+    }
+}

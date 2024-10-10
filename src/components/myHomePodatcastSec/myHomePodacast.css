@@ -1,0 +1,91 @@
+.myHomePodacast__handler{
+    margin-top: 60px;
+}
+.podacastVideo__handler{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.podacastVideo__handler img{
+    width: 100% ;
+    height: 648px; 
+}
+.podacastVideo__handler .videoIcon_container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 8808;
+    width: 154px;
+    height: 154px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid rgba(217, 217, 217, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.podacastVideo__handler .viedo_icon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 888;
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+    background: rgba(121, 193, 67, 0.57);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.podacastVideo__handler .viedo_icon i{
+    color: #fff;
+    font-size: 26px;
+}
+.podacastInfo{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.podacastInfo img{
+    width: 100% ;
+    height: 648px;
+}
+.podacastInfo .overflow{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(12, 35, 105, 0.562);
+z-index: 10;
+}
+.podacastInfo .podaInfo_text{
+    position: absolute;
+    bottom: 30px;
+    padding: 30px;
+    z-index: 12;
+    color: #fff;
+    
+
+}
+.podacastInfo .podaInfo_text h3{
+font-size: 20px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+}
+.podacastInfo .podaInfo_text h3 i{
+    margin-inline-start: 10px;
+}
+@media screen and (max-width: 992px) {
+    .podacastVideo__handler img{
+        width: 100% ;
+        height: 448px; 
+    }
+    .podacastInfo img{
+        width: 100% ;
+        height: 448px;
+    }
+}

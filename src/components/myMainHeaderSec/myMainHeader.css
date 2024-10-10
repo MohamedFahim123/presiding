@@ -1,0 +1,24 @@
+.header_ofSec{
+    position: relative;
+    text-align: center;
+}
+.header_ofSec p{
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--main-green-color);
+}
+.header_ofSec h3{
+    font-size: 36px;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: var(--main-dark-blue-color-text);
+    width: 60%;
+}
+
+@media screen and (max-width: 600px) {
+    .header_ofSec h3{
+        font-size: 22px;
+        width: 80%;
+    }
+}

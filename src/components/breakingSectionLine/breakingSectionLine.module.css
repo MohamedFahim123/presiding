@@ -1,0 +1,27 @@
+.breakingLine {
+    text-align: center;
+    text-transform: uppercase;
+    color: #022E54;
+    position: relative;
+    margin: 30px 0;
+}
+.breakingLine::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40%;
+    height: 1px;
+    background-color: #022E54;
+}
+.breakingLine::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40%;
+    height: 1px;
+    background-color: #022E54;
+}

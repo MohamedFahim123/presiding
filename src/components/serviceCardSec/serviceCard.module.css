@@ -1,0 +1,48 @@
+.serviceCard__handler {
+    box-shadow: 0px 12px 24px 0px #104C8B29;
+    margin-bottom: 40px;
+}
+.cardInfo{
+    padding: 15px 20px;
+}
+.cardInfo h5{
+    color: var(--main-blue-color-text);
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: all .3s ease-out;
+}
+.cardInfo h5:hover{
+    color: var(--main-green-color);
+}
+.cardInfo p{
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 20px;
+}
+.SubLink{
+    color: var(--main-blue-color-text);
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all .2s ease-out;
+}
+.SubLink i{
+    margin-right: 8px;
+}
+.SubLink:hover{
+    color: var(--main-green-color);
+    margin-left: 5px;
+}
+
+@media screen and (max-width: 992px) {
+    .cardInfo h5{
+        font-size: 22px;
+    }
+}

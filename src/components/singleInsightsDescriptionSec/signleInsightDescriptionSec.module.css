@@ -1,0 +1,15 @@
+.singleInsightDescSec h2 {
+  color: #022E54;
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+.singleInsightDescSec p {
+  color: #000;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 1.5;
+  word-wrap: break-word;
+  overflow-wrap: break-word; 
+}

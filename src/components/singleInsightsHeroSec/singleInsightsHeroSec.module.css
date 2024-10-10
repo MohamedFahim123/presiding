@@ -1,0 +1,65 @@
+.singleInsight__heroSec {
+    height: 85vh;
+    background: #022E54;
+}
+.text__container {
+    max-width: 370px;
+    margin-top: 20px;
+}
+.text__container p {
+    color: #469338;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: 3.2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+.text__container h1 {
+    color: #FFF;
+    font-size: 36px;
+    text-transform: capitalize;
+}
+.btnContainer {
+    margin-top: 40px;
+}
+.btnContainer .veiwBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    border: none;
+    font-size: 22px;
+    color: #fff;
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    background: #81C974;
+    margin-bottom: 20px;
+}
+.btnContainer img {
+    width: 32px;
+    height: 32px;
+    margin-inline-start: 5px;
+}
+.btnContainer .downloadBtn {
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    border: none;
+    font-size: 22px;
+    color: #fff;
+    border-radius: 10px;
+    background: #0E66B2;
+}
+.imgContainer {
+    background-image: url('../../assets/insightsPage/SingleInsighsHeroSec.jpeg');
+    background-position: center;
+    height: 100%;
+    margin-top: 30px;
+    background-repeat: no-repeat;
+    max-width: 450px;
+    max-height: 450px;
+}

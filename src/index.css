@@ -1,0 +1,71 @@
+:root {
+  --primary-white: rgba(255, 255, 255, 1); 
+  --secondary-white: rgba(246, 246, 245, 1);
+  --primary-black: rgba(23, 32, 57, 1);
+  --main-green-color: rgba(70, 147, 56, 1);
+  --main-blue-color-bg: rgba(8, 59, 103, 1);
+  --main-blue-color-text: rgba(1, 31, 91, 1);
+  --main-dark-blue-color-text: rgba(23, 32, 57, 1);
+}
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+h1, h2, h3, h4, h5, h6{
+  font-family: "Arimo", sans-serif;
+}
+p{
+  font-family: "Montserrat", sans-serif;
+}
+body {
+    font-size: 16px;
+    font-family: "Montserrat", sans-serif;
+    background-color: var(--primary-white);
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+}
+
+li {
+    list-style: none;
+}
+
+.form-control:hover ,
+.form-control:focus ,
+.form-control:focus-visible ,
+.form-select:hover ,
+.form-select:focus ,
+.form-select:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+.replace__margin__with__padding .signUp__headSec{
+    margin: 0;
+    padding: 50px 0;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
