@@ -1,62 +1,66 @@
-import './myHomeOverview.css'
-import bg1 from '../../assets/home-overview/Mask group.png'
-import bg2 from '../../assets/home-overview/Mask group (1).png'
-import bg3 from '../../assets/home-overview/Mask group (2).png'
-import bg4 from '../../assets/home-overview/Mask group (3).png'
-import bg5 from '../../assets/home-overview/Mask group (4).png'
-import logo from '../../assets/logos/presiding-nav-logo.png'
+import './myHomeOverview.css';
+import logo from '../../assets/logos/presiding-nav-logo.png';
+import { baseUrl } from '../../functions/baseUrl';
+import { useFetch } from '../../hooks/useFetch';
+
 export default function MyHomeOverview() {
+    const [currData] = useFetch(`${baseUrl}/sections`);
+
     return (
         <div className='myHomeOverview__handler'>
             <div className='container-fluid'>
                 <div className="row fullOverview_items">
                     <div className="col-lg-6 col-md-6 mb-3 ps-0 removeMarginRight">
-                        <div className="overview_item">
-                            <img src={bg1} alt="bg-1" />
+                        <div className="overview_item" onClick={()=> window.location.href = currData?.sections[0]?.link}>
+                            <img src={currData?.sections ? currData?.sections[0]?.image : ''} alt="background 1" />
                             <div className="overview_info">
                                 <img src={logo} alt="logo" />
                                 <p>
-                                    we provide each client with quality services that are responsive, effective and tailored our client’s needs and their business.
+                                    {currData?.sections ? currData?.sections[0]?.description : ''}
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-6 col-md-6 mb-3 ps-0 ">
+                    <div className="col-lg-6 col-md-6 mb-3 ps-0">
                         <div className="row">
                             <div className="col-6 pe-0 mb-3">
-                                <div className="overview_item item_small">
-                                    <img src={bg2} alt="bg-1" />
+                                <div className="overview_item item_small" onClick={()=> window.location.href = currData?.sections[1]?.link}>
+                                    <img src={currData?.sections ? currData?.sections[1]?.image : ''} alt="background 2" />
                                 </div>
                             </div>
                             <div className="col-6 pe-0 mb-3">
-                                <div className="overview_item item_small">
+                                <div className="overview_item item_small" onClick={()=> window.location.href = currData?.sections[2]?.link}>
                                     <div className="overflow"></div>
-                                    <img src={bg4} alt="bg-1" />
+                                    <img src={currData?.sections ? currData?.sections[2]?.image : ''} alt="bg-1" />
                                     <div className="overview_info hasIcon">
                                         <p>
-                                            Company<br/>
-                                            Growth<br/>
-                                            Objective
+                                            {currData?.sections ? currData?.sections[2]?.description : ''}
                                         </p>
                                         <i className="bi bi-arrow-bar-right"></i>
                                     </div>
                                 </div>
                             </div>
                             <div className="col-6 pe-0">
-                                <div className="overview_item item_small">
+                                <div className="overview_item item_small" onClick={()=> window.location.href = currData?.sections[3]?.link}>
                                     <div className="overflow bg_color"></div>
-                                    <img src={bg3} alt="bg-1" />
+                                    <img src={currData?.sections ? currData?.sections[3]?.image : ''} alt="background 3" />
                                     <div className="overview_info hasIcon">
                                         <p>
-                                        Presiding,<br/> Leading Your Vision<br/> to Success
+                                            {currData?.sections ? currData?.sections[3]?.description : ''}
                                         </p>
                                         <i className="bi bi-arrow-bar-right"></i>
                                     </div>
                                 </div>
                             </div>
                             <div className="col-6 pe-0">
-                                <div className="overview_item item_small">
-                                    <img src={bg5} alt="bg-1" />
+                                <div className="overview_item item_small" onClick={()=> window.location.href = currData?.sections[4]?.link}>
+                                    <img src={currData?.sections ? currData?.sections[4]?.image : ''} alt="background 4" />
+                                    <div className="overview_info hasIcon">
+                                        <p>
+                                            {currData?.sections ? currData?.sections[4]?.description : ''}
+                                        </p>
+                                        <i className="bi bi-arrow-bar-right"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>

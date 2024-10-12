@@ -5,10 +5,14 @@ import 'swiper/css';
 import "swiper/css/autoplay";
 import Autoplay from "../../../node_modules/swiper/modules/autoplay.mjs";
 import './myHomeSlider.css';
-
 import { Navigation } from "swiper/modules";
 import PropTypes from "prop-types";
-export default function MyHomeSlider({ heading, title, overLayColor, showBtn, sliderImg1, sliderImg2 }) {
+import { useFetch } from "../../hooks/useFetch";
+import { baseUrl } from "../../functions/baseUrl";
+import { Link } from "react-router-dom";
+export default function MyHomeSlider({ heading, title, overLayColor, showBtn, sliderImg1 }) {
+    const [currData] = useFetch(`${baseUrl}/sliders`);
+
     return (
         <div className="slider__handler">
             <Swiper
@@ -24,66 +28,39 @@ export default function MyHomeSlider({ heading, title, overLayColor, showBtn, sl
                     prevEl: '.swiper-button-prev-custom',
                 }}
             >
-                <SwiperSlide className={`slide__item__handler`}
-                    style={{ backgroundImage: `url(${sliderImg1})` }}>
-                    {
-                        overLayColor &&
-                        <div className="overLay position-absolute" style={{ top: 0, left: 0, zIndex: -1, width: '100%', height: '100%', backgroundColor: overLayColor }}></div>
-                    }
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-12">
-                                <div className="slideItem__info">
-                                    <>
-                                        <p>
-                                            {title ? title : ''}
-                                        </p>
-                                        <h2>
-                                            {heading ? heading : 'We grow your business'}
-                                        </h2>
-                                        {
-                                            showBtn &&
-                                            <button>
-                                                View More
-                                            </button>
-                                        }
-                                    </>
+                {
+                    currData?.sliders?.map(slider => (
+                        <SwiperSlide key={slider?.id} className={`slide__item__handler`}
+                            style={{ backgroundImage: `url(${slider?.image ? slider.image : sliderImg1})` }}>
+                            {
+                                overLayColor &&
+                                <div className="overLay position-absolute" style={{ top: 0, left: 0, zIndex: -1, width: '100%', height: '100%', backgroundColor: overLayColor }}></div>
+                            }
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-12">
+                                        <div className="slideItem__info">
+                                            <>
+                                                <p>
+                                                    {slider?.title ? slider?.title : title}
+                                                </p>
+                                                <h2>
+                                                    {slider?.description ? slider?.description : heading}
+                                                </h2>
+                                                {
+                                                    showBtn &&
+                                                    <Link to={slider?.link ? slider?.link : ''}>
+                                                        {slider?.button_text ? slider?.button_text : ''}
+                                                    </Link>
+                                                }
+                                            </>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide
-                    className="slide__item__handler"
-                    style={{ backgroundImage: `url(${sliderImg2})` }}
-                >
-                    {
-                        overLayColor &&
-                        <div className="overLay position-absolute" style={{ top: 0, left: 0, zIndex: -1, width: '100%', height: '100%', backgroundColor: overLayColor }}></div>
-                    }
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-12">
-                                <div className="slideItem__info">
-                                    <>
-                                        <p>
-                                            {title ? title : ''}
-                                        </p>
-                                        <h2>
-                                            {heading ? heading : 'We grow your business'}
-                                        </h2>
-                                        {
-                                            showBtn &&
-                                            <button>
-                                                View More
-                                            </button>
-                                        }
-                                    </>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </SwiperSlide>
+                        </SwiperSlide>
+                    ))
+                }
             </Swiper>
             <div className="custom-navigation">
                 <div className="swiper-button-prev-custom"><i className="bi bi-arrow-bar-left"></i></div>

@@ -7,32 +7,13 @@ import "swiper/css/autoplay";
 import Autoplay from "../../../node_modules/swiper/modules/autoplay.mjs";
 import { Navigation } from "swiper/modules";
 import MyMainHeader from '../myMainHeaderSec/MyMainHeader'
-import pic1 from '../../assets/home-insights/Picture1.png'
-import pic2 from '../../assets/home-insights/Picture2.png'
 import { NavLink } from 'react-router-dom';
+import { useFetch } from '../../hooks/useFetch';
+import { baseUrl } from '../../functions/baseUrl';
+
 export default function MyHomeInsights() {
-    const insightsSliderItems = [
-        {
-            title: 'How Often You Should Publish Blog, Video, and Social Media Content',
-            date: '23. OCT',
-            image: pic1
-        },
-        {
-            title: 'How Often You Should Publish Blog, Video, and Social Media Content',
-            date: '23. OCT',
-            image: pic2
-        },
-        {
-            title: 'How Often You Should Publish Blog, Video, and Social Media Content',
-            date: '23. OCT',
-            image: pic1
-        },
-        {
-            title: 'How Often You Should Publish Blog, Video, and Social Media Content',
-            date: '23. OCT',
-            image: pic2
-        },
-    ]
+    const [currData] = useFetch(`${baseUrl}/home-blogs`);
+
     return (
         <div className='myHomeInsights__handler'>
             <div className="container">
@@ -45,7 +26,7 @@ export default function MyHomeInsights() {
                 <div className="insightsSlider__handler">
                     <div className="row">
                         <div className="col-12">
-                        <div className="custom-navigation">
+                            <div className="custom-navigation">
                                 <div className="swiper-button-prev-custom"><i className="bi bi-arrow-bar-left"></i></div>
                                 <div className="swiper-button-next-custom"><i className="bi bi-arrow-bar-right"></i></div>
                             </div>
@@ -85,24 +66,24 @@ export default function MyHomeInsights() {
                                 }}
                             >
                                 {
-                                    insightsSliderItems?.map((el, index) => (
-                                        <SwiperSlide key={index} className="insightSlide__item">
+                                    currData?.blogs?.map((blog) => (
+                                        <SwiperSlide key={blog?.id} className="insightSlide__item">
                                             <div className="row">
                                                 <div className="col-6 insighSlide__info">
                                                     <h2>
-                                                        {el?.title}
+                                                        {blog?.description?.slice(0, 30)}...
                                                     </h2>
                                                     <p>
-                                                        {el?.date}
+                                                        {blog?.created_at}
                                                     </p>
-                                                    <NavLink className={'nav-link'}>
+                                                    <NavLink className={'nav-link'} to={`insights/${blog?.id}`}>
                                                         <span>read more</span>
                                                         <i className="bi bi-arrow-bar-right"></i>
                                                     </NavLink>
 
                                                 </div>
                                                 <div className="insighSlide__image col-6">
-                                                    <img src={el?.image} alt="icon" />
+                                                    <img src={blog?.image} alt="icon" />
                                                 </div>
                                             </div>
                                         </SwiperSlide>
@@ -110,7 +91,7 @@ export default function MyHomeInsights() {
                                 }
 
                             </Swiper>
-                           
+
                         </div>
                     </div>
                 </div>

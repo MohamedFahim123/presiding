@@ -1,6 +1,5 @@
 .header_ofSec{
     position: relative;
-    text-align: center;
 }
 .header_ofSec p{
     font-size: 16px;
@@ -13,7 +12,6 @@
     font-weight: 500;
     text-transform: capitalize;
     color: var(--main-dark-blue-color-text);
-    width: 60%;
 }
 
 @media screen and (max-width: 600px) {
