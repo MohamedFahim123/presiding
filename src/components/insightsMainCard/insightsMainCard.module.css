@@ -30,6 +30,7 @@
     height: 100%;
 }
 .insightsCard__body {
+    width: 100%;
     position: relative;
     z-index: 2;
     transform: translateY(65%);

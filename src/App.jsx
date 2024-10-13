@@ -6,6 +6,7 @@ import InsightsPage from './pages/myInsightsPage/InsightsPage';
 import SingleInsightPage from './pages/singleInsightPage/SingleInsightPage';
 import ServicesPage from './pages/myServicesPage/ServicesPage';
 import SubServicesPage from './pages/mySubServicesPage/SubServicesPage';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   const Routes = createBrowserRouter([
@@ -16,16 +17,17 @@ function App() {
       children: [
         { index: true, element: <MyHome /> },
         { path: 'home', element: <MyHome /> },
-        { path: 'insights', element: <InsightsPage /> },
-        { path: 'insights/:singleInsight', element: <SingleInsightPage /> },
         { path: 'services', element: <ServicesPage /> },
         { path: 'services/:subService', element: <SubServicesPage /> },
+        { path: 'insights', element: <InsightsPage /> },
+        { path: 'insights/:singleInsight', element: <SingleInsightPage /> },
       ]
     }
   ]);
 
   return (
     <>
+    <Toaster position='right-top'/>
       <RouterProvider router={Routes}>
       </RouterProvider>
     </>

@@ -1,29 +1,41 @@
 import styles from './mySubServices.module.css'
 import subServImg from '../../assets/subServ/subServImage.png'
+import { useFetch } from '../../hooks/useFetch';
+import { baseUrl } from '../../functions/baseUrl';
+import { useParams } from 'react-router-dom';
 export default function MySubServices() {
+    const { subService } = useParams();
+    const [currData] = useFetch(`${baseUrl}/show-sub-service/${subService}`);
+
     return (
         <div className={`${styles.subServices__handler}`}>
             <div className="container">
                 <div className={`${styles.subServices__info}`}>
                     <h5>
-                        How Businesses Can Thrive in a Transforming Economy
+                        {
+                            currData?.subService?.title ?
+                                currData?.subService?.title
+                                :
+                                ''
+                        }
                     </h5>
                     <p>
-                        Saudi Arabia is experiencing a period of rapid transformation, driven by the ambitious Vision 2030 initiative. This comprehensive strategy aims to diversify the Kingdom’s economy, reduce its reliance on oil, and position it as a global leader in sectors like technology, tourism, healthcare, and renewable energy. For businesses, both local and international, this shift presents unparalleled opportunities to unlock new levels of growth and success.
-                    </p>
-                    <p>
-                        In this article, we’ll explore how businesses in Saudi Arabia can unlock their full potential by leveraging strategic initiatives, embracing innovation, and aligning with the broader goals of Vision 2030.
+                        {
+                            currData?.subService?.body ?
+                                currData?.subService?.body
+                                :
+                                ''
+                        }
                     </p>
                     <div className="row">
-                        <div className="col-md-6">
-                            <div className={`${styles.subServices__image}`}>
-                                <img src={subServImg} alt="subServ-image" />
+                        {currData?.subService?.medias?.map(media => (
+                            <div key={media?.id} className="col-md-6">
+                                <div className={`${styles.subServices__image}`}>
+                                    <img src={subServImg} alt="subServ-image" />
+                                </div>
                             </div>
-                        </div>
+                        ))}
                     </div>
-                    <p>
-                    In this article, we’ll explore how businesses in Saudi Arabia can unlock their full potential by leveraging strategic initiatives, embracing innovation, and aligning with the broader goals of Vision 2030.
-                    </p>
                 </div>
             </div>
         </div>

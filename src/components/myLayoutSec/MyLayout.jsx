@@ -22,5 +22,5 @@ export default function MyLayout() {
             <MyNewsLetter />
             <MyFooter />
         </>
-    )
-}
+    );
+};

@@ -11,5 +11,5 @@ export const useFetch = (url) => {
         getDataFromApi(url, setCurrData, setLoading, setError);
     }, [url]);
 
-    return [currData, loading, error, setCurrData, setLoading, setError];
+    return [currData, loading, error];
 };

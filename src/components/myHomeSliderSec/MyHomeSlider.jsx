@@ -10,7 +10,7 @@ import PropTypes from "prop-types";
 import { useFetch } from "../../hooks/useFetch";
 import { baseUrl } from "../../functions/baseUrl";
 import { Link } from "react-router-dom";
-export default function MyHomeSlider({ heading, title, overLayColor, showBtn, sliderImg1 }) {
+export default function MyHomeSlider({ heading, title, overLayColor, sliderImg1 }) {
     const [currData] = useFetch(`${baseUrl}/sliders`);
 
     return (
@@ -48,7 +48,6 @@ export default function MyHomeSlider({ heading, title, overLayColor, showBtn, sl
                                                     {slider?.description ? slider?.description : heading}
                                                 </h2>
                                                 {
-                                                    showBtn &&
                                                     <Link to={slider?.link ? slider?.link : ''}>
                                                         {slider?.button_text ? slider?.button_text : ''}
                                                     </Link>
@@ -73,7 +72,5 @@ MyHomeSlider.propTypes = {
     heading: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     overLayColor: PropTypes.string,
-    showBtn: PropTypes.bool,
     sliderImg1: PropTypes.string.isRequired,
-    sliderImg2: PropTypes.string.isRequired,
 };

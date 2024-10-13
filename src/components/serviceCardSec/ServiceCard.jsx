@@ -1,24 +1,24 @@
 import { NavLink } from 'react-router-dom';
 import styles from './serviceCard.module.css';
 import PropTypes from 'prop-types';
-export default function ServiceCard({ cardImg, cardTitle, cardDesc, subLinks, subServLink }) {
+export default function ServiceCard({service }) {
     return (
         <div className={`${styles.serviceCard__handler}`}>
-            <img src={cardImg} alt={cardTitle} />
+            <img src={service?.image} alt={service?.title} />
             <div className={`${styles.cardInfo}`}>
                 <h5>
-                    {cardTitle}
+                    {service?.title}
                 </h5>
                 <p>
-                    {cardDesc}
+                    {service?.description}
                 </p>
                 <ul className={`${styles.cardSubLinks}`}>
                     {
-                        subLinks?.map((el) => (
-                            <li className={`${styles.SubLink}`} key={el.subServId}>
-                                <NavLink to={subServLink} className={'nav-link'}>
+                        service?.subServices?.map((subServ) => (
+                            <li className={`${styles.SubLink}`} key={subServ.subServId}>
+                                <NavLink to={`/services/${subServ?.id}`} className={'nav-link'}>
                                     <i className="bi bi-arrow-right-circle"></i>
-                                    {el.SubServName}
+                                    {subServ.title}
                                 </NavLink>
                             </li>
                         ))
@@ -30,9 +30,5 @@ export default function ServiceCard({ cardImg, cardTitle, cardDesc, subLinks, su
     );
 };
 ServiceCard.propTypes = {
-    cardImg: PropTypes.string.isRequired, 
-    cardTitle: PropTypes.string.isRequired, 
-    cardDesc: PropTypes.string.isRequired, 
-    subLinks: PropTypes.string.isRequired, 
-    subServLink: PropTypes.string.isRequired,
+    service: PropTypes.object.isRequired, 
 };

@@ -8,7 +8,7 @@ export default function CustomSelect({ error , register , name , id }) {
                 className={`form-select ${error && 'error_input'}`}
                 {...register(name)}
             >
-                <option disabled value="">Industry</option>
+                <option disabled value="">{name}</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>

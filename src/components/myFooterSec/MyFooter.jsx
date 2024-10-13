@@ -1,7 +1,10 @@
 import './myFooter.css'
 import logo from '../../assets/footer-images/Presiding-logo.png'
 import { NavLink } from 'react-router-dom';
+import { useFetch } from '../../hooks/useFetch';
+import { baseUrl } from '../../functions/baseUrl';
 export default function MyFooter() {
+    const [currData] = useFetch(`${baseUrl}/settings`);
     const listFooterData = [
         {
             title: "Company",
@@ -11,8 +14,8 @@ export default function MyFooter() {
             title: "Explore",
             items: ["Marketplace", "Campaigns", "Awards"]
         },
-
     ];
+
     return (
         <div className='myFooterSec__handler'>
             <div className="footerOverlay"></div>
@@ -62,28 +65,28 @@ export default function MyFooter() {
                                             <ul>
                                                 <li>
                                                     <span>Contact us:</span>
-                                                    <NavLink className={'nav-link'}>
-                                                        +44 200 312 778
+                                                    <NavLink to={`tel:${currData?.phone}`} className={'nav-link'}>
+                                                        {currData?.phone}
                                                     </NavLink>
                                                 </li>
                                                 <li>
                                                     <span>Email us:</span>
-                                                    <NavLink className={'nav-link'}>
-                                                        info@presiding.com
+                                                    <NavLink to={`mailto:${currData?.email}`} className={'nav-link'}>
+                                                        {currData?.email}
                                                     </NavLink>
                                                 </li>
                                                 <li className=''>
                                                     <span>Find Us Here:</span>
-                                                    <NavLink className={'nav-link'}>
+                                                    <NavLink to={currData?.instagram} className={'nav-link'}>
                                                         <i className="bi bi-instagram"></i>
                                                     </NavLink>
-                                                    <NavLink className={'nav-link'}>
+                                                    <NavLink to={currData?.facebook} className={'nav-link'}>
                                                         <i className="bi bi-facebook"></i>
                                                     </NavLink>
-                                                    <NavLink className={'nav-link'}>
+                                                    <NavLink to={currData?.twitter} className={'nav-link'}>
                                                         <i className="bi bi-twitter-x"></i>
                                                     </NavLink>
-                                                    <NavLink className={'nav-link'}>
+                                                    <NavLink to={currData?.linkedin} className={'nav-link'}>
                                                         <i className="bi bi-linkedin"></i>
                                                     </NavLink>
 

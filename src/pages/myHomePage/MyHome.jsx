@@ -13,7 +13,7 @@ import sliderImg1 from '../../assets/slider-bg/prx-img-07.png';
 export default function MyHome() {
     return (
         <>
-            <MyHomeSlider title={'Presiding Solutions'} overLayColor={false} heading={'We grow your business'} showBtn={true} sliderImg1={sliderImg1} />
+            <MyHomeSlider title={'Presiding Solutions'} overLayColor={''} heading={'We grow your business'} sliderImg1={sliderImg1} />
             <MyHomeTextInfo />
             <MyHomeOverview />
             <MyHomeServices />

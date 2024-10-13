@@ -2,9 +2,11 @@ import './myHomeServices.css';
 import MyMainHeader from '../myMainHeaderSec/MyMainHeader';
 import { useFetch } from '../../hooks/useFetch';
 import { baseUrl } from '../../functions/baseUrl';
+import { useNavigate } from 'react-router-dom';
 
 export default function MyHomeServices() {
     const [currData] = useFetch(`${baseUrl}/home-services`);
+    const navigate = useNavigate();
 
     return (
         <div className='myHomeServices__handler'>
@@ -23,7 +25,7 @@ export default function MyHomeServices() {
                                     <div className="serviceItem_box">
                                         <img className='rounded' src={service?.image} alt={`icon-${service?.id}`} />
                                         <div className="serviceItem_info">
-                                            <h3>
+                                            <h3 className='cursorPointer' onClick={()=>navigate(`services/${service?.id}`)}>
                                                 {service?.title}
                                             </h3>
                                             <p>

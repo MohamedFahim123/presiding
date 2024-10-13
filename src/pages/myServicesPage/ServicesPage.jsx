@@ -4,7 +4,7 @@ import MyServicesCards from '../../components/myServicesCardsSec/MyServicesCards
 export default function ServicesPage() {
     return (
         <>
-            <MyHomeSlider heading={'Our Services'} title={''} overLayColor={'#00000057'} showBtn={false} sliderImg1={sliderImg1} sliderImg2={sliderImg1} />
+            <MyHomeSlider heading={'Our Services'} title={''} overLayColor={'#00000057'} sliderImg1={sliderImg1} />
             <MyServicesCards />
         </>
     );

@@ -2,25 +2,26 @@ import PropTypes from 'prop-types';
 import styles from './insightsMainCard.module.css';
 import testImg4 from '../../assets/insightsPage/6b324432e8e289d239130a8aa5bdf1a8.jpeg';
 import { useNavigate } from 'react-router-dom';
+import { scrollToTop } from '../../functions/scrollToTop';
 
-export default function InsightsMainCard({imgSrc,head,heading,time}) {
+export default function InsightsMainCard({ insight }) {
     const navigate = useNavigate();
 
     return (
-        <div onClick={()=> navigate('/insights/:singleInsight')} className={`${styles.isnightsCard}`} style={{ backgroundImage: `url(${imgSrc ? imgSrc : testImg4})`}}>
+        <div onClick={() => {
+            scrollToTop();
+            navigate(`/insights/${insight?.id}`);
+        }} className={`${styles.isnightsCard}`} style={{ backgroundImage: `url(${insight?.image ? insight?.image : testImg4})` }}>
             <div className={`${styles.insightsCard__body}`}>
-                <p>{head ? head : ''}</p>
+                <p>{insight?.title ? insight?.title : ''}</p>
                 <div className={styles.animatedContent}>
-                    <h4>{heading ? heading : ''}</h4>
-                    <small>{time ? time : ''}</small>
+                    <h4>{insight?.description ? insight?.description : ''}</h4>
+                    <small>{insight?.created_at ? insight?.created_at : ''}</small>
                 </div>
             </div>
         </div>
     );
 };
 InsightsMainCard.propTypes = {
-    imgSrc: PropTypes.string.isRequired,
-    head: PropTypes.string.isRequired,
-    heading: PropTypes.string.isRequired,
-    time: PropTypes.string.isRequired,
+    insight: PropTypes.object.isRequired,
 };

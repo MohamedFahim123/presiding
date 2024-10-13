@@ -21,3 +21,18 @@
 .cursorPointer {
     cursor: pointer !important;
 }
+.paginationBtn {
+    background-color: #ffffff;
+    border: 1px solid var(--main-blue-color-text);
+    padding: 5px 10px !important;
+    outline: none;
+    cursor: pointer;
+    color: var(--main-blue-color-text);
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+}
+.paginationBtn:hover ,
+.paginationBtn.active {
+    background-color: var(--main-blue-color-text);
+    color: #ffffff;
+}

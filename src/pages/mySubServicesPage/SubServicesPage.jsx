@@ -4,7 +4,7 @@ import MySubServices from "../../components/mySubServicesSec/MySubServices";
 export default function SubServicesPage() {
     return (
         <>
-            <MyHomeSlider heading={'Policies & Procedures'} title={''} overLayColor={'#00000057'} showBtn={false} sliderImg1={sliderImg1} sliderImg2={sliderImg1} />
+            <MyHomeSlider heading={'Policies & Procedures'} title={''} overLayColor={'#00000057'} sliderImg1={sliderImg1} />
             <MySubServices />
         </>
     );

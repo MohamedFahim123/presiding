@@ -8,9 +8,7 @@ export default function MyInsightsFiltersBar() {
     const {
         register,
         handleSubmit,
-        // setError,
-        // reset,
-        formState: { errors, isSubmitting }
+        formState: { errors }
     } = useForm({
         defaultValues: {
             industry: '',
@@ -52,9 +50,6 @@ export default function MyInsightsFiltersBar() {
                             </div>
                         ))
                     }
-                    <div className="col-lg-3 col-md-4 d-flex align-items-center justify-content-center">
-                        <input className='sign__up__btn' disabled={isSubmitting} type="submit" value="Filter" />
-                    </div>
                 </form>
             </div>
         </div>

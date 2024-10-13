@@ -6,7 +6,6 @@ import { useFetch } from '../../hooks/useFetch';
 
 export default function MyHomePodacast() {
     const [currData] = useFetch(`${baseUrl}/video-cover`);
-    console.log(currData)
 
     return (
         <div className='myHomePodacast__handler'>
