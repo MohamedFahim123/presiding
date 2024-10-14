@@ -36,3 +36,16 @@
     background-color: var(--main-blue-color-text);
     color: #ffffff;
 }
+.requiredStar {
+    color: #ff2020;
+    font-size: 18px;
+}
+.mainTextColor {
+    color: var(--main-blue-color-text);
+}
+.applicationForm__handler {
+    background-color: #e6e6e6;
+}
+.applicationForm__handler label {
+    font-size: 15px;
+}

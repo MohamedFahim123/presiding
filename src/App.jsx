@@ -7,6 +7,7 @@ import SingleInsightPage from './pages/singleInsightPage/SingleInsightPage';
 import ServicesPage from './pages/myServicesPage/ServicesPage';
 import SubServicesPage from './pages/mySubServicesPage/SubServicesPage';
 import { Toaster } from 'react-hot-toast';
+import FillApplicationForm from './pages/fillApplicationForm/FillApplicationForm';
 
 function App() {
   const Routes = createBrowserRouter([
@@ -21,6 +22,7 @@ function App() {
         { path: 'services/:subService', element: <SubServicesPage /> },
         { path: 'insights', element: <InsightsPage /> },
         { path: 'insights/:singleInsight', element: <SingleInsightPage /> },
+        { path: 'fill-application-form', element: <FillApplicationForm /> },
       ]
     }
   ]);

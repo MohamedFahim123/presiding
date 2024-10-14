@@ -21,6 +21,6 @@ export default function SingleInsightsDescriptionSec({ head, disc }) {
 };
 
 SingleInsightsDescriptionSec.propTypes = {
-    head: PropTypes.string.isRequired,
-    disc: PropTypes.string.isRequired,
+    head: PropTypes.string,
+    disc: PropTypes.string,
 };

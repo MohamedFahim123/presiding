@@ -14,8 +14,8 @@ export default function ServiceCard({service }) {
                 </p>
                 <ul className={`${styles.cardSubLinks}`}>
                     {
-                        service?.subServices?.map((subServ) => (
-                            <li className={`${styles.SubLink}`} key={subServ.subServId}>
+                        service?.subServices?.map((subServ,idx) => (
+                            <li className={`${styles.SubLink}`} key={idx}>
                                 <NavLink to={`/services/${subServ?.id}`} className={'nav-link'}>
                                     <i className="bi bi-arrow-right-circle"></i>
                                     {subServ.title}

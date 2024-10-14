@@ -58,9 +58,9 @@ export default function MyNavBar({scrollToggle}) {
                                 }}
                                 aria-label="Close"
                                 className={`nav-link nav__link__style`}
-                                to={`/extra`}
+                                to={`/Careers`}
                             >
-                                extra
+                                Careers
                             </NavLink>
                             <NavLink
                                 onClick={() => {
@@ -145,8 +145,8 @@ export default function MyNavBar({scrollToggle}) {
                                     }}
                                     aria-label="Close"
                                     className={`nav-link nav__link__style`}
-                                    to={`/extra`}>
-                                    extra
+                                    to={`/Careers`}>
+                                    Careers
                                 </NavLink>
 
                                 <NavLink
