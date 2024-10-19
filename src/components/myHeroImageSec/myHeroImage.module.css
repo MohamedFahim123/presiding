@@ -1,0 +1,65 @@
+.heroImage__handler{
+    background-image: url('../../assets/insightsPage/bg-careers.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 40px 0;
+    height: 70vh;
+    position: relative;
+    display: flex;
+    align-items: end;
+}
+.overlay{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.365);
+}
+.heroImage__text{
+    position: relative;
+    z-index: 12;
+
+}
+.heroImage__text h2{
+    font-size: 48px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: capitalize;
+    margin-top: 40px;
+}
+.heroImage__text p{
+    font-size: 24px;
+    font-weight: 400;
+    color: #fff;
+    text-transform: capitalize;
+    margin-top: 10px;
+}
+.heroImage__actions{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+.heroImage__actions button{
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 10px 15px;
+    text-transform: capitalize;
+    font-size: 16px;
+    transition: all .3s ease-in-out;
+}
+.heroImage__actions button:hover{
+    background: #fff;
+    color: #000;
+}
+.heroImage__actions h5{
+    color: #fff;
+    font-size: 24px;
+    text-transform: capitalize;
+    text-decoration: underline;
+    font-weight: 300;
+}

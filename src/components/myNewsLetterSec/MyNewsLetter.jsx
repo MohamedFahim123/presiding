@@ -44,9 +44,9 @@ export default function MyNewsLetter() {
         <div className='myNewsLetter__handler'>
             <div className="container">
                 <div className="row justify-content-center">
-                    <div className="col-12 ">
+                    <div className="col-12 m-auto">
                         <div className="myNewsLetterForm__handler">
-                            <div className="row justify-content-center align-items-center">
+                            <div className="row justify-content-center align-items-center px-3">
                                 <div className="col-lg-6 col-md-6">
                                     <div className="NewsLetter__text">
                                         <p>

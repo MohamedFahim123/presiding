@@ -8,6 +8,7 @@
     color: var(--main-green-color);
 }
 .header_ofSec h3{
+    line-height: 1.4;
     font-size: 36px;
     font-weight: 500;
     text-transform: capitalize;

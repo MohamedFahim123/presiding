@@ -19,7 +19,15 @@ export default function MyServicesCards() {
     return (
         <div className={`${styles.myServicesCards__handler}`}>
             <div className="container">
-                <div className="row justify-content-center">
+                <div className='header_ofSec text-center py-4'>
+                    <h3>
+                        Lorem, ipsum dolor.
+                    </h3>
+                    <p className={`mt-3 m-auto ${styles?.mainParagraph}`}>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde sapiente minima eveniet soluta repellendus?
+                    </p>
+                </div>
+                <div className="row justify-content-center mt-4">
                     {
                         currData?.services?.map((service) => (
                             <div key={service?.id} className="col-md-6">

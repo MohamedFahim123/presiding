@@ -10,7 +10,7 @@ import PropTypes from "prop-types";
 import { useFetch } from "../../hooks/useFetch";
 import { baseUrl } from "../../functions/baseUrl";
 import { Link } from "react-router-dom";
-export default function MyHomeSlider({ heading, title, overLayColor, sliderImg1 }) {
+export default function MyHomeSlider({ heading, title, overLayColor, sliderImg1, btnVisibility ,backGroundPosition}) {
     const [currData] = useFetch(`${baseUrl}/sliders`);
 
     return (
@@ -31,7 +31,7 @@ export default function MyHomeSlider({ heading, title, overLayColor, sliderImg1 
                 {
                     currData?.sliders?.map(slider => (
                         <SwiperSlide key={slider?.id} className={`slide__item__handler`}
-                            style={{ backgroundImage: `url(${slider?.image ? slider.image : sliderImg1})` }}>
+                            style={{ backgroundImage: `url(${sliderImg1 ? sliderImg1 : slider.image})` , backgroundPosition: backGroundPosition ? backGroundPosition : 'center', }}>
                             {
                                 overLayColor &&
                                 <div className="overLay position-absolute" style={{ top: 0, left: 0, zIndex: -1, width: '100%', height: '100%', backgroundColor: overLayColor }}></div>
@@ -48,6 +48,7 @@ export default function MyHomeSlider({ heading, title, overLayColor, sliderImg1 
                                                     {slider?.description ? slider?.description : heading}
                                                 </h2>
                                                 {
+                                                    btnVisibility &&
                                                     <Link to={slider?.link ? slider?.link : ''}>
                                                         {slider?.button_text ? slider?.button_text : ''}
                                                     </Link>
@@ -72,5 +73,7 @@ MyHomeSlider.propTypes = {
     heading: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     overLayColor: PropTypes.string,
-    sliderImg1: PropTypes.string.isRequired,
+    btnVisibility: PropTypes.bool,
+    sliderImg1: PropTypes.string,
+    backGroundPosition: PropTypes.string,
 };

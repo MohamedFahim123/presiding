@@ -1,11 +1,18 @@
-import MyHomeSlider from "../../components/myHomeSliderSec/MyHomeSlider";
-import sliderImg1 from '../../assets/home-insights/8be20325d2160343393bf6f345b1b8fb.jpeg'
 import MySubServices from "../../components/mySubServicesSec/MySubServices";
+import bgImage from '../../assets/home-insights/8be20325d2160343393bf6f345b1b8fb.jpeg';
+import MyHeroImage from '../../components/myHeroImageSec/MyHeroImage';
+import { useFetch } from '../../hooks/useFetch';
+import { baseUrl } from '../../functions/baseUrl';
+import { useParams } from 'react-router-dom';
+
 export default function SubServicesPage() {
+    const { subService } = useParams();
+    const [currData] = useFetch(`${baseUrl}/show-sub-service/${subService}`);
+
     return (
         <>
-            <MyHomeSlider heading={'Policies & Procedures'} title={''} overLayColor={'#00000057'} sliderImg1={sliderImg1} />
-            <MySubServices />
+            <MyHeroImage title={`${currData?.subService?.title}`} bgImage={bgImage} />
+            <MySubServices currData={currData} />
         </>
     );
 };

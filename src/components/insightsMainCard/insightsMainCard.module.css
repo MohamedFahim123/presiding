@@ -51,6 +51,7 @@
     line-height: 30px;
     letter-spacing: 2px;
     text-transform: uppercase;
+    margin-bottom: 15px;
 }
 .insightsCard__body h4 {
     color: #000;

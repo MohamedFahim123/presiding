@@ -14,7 +14,7 @@ export default function MyHomeOurMission() {
                     <div className="col-lg-10">
                         <div className="missionInfo__handler">
                             <div className="missionInfo_text">
-                                <p className='mb-5'>
+                                <p className='mb-3'>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non lacus vehicula, maximus lorem malesuada, condimentum felis. Praesent posuere quam a rutrum dignissim.
                                 </p>
                                 <p>

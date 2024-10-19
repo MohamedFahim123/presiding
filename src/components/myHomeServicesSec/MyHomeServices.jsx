@@ -14,7 +14,8 @@ export default function MyHomeServices() {
                 <>
                     <MyMainHeader
                         secHead='OUR services'
-                        secText='We create solutions that are bold & up with the times'
+                        secText='We create solutions that '
+                        secText2='are bold & up with the times'
                     />
                 </>
                 <div className="servicesItem__handler">

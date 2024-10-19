@@ -23,7 +23,7 @@
     flex-direction: column;
     justify-content: space-between;
     color: var(--primary-white);
-    padding: 20px 40px;
+    padding: 20px 40px 60px;
 }
 .start__bg h3{
     font-size: 36px;
@@ -32,7 +32,8 @@
 }
 .start__bg i{
     background: linear-gradient(to right, #79C143, #52A842);
-    padding: 8px 25px;
+    padding: 10px 25px;
+    margin: 30px 0 0;
     border-radius: 19px;
 
 }

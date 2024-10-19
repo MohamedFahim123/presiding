@@ -15,7 +15,7 @@ export default function InsightsMainCard({ insight }) {
             <div className={`${styles.insightsCard__body}`}>
                 <p>{insight?.title ? insight?.title : ''}</p>
                 <div className={styles.animatedContent}>
-                    <h4>{insight?.description ? insight?.description : ''}</h4>
+                    <h4>{insight?.description ? insight?.description?.slice(0, 50) + '....' : ''}</h4>
                     <small>{insight?.created_at ? insight?.created_at : ''}</small>
                 </div>
             </div>

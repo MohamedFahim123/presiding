@@ -8,12 +8,11 @@ import MyHomeOurMission from '../../components/myHomeOurMissionSec/MyHomeOurMiss
 import MyHomeIndustries from '../../components/myHomeIndustriesSec/MyHomeIndustries';
 import MyHomeInsights from '../../components/myHomeInsightsSec/MyHomeInsights';
 import MyHomeJobs from '../../components/myHomeJobsSec/MyHomeJobs';
-import sliderImg1 from '../../assets/slider-bg/prx-img-07.png';
 
 export default function MyHome() {
     return (
         <>
-            <MyHomeSlider title={'Presiding Solutions'} overLayColor={''} heading={'We grow your business'} sliderImg1={sliderImg1} />
+            <MyHomeSlider btnVisibility={true} title={'Presiding Solutions'} overLayColor={''} heading={'We grow your business'} />
             <MyHomeTextInfo />
             <MyHomeOverview />
             <MyHomeServices />

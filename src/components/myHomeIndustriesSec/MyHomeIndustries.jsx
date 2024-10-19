@@ -14,13 +14,14 @@ export default function MyHomeIndustries() {
               <div className="start__bg"
                 style={{ backgroundImage: `url(${startBg})` }}
               >
-                <h3>
-                  Industries that we have catered to
+                <h3 className='mt-4'>
+                  Industries that 
+                  <br />
+                  we have catered to
                 </h3>
                 <div>
                   <i className="bi bi-arrow-right"></i>
                 </div>
-
               </div>
             </div>
             <div className="col-6 ms-0 ps-0 pe-0">
@@ -33,7 +34,7 @@ export default function MyHomeIndustries() {
           </div>
         </div>
         <IndustriesSlider />
-        <MyPartnersSlider />
+        {/* <MyPartnersSlider /> */}
       </div>
     </div>
   )

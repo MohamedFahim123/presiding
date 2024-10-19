@@ -3,7 +3,7 @@ import axios from "axios";
 export const getDataFromApi = async (url,setData,setLoading,setError) => {
     try {
         setLoading(true);
-        const response = await axios.get(url, {
+        const response = await axios.get(`${url}?t=${new Date().getTime()}`, {
             headers: {
                 "Content-Type": 'application/json',
                 Accept: 'application/json',

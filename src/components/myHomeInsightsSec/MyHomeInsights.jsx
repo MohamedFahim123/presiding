@@ -16,15 +16,15 @@ export default function MyHomeInsights() {
 
     return (
         <div className='myHomeInsights__handler'>
-            <div className="container">
-                <MyMainHeader
-                    secHead='PUBLICATIONS'
-                    secText='Market Insights'
-                />
-            </div>
             <div className="container-fluid">
                 <div className="insightsSlider__handler">
                     <div className="row">
+                        <div className="col-12">
+                            <MyMainHeader
+                                secHead='PUBLICATIONS'
+                                secText='Market Insights'
+                            />
+                        </div>
                         <div className="col-12">
                             <div className="custom-navigation">
                                 <div className="swiper-button-prev-custom"><i className="bi bi-arrow-bar-left"></i></div>

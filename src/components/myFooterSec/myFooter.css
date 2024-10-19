@@ -4,7 +4,6 @@
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    /* margin-bottom: 1000px; */
 }
 .footerOverlay{
     content: '';
@@ -23,7 +22,7 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 .footerTop__handler .myFooter_logo img{
-    width: 158px;
+    max-width: 140px;
     height: 97px;
 }
 .footerTop__handler .footer__listBox h5{

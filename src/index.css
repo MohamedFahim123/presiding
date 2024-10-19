@@ -7,7 +7,12 @@
   --main-blue-color-text: rgba(1, 31, 91, 1);
   --main-dark-blue-color-text: rgba(23, 32, 57, 1);
 }
-body,
+body{
+    font-family: "Raleway", sans-serif;
+    scroll-behavior: smooth;
+    font-size: 16px;
+    background-color: var(--primary-white);
+}
 h1,
 h2,
 h3,
@@ -18,16 +23,10 @@ li {
     padding: 0;
 }
 h1, h2, h3, h4, h5, h6{
-  font-family: "Arimo", sans-serif;
+    font-family: "DM Sans", sans-serif;
+
 }
-p{
-  font-family: "Montserrat", sans-serif;
-}
-body {
-    font-size: 16px;
-    font-family: "Montserrat", sans-serif;
-    background-color: var(--primary-white);
-}
+
 
 *,
 *:before,
