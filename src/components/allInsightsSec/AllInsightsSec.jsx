@@ -14,6 +14,8 @@ export default function AllInsightsSec() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
+    console.log(currData)
+
     return (
         <div className="section__handler sectionBgLight">
             <div className="container">

@@ -44,7 +44,6 @@
 }
 .insightsCard__body p {
     color: #011F5B;
-    font-family: Montserrat;
     font-size: 10px;
     font-style: normal;
     font-weight: 400;
@@ -55,7 +54,6 @@
 }
 .insightsCard__body h4 {
     color: #000;
-    font-family: Poppins;
     font-size: 20px;
     font-style: normal;
     font-weight: 500;

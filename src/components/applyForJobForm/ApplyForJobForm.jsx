@@ -145,7 +145,7 @@ export default function ApplyForJobForm({ jobId }) {
     };
 
     return (
-        <div className="form__handler py-5">
+        <div className="form__handler py-5 ">
             <div className="container">
                 <form onSubmit={handleSubmit(onSubmit)} className="row">
                     {

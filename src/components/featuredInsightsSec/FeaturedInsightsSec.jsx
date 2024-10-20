@@ -24,9 +24,10 @@ export default function FeaturedInsightsSec({ isSingleInsight }) {
                         }
                     </div>
                     {
-                        currData?.blogs?.map(insight => (
-                            <div key={insight?.id} className="col-lg-3 col-md-4">
-                                <InsightsMainCard
+                        currData?.blogs?.slice(0,3).map(insight => (
+                            <div key={insight?.id} className="col-lg-4 col-md-4">
+                                <InsightsMainCard 
+                                    featuredCard={true}
                                     insight={insight}
                                 />
                             </div>

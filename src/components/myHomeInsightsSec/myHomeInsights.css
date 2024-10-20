@@ -44,7 +44,7 @@
 .insightsSlider__handler .custom-navigation{
     position: relative;
     justify-content: end;
-    transform: translateX(0);
+    transform: translate(0);
     bottom: 0;
     margin-bottom: 30px;
     align-items: center;

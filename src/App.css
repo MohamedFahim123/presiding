@@ -45,6 +45,7 @@
 .applicationForm__handler,
 .form__handler {
   background-color: #f9f9f9;
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3);
 }
 .applicationForm__handler label {
   font-size: 15px;
@@ -143,4 +144,7 @@
     opacity: 1;
     transform: scale(1);
   }
+}
+.headingColumn {
+  transform: translateY(30px);
 }

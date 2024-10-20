@@ -19,7 +19,7 @@ export default function MyHomeInsights() {
             <div className="container-fluid">
                 <div className="insightsSlider__handler">
                     <div className="row">
-                        <div className="col-12">
+                        <div className="col-12 headingColumn">
                             <MyMainHeader
                                 secHead='PUBLICATIONS'
                                 secText='Market Insights'
@@ -31,7 +31,7 @@ export default function MyHomeInsights() {
                                 <div className="swiper-button-next-custom"><i className="bi bi-arrow-bar-right"></i></div>
                             </div>
                             <Swiper
-                                className='mySwiper '
+                                className='mySwiper'
                                 modules={[Autoplay, Navigation]}
                                 autoplay={{
                                     delay: 2500,
