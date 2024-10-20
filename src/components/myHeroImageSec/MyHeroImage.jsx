@@ -2,11 +2,11 @@ import PropTypes from 'prop-types';
 import styles from './myHeroImage.module.css';
 import { NavLink, useNavigate } from 'react-router-dom';
 
-export default function MyHeroImage({ btnNavigation, title, subTit, actions, btnName, linkName, linkDistenation, bgImage, bgPosition }) {
+export default function MyHeroImage({ btnNavigation, backGroundOverLoay, itemsPosition, title, subTit, actions, btnName, linkName, linkDistenation, bgImage, bgPosition, height }) {
     const navigate = useNavigate();
     return (
-        <div className={`${styles.heroImage__handler}`} style={bgImage && { backgroundImage: `url(${bgImage})`, backgroundSize: 'cover', backgroundPosition: bgPosition ? bgPosition : 'top' }}>
-            <div className={`${styles.overlay}`}></div>
+        <div className={`${styles.heroImage__handler}`} style={bgImage && { backgroundImage: `url(${bgImage})`, backgroundSize: 'cover', backgroundPosition: bgPosition ? bgPosition : 'top', alignItems: itemsPosition ? itemsPosition : 'end', height: height ? height : '60vh' }}>
+            <div className={`${styles.overlay}`} style={{ background: backGroundOverLoay ? backGroundOverLoay : 'rgba(0, 0, 0, 0.365)' }}></div>
             <div className="container">
                 <div className={`${styles.heroImage__text}`}>
                     <div >
@@ -23,11 +23,14 @@ export default function MyHeroImage({ btnNavigation, title, subTit, actions, btn
                             <button onClick={() => navigate(btnNavigation)}>
                                 {btnName}
                             </button>
-                            <h5>
-                                <NavLink to={`${linkDistenation}`} className={'nav-link'}>
-                                    {linkName}
-                                </NavLink>
-                            </h5>
+                            {
+                                (linkDistenation && linkName) &&
+                                <h5>
+                                    <NavLink to={`${linkDistenation}`} className={'nav-link'}>
+                                        {linkName}
+                                    </NavLink>
+                                </h5>
+                            }
                         </div>
                     }
                 </div>
@@ -45,4 +48,7 @@ MyHeroImage.propTypes = {
     linkDistenation: PropTypes.string,
     btnNavigation: PropTypes.string,
     bgPosition: PropTypes.string,
+    itemsPosition: PropTypes.string,
+    height: PropTypes.string,
+    backGroundOverLoay: PropTypes.string,
 };

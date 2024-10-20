@@ -13,23 +13,20 @@ export default function ApplyForAJob() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState([]);
 
-    if(error){''}
-
     useEffect(() => {
         postDataToApi(`${baseUrl}/get-job`, { job_id: JobId }, setJob, setError, setLoading);
     }, [JobId]);
 
+    if (loading) {
+        return <MyLoader />;
+    };
+
+    if (error) { '' };
+
     return (
         <>
-            {
-                loading ?
-                    <MyLoader />
-                    :
-                    <>
-                        <MyHeroImage bgImage={bgImage} title={`Apply For ${job?.job?.title}`} subTit={`${job?.job?.city}, ${job?.job?.country}`} />
-                        <ApplyForJobForm jobId={JobId} />
-                    </>
-            }
+            <MyHeroImage bgImage={bgImage} title={`Apply For ${job?.job?.title}`} subTit={`${job?.job?.city}, ${job?.job?.country}`} />
+            <ApplyForJobForm jobId={JobId} />
         </>
     );
 };

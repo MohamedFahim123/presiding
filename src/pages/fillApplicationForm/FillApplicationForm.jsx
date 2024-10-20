@@ -20,6 +20,7 @@ import axios from "axios";
 import MyHeroImage from "../../components/myHeroImageSec/MyHeroImage";
 import toast from "react-hot-toast";
 import bgImage from '../../assets/home-overview/9ed0b317c009431f96f7364d813c33b8.jpeg';
+import MyLoader from "../../components/myLoaderSec/MyLoader";
 
 export default function FillApplicationForm() {
     const { register, setValue, watch, handleSubmit, reset , formState: { errors , isSubmitting } } = useForm({
@@ -57,6 +58,15 @@ export default function FillApplicationForm() {
     const industries = useIndustriesStore((state) => state.industries);
     const availabilities = useAvailabilitiesStore((state) => state.availabilities);
     const projectTypes = useProjectTypesStore((state) => state.projectTypes);
+    const availabilitiesLoading = useAvailabilitiesStore(state => state.availabilitiesLoading);
+    const citizenshipsLoading = useCitizenShipStore(state => state.citizenshipsLoading);
+    const countriesLoading = useCountriesStore(state => state.countriesLoading);
+    const industriesLoading = useIndustriesStore(state => state.industriesLoading);
+    const langsLoading = useLangStore(state => state.langsLoading);
+    const primaryExpLoading = usePrimaryExpStore(state => state.primaryExpLoading);
+    const projectTypesLoading = useProjectTypesStore(state => state.projectTypesLoading);
+    const skillsLoading = useSkillsStore(state => state.skillsLoading);
+    const yearsOfExpLoading = useYearsOfExpStore(state => state.yearsOfExpLoading);
     const [typeOfPortFolio, setTypeOfPortFolio] = useState('');
     const [inputValue, setInputValue] = useState('');
     const [portFolioLinks, setPortFolioLinks] = useState([]);
@@ -213,6 +223,20 @@ if(loading){''};
                 duration: 1000,
             });
         });
+    };
+
+    if (
+        availabilitiesLoading ||
+        citizenshipsLoading ||
+        countriesLoading ||
+        industriesLoading ||
+        langsLoading ||
+        primaryExpLoading ||
+        projectTypesLoading ||
+        skillsLoading ||
+        yearsOfExpLoading
+    ){
+        return <MyLoader />;
     };
 
     return (

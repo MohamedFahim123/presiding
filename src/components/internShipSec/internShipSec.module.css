@@ -1,0 +1,14 @@
+.internShipSec__handler {
+    padding: 60px 0;
+    background: linear-gradient(rgb(173, 170, 170),var( --main-blue-color-bg));
+    color: #ffffff;
+}
+.internShipSec__handler h3 {
+    font-size: 45px;
+    margin-bottom: 20px;
+    font-weight: 900;
+}
+.internShipSec__handler p {
+    font-size: 40px;
+    font-weight: 600;
+}

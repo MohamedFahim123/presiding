@@ -1,13 +1,9 @@
 import './myServicesCards.module.css';
 import styles from './myServicesCards.module.css';
 import ServiceCard from '../serviceCardSec/ServiceCard';
-import { baseUrl } from '../../functions/baseUrl';
-import { useFetch } from '../../hooks/useFetch';
-import { useState } from 'react';
+import PropTypes from 'prop-types';
 
-export default function MyServicesCards() {
-    const [currentPage, setCurrentPage] = useState(1);
-    const [currData] = useFetch(`${baseUrl}/all-services?page=${currentPage}`);
+export default function MyServicesCards({currData,setCurrentPage}) {
     const totalPages = currData?.data?.meta?.last_page || 1;
     const currentPageMeta = currData?.data?.meta?.current_page || 1;
 
@@ -65,4 +61,7 @@ export default function MyServicesCards() {
         </div>
     );
 };
-
+MyServicesCards.propTypes = {
+    currData: PropTypes.array ,
+    setCurrentPage: PropTypes.func,
+};

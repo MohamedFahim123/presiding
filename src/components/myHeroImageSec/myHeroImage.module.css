@@ -16,7 +16,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.365);
+    /* background: ; */
 }
 .heroImage__text{
     position: relative;
@@ -31,11 +31,12 @@
     margin-top: 40px;
 }
 .heroImage__text p{
+    max-width: 750px;
     font-size: 24px;
     font-weight: 400;
     color: #fff;
     text-transform: capitalize;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 .heroImage__actions{
     display: flex;

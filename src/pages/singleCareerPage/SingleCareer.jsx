@@ -13,23 +13,20 @@ export default function SingleCareer() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState([]);
 
-    if(error){''};
-
     useEffect(() => {
         postDataToApi(`${baseUrl}/get-job`, { job_id: JobId }, setJob, setError, setLoading);
     }, [JobId]);
 
+    if (loading) {
+        return <MyLoader />;
+    };
+
+    if (error) { '' };
+
     return (
         <>
-            {
-                loading ?
-                    <MyLoader />
-                    :
-                    <>
-                        <MyHeroImage bgImage={bgImage} title={`${job?.job?.title}`} subTit={`${job?.job?.country}, ${job?.job?.city}`} actions={true} btnName={'Apply Now'} btnNavigation={`/careers/apply/${JobId}`} linkName={'View other openings'} linkDistenation={'/careers'} />
-                        <CareerJobDetails jobDetails={job?.job} />
-                    </>
-            }
+            <MyHeroImage bgImage={bgImage} title={`${job?.job?.title}`} subTit={`${job?.job?.country}, ${job?.job?.city}`} actions={true} btnName={'Apply Now'} btnNavigation={`/careers/apply/${JobId}`} linkName={'View other openings'} linkDistenation={'/careers'} />
+            <CareerJobDetails jobDetails={job?.job} />
         </>
     );
 };

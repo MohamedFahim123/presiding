@@ -1,11 +1,8 @@
-import { useState } from 'react';
-import { baseUrl } from '../../functions/baseUrl';
-import { useFetch } from '../../hooks/useFetch';
+import PropTypes from 'prop-types';
 import InsightsMainCard from '../insightsMainCard/InsightsMainCard';
 
-export default function AllInsightsSec() {
-    const [currentPage, setCurrentPage] = useState(1);
-    const [currData] = useFetch(`${baseUrl}/all-blogs?page=${currentPage}`);
+export default function AllInsightsSec({currData,setCurrentPage}) {
+
     const totalPages = currData?.data?.meta?.last_page || 1;
     const currentPageMeta = currData?.data?.meta?.current_page || 1;
 
@@ -64,3 +61,7 @@ export default function AllInsightsSec() {
         </div>
     );
 };
+AllInsightsSec.propTypes = {
+    currData: PropTypes.array,
+    setCurrentPage: PropTypes.func,
+}

@@ -1,10 +1,8 @@
 import { Table } from 'react-bootstrap';
-import { baseUrl } from '../../functions/baseUrl';
-import { useFetch } from '../../hooks/useFetch';
 import styles from './careerJopsTable.module.css'
 import { NavLink, useNavigate } from 'react-router-dom';
-export default function CareerJopsTable() {
-    const [currData] = useFetch(`${baseUrl}/all-jobs`);
+import PropTypes from 'prop-types';
+export default function CareerJopsTable({currData}) {
     const navigate = useNavigate();
 
     return (
@@ -13,7 +11,7 @@ export default function CareerJopsTable() {
                 <div className="row">
                     <div className="col-12">
                         <h2 className={`${styles.careerJops__header}`}>
-                            all jobs
+                            Job Openings
                         </h2>
                         <div className={`${styles.jobsTable_sec}`}>
                             <Table responsive>
@@ -74,3 +72,6 @@ export default function CareerJopsTable() {
         </div>
     );
 };
+CareerJopsTable.propTypes = {
+    currData: PropTypes.array,
+}
