@@ -1,9 +1,14 @@
 .myServicesCards__handler{
-    margin: 70px 0;
-    background-color: #ffffff;
+    background-color: var(--main-blue-color-bg);
 }
 .mainParagraph {
     color: var(--primary-black) !important;
     max-width: 600px;
     text-transform: unset !important;
+}
+.myServicesCards__handler h3 ,
+.myServicesCards__handler h5 ,
+.myServicesCards__handler li ,
+.myServicesCards__handler p {
+    color: #ffffff !important;
 }

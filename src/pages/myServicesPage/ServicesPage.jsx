@@ -5,18 +5,20 @@ import { baseUrl } from '../../functions/baseUrl';
 import { useFetch } from '../../hooks/useFetch';
 import { useState } from 'react';
 import MyLoader from '../../components/myLoaderSec/MyLoader';
+import ServicesIconsSection from '../../components/servicesIconsSec/ServicesIconsSection';
 
 export default function ServicesPage() {
     const [currentPage, setCurrentPage] = useState(1);
-    const [currData,loading] = useFetch(`${baseUrl}/all-services?page=${currentPage}`);
+    const [currData, loading] = useFetch(`${baseUrl}/all-services?page=${currentPage}`);
 
-    if(loading){
+    if (loading) {
         return <MyLoader />;
     };
 
     return (
         <>
             <MyHeroImage title={`Our Services`} bgImage={bgImage} />
+            <ServicesIconsSection />
             <MyServicesCards currData={currData} setCurrentPage={setCurrentPage} />
         </>
     );

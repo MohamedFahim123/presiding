@@ -1,0 +1,25 @@
+.servicesIcons__handler {
+    padding: 40px 0;
+    background: var(--main-blue-color-bg);
+    color: #ffffff;
+}
+.iconContainer {
+    padding-inline-end: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.servicesIcons__handler .iconContainer i{
+    font-size: 22px;
+    padding: 15px 20px;
+    background-color: black;
+    color: #ffffff;
+    border-radius: 50%;
+}
+.servicesIcons__handler .textContainer h4{
+    font-size: 16px;
+    text-transform: capitalize;
+}
+.servicesIcons__handler .textContainer p {
+    font-size: 14px;
+}

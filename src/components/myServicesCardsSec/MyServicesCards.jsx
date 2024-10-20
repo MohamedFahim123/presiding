@@ -1,4 +1,3 @@
-import './myServicesCards.module.css';
 import styles from './myServicesCards.module.css';
 import ServiceCard from '../serviceCardSec/ServiceCard';
 import PropTypes from 'prop-types';
@@ -25,9 +24,9 @@ export default function MyServicesCards({currData,setCurrentPage}) {
                 </div>
                 <div className="row justify-content-center mt-4">
                     {
-                        currData?.services?.map((service) => (
-                            <div key={service?.id} className="col-md-6">
-                                <ServiceCard service={service} />
+                        currData?.services?.map((service ,idx) => (
+                            <div key={service?.id} className="col-12">
+                                <ServiceCard service={service} index={idx} />
                             </div>
                         ))
                     }
