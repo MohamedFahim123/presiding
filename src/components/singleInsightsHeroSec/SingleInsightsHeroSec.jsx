@@ -3,7 +3,7 @@ import viewIcon from '../../assets/insightsPage/fluent-mdl2_view.svg';
 import downloadIcon from '../../assets/insightsPage/material-symbols-light_download-sharp.svg';
 import PropTypes from 'prop-types';
 
-export default function SingleInsightsHeroSec({ bgImage, created_at ,title, attachment }) {
+export default function SingleInsightsHeroSec({ bgImage, created_at, title, attachment }) {
     return (
         <div className={`${styles.singleInsight__heroSec}`}>
             <div className="container-fluid h-100">

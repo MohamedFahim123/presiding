@@ -45,7 +45,6 @@ export default function MyHomeIndustries() {
             </div>
           </div>
           <IndustriesSlider />
-          {/* <MyPartnersSlider /> */}
         </div>
       </div>
     </motion.div>

@@ -241,7 +241,7 @@ if(loading){''};
 
     return (
         <>
-            <MyHeroImage title={`Accounts Payables associate`} bgImage={bgImage} subTit={'Amman, Jordan'} />
+            <MyHeroImage title={`Fill Talent Form`} bgImage={bgImage} />
             <div className="applicationForm__handler">
                 <div className="container py-5">
                     <form className="row" onSubmit={handleSubmit(onSubmit)}>

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import styles from './whyPresidingSec.module.css';
-import logoImg from '../../assets/whyChooseUs/istockphoto-864811534-612x612.jpg';
+import logoImg from '../../assets/home-overview/Group 1000003172.png';
 export default function WhyPresidingSec({ heading, paraOne, paraTwo }) {
     return (
         <div className={styles.whyPresidingSec__handler}>
@@ -17,8 +17,8 @@ export default function WhyPresidingSec({ heading, paraOne, paraTwo }) {
                             {paraTwo ? paraTwo : ''}
                         </p>
                     </div>
-                    <div className="col-lg-3 d-lg-block d-none text-end">
-                        <img className='mt-5' src={logoImg} alt="logo prisiding" />
+                    <div className="col-lg-3 d-flex justify-content-end">
+                        <img src={logoImg} className={`${styles.whyPresidingImage}`} alt={'Logo Image'} />
                     </div>
                 </div>
             </div>

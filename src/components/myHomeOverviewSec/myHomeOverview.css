@@ -28,10 +28,11 @@
   left: 0;
   bottom: 0;
   right: 0;
-  background: rgba(211, 191, 163, 0.553);
+  background: rgba(1, 27, 92, 0.692);
 }
 .overview_item .overflow.bg_color {
-  background: rgba(0, 39, 137, 0.692);
+  background: rgba(141, 115, 82, 0.553);
+
 }
 .overview_item .overview_info {
   position: absolute;

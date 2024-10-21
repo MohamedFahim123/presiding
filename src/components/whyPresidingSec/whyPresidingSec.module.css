@@ -16,3 +16,8 @@
     object-fit: contain;
     height: 100%;
 }
+.whyPresidingImage {
+    width: 60% !important;
+    margin-top: 20px;
+    padding-top: 10px;
+}
