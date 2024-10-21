@@ -5,28 +5,27 @@ import PropTypes from 'prop-types';
 
 export default function SingleInsightsHeroSec({ bgImage, created_at ,title, attachment }) {
     return (
-        <div className={`section__handler ${styles.singleInsight__heroSec}`}>
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-6">
+        <div className={`${styles.singleInsight__heroSec}`}>
+            <div className="container-fluid h-100">
+                <div className="row h-100">
+                    <div className="col-md-6 ps-5 pt-4">
                         <div className={styles.text__container}>
-                            <p>Full report</p>
-                            <p>{created_at ? created_at : ''}</p>
-                            <h1>{title ? title : ''}</h1>
-                            <div className={styles.btnContainer}>
-                                <button className={styles.veiwBtn}>
+                            <p className='ps-5'>{created_at ? created_at : ''}</p>
+                            <h1 className='ps-5 pt-3'>{title ? title : ''}</h1>
+                            <div className={`${styles.btnContainer} ps-4 mt-5`}>
+                                <button className={styles.downloadBtn}>
                                     View Online
                                     <img src={viewIcon} alt="view icon" />
                                 </button>
-                                <a className={styles.downloadBtn} href={attachment} download="attachment.pdf">
+                                <a className={styles.veiwBtn} href={attachment} download="attachment.pdf">
                                     Download Full Report
                                     <img src={downloadIcon} alt="download icon" />
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <div className={`col-md-6`}>
-                        <div className={`${styles.imgContainer}`} style={{ backgroundImage: `url(${bgImage ? bgImage : ''})`, backgroundSize: 'cover' }}></div>
+                    <div className={`col-md-6 px-0`}>
+                        <div className={`${styles.imgContainer} w-100`} style={{ backgroundImage: `url(${bgImage ? bgImage : ''})`, backgroundSize: 'cover' }}></div>
                     </div>
                 </div>
             </div>

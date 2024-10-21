@@ -62,4 +62,4 @@ CustomCrudFields.propTypes = {
     handleAddField: PropTypes.func,
     setFields: PropTypes.func,
     labelName: PropTypes.string,
-}
+};

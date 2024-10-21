@@ -148,3 +148,15 @@
 .headingColumn {
   transform: translateY(30px);
 }
+.subService__item ,
+.subService__item i {
+  font-weight: 500;
+  padding-block: 10px;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+.subService__item:hover ,
+.subService__item:hover i{
+  color: var(--main-green-color);
+  padding-inline-start: 5px;
+}

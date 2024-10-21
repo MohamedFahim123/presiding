@@ -1,14 +1,29 @@
 .internShipSec__handler {
-    padding: 60px 0;
-    background: linear-gradient(rgb(173, 170, 170),var( --main-blue-color-bg));
+    background-color: var(--main-blue-color-bg);
     color: #ffffff;
 }
 .internShipSec__handler h3 {
-    font-size: 45px;
+    font-size: 40px;
     margin-bottom: 20px;
-    font-weight: 900;
+    font-weight: 700;
 }
 .internShipSec__handler p {
-    font-size: 40px;
-    font-weight: 600;
+    font-size: 30px;
+    font-weight: 500;
+}
+.applyBtn {
+    width: fit-content;
+    padding: 10px 30px;
+    margin-top: 15px;
+    color: #ffffff;
+    background-color: transparent;
+    border: 1px solid #ffffff;
+    outline: none;
+    font-size: 15px;
+    transition: all 0.3s ease-in-out;
+    font-weight: 500;
+}
+.applyBtn:hover {
+    background-color: #ffffff;
+    color: var(--main-blue-color-bg);
 }

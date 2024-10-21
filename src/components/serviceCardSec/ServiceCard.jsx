@@ -3,8 +3,8 @@ import styles from './serviceCard.module.css';
 import PropTypes from 'prop-types';
 export default function ServiceCard({ service , index}) {
     return (
-        <div className={`${styles.serviceCard__handler} row align-items-center`}>
-            <div className={`col-md-6 ${((index % 2) === 0) ? 'order-0' : 'order-1'}`}>
+        <div className={`${styles.serviceCard__handler} row mb-0 align-items-center`}>
+            <div className={`col-md-6 px-0 ${((index % 2) === 0) ? 'order-0' : 'order-1'}`}>
                 <img src={service?.image} alt={service?.title} />
             </div>
             <div className={`col-md-6 ps-5 ${styles.cardInfo} ${((index % 2) === 0) ? 'order-1' : 'order-0'}`}>

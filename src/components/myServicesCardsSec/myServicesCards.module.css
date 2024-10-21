@@ -1,10 +1,5 @@
 .myServicesCards__handler{
-    background-color: var(--main-blue-color-bg);
-}
-.mainParagraph {
-    color: var(--primary-black) !important;
-    max-width: 600px;
-    text-transform: unset !important;
+    background: linear-gradient(270deg,var(--main-blue-color-bg),  rgb(3, 11, 30));
 }
 .myServicesCards__handler h3 ,
 .myServicesCards__handler h5 ,

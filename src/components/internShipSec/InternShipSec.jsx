@@ -13,6 +13,9 @@ export default function InternShipSec() {
                         <p>
                             Discover opportunities that go beyond your expectations.
                         </p>
+                        <button className={styles.applyBtn}>
+                            Apply Now
+                        </button>
                     </div>
                     <div className="col-lg-5">
                         <img src={sectionImg} alt="intern ship Image" />

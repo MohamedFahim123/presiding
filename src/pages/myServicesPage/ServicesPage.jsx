@@ -3,13 +3,12 @@ import bgImage from '../../assets/home-insights/8be20325d2160343393bf6f345b1b8fb
 import MyHeroImage from '../../components/myHeroImageSec/MyHeroImage';
 import { baseUrl } from '../../functions/baseUrl';
 import { useFetch } from '../../hooks/useFetch';
-import { useState } from 'react';
 import MyLoader from '../../components/myLoaderSec/MyLoader';
 import ServicesIconsSection from '../../components/servicesIconsSec/ServicesIconsSection';
+import styles from './servicesPage.module.css';
 
 export default function ServicesPage() {
-    const [currentPage, setCurrentPage] = useState(1);
-    const [currData, loading] = useFetch(`${baseUrl}/all-services?page=${currentPage}`);
+    const [currData, loading] = useFetch(`${baseUrl}/all-services`);
 
     if (loading) {
         return <MyLoader />;
@@ -17,9 +16,24 @@ export default function ServicesPage() {
 
     return (
         <>
-            <MyHeroImage title={`Our Services`} bgImage={bgImage} />
+            <MyHeroImage
+                title={`Our Services`}
+                bgImage={bgImage}
+                subTit={'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae voluptatem labore repudiandae a cupiditate!'}
+                actions={true}
+                btnName={'Get in touch'}
+                btnNavigation={'/contact-us'}
+            />
             <ServicesIconsSection />
-            <MyServicesCards currData={currData} setCurrentPage={setCurrentPage} />
+            <div className={`header_ofSec text-center py-4 ${styles.mainHeaderServices}`}>
+                <h3>
+                    Lorem, ipsum dolor.
+                </h3>
+                <p className={`mt-3 m-auto ${styles?.mainParagraph}`}>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, fuga ipsum, explicabo ipsam consequuntur libero saepe iusto tempore vero earum ut amet aperiam porro ipsa molestiae sequi at sed. Magni?
+                </p>
+            </div>
+            <MyServicesCards currData={currData} />
         </>
     );
 };
