@@ -30,6 +30,7 @@
 }
 .insighSlide__info .nav-link span{
     font-size: 14px;
+    transition: all 0.3s ease-in-out;
     font-weight: 500;
     color: var(--main-dark-blue-color-text);
     text-transform: uppercase;
@@ -40,6 +41,12 @@
     font-size: 14px;
     font-weight: 500;
     color: var(--main-dark-blue-color-text);
+    transition: all 0.3s ease-in-out;
+}
+.insighSlide__info .nav-link:hover span,
+.insighSlide__info .nav-link:hover i {
+    color: var(--main-green-color);
+    padding-inline-start: 3px;
 }
 .insightsSlider__handler .custom-navigation{
     position: relative;

@@ -53,7 +53,7 @@ export default function IndustriesSlider() {
                                                 <h2>
                                                     {industry?.title}
                                                 </h2>
-                                                <i className="bi bi-plus-circle fs-4"></i>
+                                                <i className="bi bi-plus-circle fs-4 cursorPointer"></i>
                                             </>
                                         </div>
                                     </>

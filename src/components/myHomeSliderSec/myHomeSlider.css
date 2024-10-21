@@ -1,6 +1,7 @@
 .slider__handler{
     position: relative;
     width: 100%;
+    height: 80vh;
 }
 
 .slide__item__handler {

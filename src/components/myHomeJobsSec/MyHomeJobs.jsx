@@ -16,10 +16,7 @@ export default function MyHomeJobs() {
             <h3>
               Always looking for top talents
             </h3>
-            {/* <button className='gradient_btn' onClick={()=> navigate('/fill-application-form')}>
-              Find available jobs
-              <i className="bi bi-arrow-right-short"></i>
-            </button> */}
+
             <button className='gradient_btn' onClick={()=> navigate('/careers')}>
               Find available jobs
               <i className="bi bi-arrow-right-short"></i>
