@@ -18,6 +18,7 @@ import { useSkillsStore } from '../../store/useSkillsStore';
 import { useYearsOfExpStore } from '../../store/useYearsOfExpStore';
 import { usePrimaryExpStore } from '../../store/usePrimaryExpStore';
 import MyLoader from '../../components/myLoaderSec/MyLoader';
+import { useEffect, useState } from 'react';
 
 export default function MyHome() {
     const availabilitiesLoading = useAvailabilitiesStore(state => state.availabilitiesLoading);
@@ -29,6 +30,13 @@ export default function MyHome() {
     const projectTypesLoading = useProjectTypesStore(state => state.projectTypesLoading);
     const skillsLoading = useSkillsStore(state => state.skillsLoading);
     const yearsOfExpLoading = useYearsOfExpStore(state => state.yearsOfExpLoading);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false);
+        }, 500);
+    }, []);
 
     if (
         availabilitiesLoading ||
@@ -39,8 +47,9 @@ export default function MyHome() {
         primaryExpLoading ||
         projectTypesLoading ||
         skillsLoading ||
-        yearsOfExpLoading
-    ){
+        yearsOfExpLoading ||
+        loading
+    ) {
         return <MyLoader />;
     };
 

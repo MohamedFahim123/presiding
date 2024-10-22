@@ -170,7 +170,7 @@ export default function ApplyForJobForm({ jobId }) {
                         handleAddField={handleAddField}
                         handleDeleteField={handleDeleteField}
                         handleInputChange={handleInputChange}
-                        labelName={'Your Languages'}
+                        labelName={'Language'}
                     />
                     <div className="col-lg-8 my-2">
                         <label className='text-capitalize mb-1' htmlFor={'applyForAJobCVFile'}>Your CV <span className="requiredStar">*</span></label>
@@ -215,7 +215,7 @@ export default function ApplyForJobForm({ jobId }) {
                                 }}
                             />
                             <label className="form-check-label cursorPointer" htmlFor={`applyForAJobVisa`}>
-                                Do you have a Visa?
+                                Do you have a Visa? <span className="requiredStar">*</span>
                             </label>
                         </div>
                     </div>

@@ -23,7 +23,7 @@ import bgImage from '../../assets/home-overview/9ed0b317c009431f96f7364d813c33b8
 import MyLoader from "../../components/myLoaderSec/MyLoader";
 
 export default function FillApplicationForm() {
-    const { register, setValue, watch, handleSubmit, reset , formState: { errors , isSubmitting } } = useForm({
+    const { register, setValue, watch, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm({
         defaultValues: {
             full_name: '',
             email: '',
@@ -40,7 +40,6 @@ export default function FillApplicationForm() {
             industry_id: '',
             languages_id: '',
             attachment: '',
-            publication: '',
             portfolio_file: '',
             portfolio_link: '',
             project_type_id: '',
@@ -70,8 +69,6 @@ export default function FillApplicationForm() {
     const [typeOfPortFolio, setTypeOfPortFolio] = useState('');
     const [inputValue, setInputValue] = useState('');
     const [portFolioLinks, setPortFolioLinks] = useState([]);
-    const [publicationInput, setPublicationInput] = useState('');
-    const [publications, setPublications] = useState([])
     const [cities, setCitites] = useState([]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -81,8 +78,7 @@ export default function FillApplicationForm() {
     const [checkedPreferredTypes, setcheckedPreferredTypes] = useState([]);
     const [travelWills, setTravelWills] = useState('no');
 
-if(error){''};
-if(loading){''};
+    if (error) { '' };
 
     const getData = (slug, setData) => {
         getDataFromApi(`${baseUrl}/${slug}`, setData, setLoading, setError);
@@ -153,9 +149,6 @@ if(loading){''};
     useEffect(() => {
         setValue('portfolio_link', portFolioLinks);
     }, [portFolioLinks]);
-    useEffect(() => {
-        setValue('publication', publications);
-    }, [publications]);
 
     const formInputs = [
         {
@@ -180,11 +173,11 @@ if(loading){''};
         },
         {
             options: primaryExp, error: errors?.primary_expertise_id?.message, name: 'primary_expertise_id', labelName: 'Primary Expertise', id: 'fillApplicationFormprimary_expertise_id'
-        },
-        {
-            options: availabilities, error: errors?.availability_id?.message, name: 'availability_id', labelName: 'Availability', id: 'fillApplicationFormAvailability_id'
-        },
+        }
     ];
+    const availabilityInput = {
+        options: availabilities, error: errors?.availability_id?.message, name: 'availability_id', labelName: 'Availability', id: 'fillApplicationFormAvailability_id'
+    };
 
     const onSubmit = async (data) => {
         const toastId = toast.loading('loading...');
@@ -208,21 +201,21 @@ if(loading){''};
                 'Content-Type': 'multipart/form-data',
             },
         })
-        .then(res => {
-            console.log(res?.data);
-            toast.success(res?.data?.message || 'Form Filled Successfully!',{
-                id: toastId,
-                duration: 1000
+            .then(res => {
+                console.log(res?.data);
+                toast.success(res?.data?.message || 'Form Filled Successfully!', {
+                    id: toastId,
+                    duration: 1000
+                });
+                reset();
+            })
+            .catch(err => {
+                console.log(err?.response?.data)
+                toast.error(err?.response?.data?.message || 'Something Went Wrong please try Again', {
+                    id: toastId,
+                    duration: 1000,
+                });
             });
-            reset();
-        })
-        .catch(err => {
-            console.log(err?.response?.data)
-            toast.error(err?.response?.data?.message || 'Something Went Wrong please try Again',{
-                id: toastId,
-                duration: 1000,
-            });
-        });
     };
 
     if (
@@ -234,8 +227,9 @@ if(loading){''};
         primaryExpLoading ||
         projectTypesLoading ||
         skillsLoading ||
-        yearsOfExpLoading
-    ){
+        yearsOfExpLoading ||
+        loading
+    ) {
         return <MyLoader />;
     };
 
@@ -299,7 +293,7 @@ if(loading){''};
                             </div>
                         </div>
                         <div className="col-lg-8 my-2">
-                            <label className='text-capitalize mb-1' htmlFor={'fillApplicationFormCountry_id'}>Country <span className="requiredStar">*</span></label>
+                            <label className='text-capitalize mb-1' htmlFor={'fillApplicationFormCountry_id'}>Country of Residence <span className="requiredStar">*</span></label>
                             <select
                                 id={'fillApplicationFormCountry_id'}
                                 className={`form-select ${errors?.country_id?.message && 'error_input'}`}
@@ -318,7 +312,7 @@ if(loading){''};
                             }
                         </div>
                         <div className="col-lg-8 my-2">
-                            <label className='text-capitalize mb-1' htmlFor={'fillApplicationFormcity_id'}>City <span className="requiredStar">*</span></label>
+                            <label className='text-capitalize mb-1' htmlFor={'fillApplicationFormcity_id'}>City of Residence <span className="requiredStar">*</span></label>
                             <select
                                 id={'fillApplicationFormcity_id'}
                                 className={`form-select ${errors?.city_id?.message && 'error_input'}`}
@@ -343,16 +337,27 @@ if(loading){''};
                                 </div>
                             ))
                         }
-                        <CustomCrudFields
-                            error={errors?.skills_id}
-                            fields={skillsFields}
-                            options={skills}
-                            setFields={setSkillsFields}
-                            handleAddField={handleAddField}
-                            handleDeleteField={handleDeleteField}
-                            handleInputChange={handleInputChange}
-                            labelName={'Add Skill'}
-                        />
+                        <div className="col-lg-8 my-2">
+                            <label className="fs-5 text-capitalize mt-4 mb-2">Preferred types of projects <span className="requiredStar">*</span></label>
+                            <div className="row">
+                                {
+                                    projectTypes?.map((type) => (
+                                        <div key={type?.id} className="form-check ms-2 mb-2 col-md-2">
+                                            <input
+                                                className="form-check-input cursorPointer"
+                                                type="checkbox"
+                                                value={type?.name}
+                                                id={`check-${type?.id}`}
+                                                onChange={(event) => handleCheckboxChange(event, type, setcheckedPreferredTypes, checkedPreferredTypes)}
+                                            />
+                                            <label className="form-check-label cursorPointer" htmlFor={`check-${type?.id}`}>
+                                                {type?.name}
+                                            </label>
+                                        </div>
+                                    ))
+                                }
+                            </div>
+                        </div>
                         <CustomCrudFields
                             error={errors?.industry_id}
                             fields={industriesFeilds}
@@ -364,6 +369,16 @@ if(loading){''};
                             labelName={'Industry'}
                         />
                         <CustomCrudFields
+                            error={errors?.skills_id}
+                            fields={skillsFields}
+                            options={skills}
+                            setFields={setSkillsFields}
+                            handleAddField={handleAddField}
+                            handleDeleteField={handleDeleteField}
+                            handleInputChange={handleInputChange}
+                            labelName={'Skill'}
+                        />
+                        <CustomCrudFields
                             error={errors?.languages_id}
                             fields={languagesFeilds}
                             options={langs}
@@ -371,10 +386,10 @@ if(loading){''};
                             handleAddField={handleAddField}
                             handleDeleteField={handleDeleteField}
                             handleInputChange={handleInputChange}
-                            labelName={'Your Languages'}
+                            labelName={'Language'}
                         />
                         <div className="col-lg-8 my-2">
-                            <label className='text-capitalize mb-1' htmlFor={'fillApplicationFormattachment'}>Attachments <span className="requiredStar">*</span></label>
+                            <label className='text-capitalize mb-1' htmlFor={'fillApplicationFormattachment'}>CV Attachment <span className="requiredStar">*</span></label>
                             <input
                                 type="file"
                                 multiple
@@ -460,63 +475,17 @@ if(loading){''};
                             }
                         </div>
                         <div className="col-lg-8 my-2">
-                            <label className='text-capitalize mt-4 mb-1' htmlFor={'fillApplicationFormPublications'}>Publications <span className="optional">(optional)</span></label>
-                            <input
-                                type="text"
-                                id="fillApplicationFormPublications"
-                                className={`form-control mt-3 ${errors?.publication?.message && 'error_input'}`}
-                                placeholder="type a Publication"
-                                value={publicationInput}
-                                onChange={(e) => setPublicationInput(e.target.value)}
+                            <CustomSelect
+                                error={availabilityInput?.error}
+                                options={availabilityInput?.options}
+                                register={register}
+                                name={availabilityInput.name}
+                                labelName={availabilityInput.labelName}
+                                id={availabilityInput.id}
                             />
-                            {
-                                errors?.publication?.message &&
-                                <span className="error_message">{errors?.publication?.message}</span>
-                            }
-                            <div className="col-12 mt-3">
-                                <div className="addLink__btn d-flex justify-content-center">
-                                    <button type="button" className="btn btn-outline-success mb-3" onClick={
-                                        () => handleAddInputValueToPortfolioLinks(publicationInput, setPublicationInput, setPublications, publications)
-                                    }>
-                                        Add Other publication
-                                    </button>
-                                </div>
-                                <div className="added-values">
-                                    {
-                                        publications?.map((el, idx) => (
-                                            <span
-                                                key={idx}
-                                                className="badge bg-success m-1 py-1">
-                                                {el} <i className="bi bi-trash cursorPointer hoveredIcon" onClick={() => handleRemoveItem(idx, setPublications, publications)}></i>
-                                            </span>
-                                        ))
-                                    }
-                                </div>
-                            </div>
                         </div>
                         <div className="col-lg-8 my-2">
-                            <label className="fs-5 text-capitalize mt-4 mb-2">Preferred types of projects</label>
-                            <div className="row">
-                                {
-                                    projectTypes?.map((type) => (
-                                        <div key={type?.id} className="form-check mb-2 col-md-2">
-                                            <input
-                                                className="form-check-input cursorPointer"
-                                                type="checkbox"
-                                                value={type?.name}
-                                                id={`check-${type?.id}`}
-                                                onChange={(event) => handleCheckboxChange(event, type, setcheckedPreferredTypes, checkedPreferredTypes)}
-                                            />
-                                            <label className="form-check-label cursorPointer" htmlFor={`check-${type?.id}`}>
-                                                {type?.name}
-                                            </label>
-                                        </div>
-                                    ))
-                                }
-                            </div>
-                        </div>
-                        <div className="col-lg-8 my-2">
-                            <label className="mb-3">Willing To Travel</label>
+                            <label className="mb-3">Willing To Travel <span className="requiredStar">*</span></label>
                             <div className="form-check mb-2">
                                 <input
                                     className="form-check-input cursorPointer"

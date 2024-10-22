@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 
 export default function CustomCrudFields({ error, fields, options, labelName, setFields, handleInputChange, handleDeleteField, handleAddField }) {
+    const numbersNamesArr = ['First','Second','Third','Fourth','FIfth']
     return (
         <>
             {
@@ -8,7 +9,7 @@ export default function CustomCrudFields({ error, fields, options, labelName, se
                     <div key={field?.id} className="col-lg-12 my-2">
                         <div className="row">
                             <div className="col-md-8">
-                                <label className={`text-capitalize mb-1`} htmlFor={field?.id}>{labelName} <span className="requiredStar">*</span></label>
+                                <label className={`text-capitalize mb-1`} htmlFor={field?.id}>{numbersNamesArr[index]} {labelName} <span className="requiredStar">*</span></label>
                                 <select
                                     className={`form-select`}
                                     name="value"

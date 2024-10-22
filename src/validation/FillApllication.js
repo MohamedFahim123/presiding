@@ -19,7 +19,6 @@ export const FillApplicationFormShema = z.object({
     project_type_id: z.any(),
     languages_id: z.any(),
     attachment: z.any(),
-    publication: z.any(),
     portfolio_file: z.any(),
     portfolio_link: z.any(),
 });
