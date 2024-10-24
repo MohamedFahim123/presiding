@@ -1,15 +1,8 @@
 import styles from './mySubServices.module.css'
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
 
 export default function MySubServices({ currData }) {
-    const [currentHTML, setCurrentHTML] = useState([]);
 
-    useEffect(() => {
-        setCurrentHTML([currData?.subService?.body]);
-    }, []);
-
-    console.log(currentHTML)
 
     return (
         <div className={`${styles.subServices__handler}`}>
@@ -25,7 +18,7 @@ export default function MySubServices({ currData }) {
                     </h5>
                     <div>
                         <div className={styles.textEditor}>
-                            <div dangerouslySetInnerHTML={{ __html: currentHTML[0] }} />
+                            <div dangerouslySetInnerHTML={{ __html: currData?.subService?.body }} />
                         </div>
                     </div>
                     <div className="row">
