@@ -30,3 +30,6 @@
         font-size: 16px;
     }
 }
+.textEditor img {
+    max-width: 500px;
+}

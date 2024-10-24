@@ -78,7 +78,7 @@ export default function FillApplicationForm() {
     const [checkedPreferredTypes, setcheckedPreferredTypes] = useState([]);
     const [travelWills, setTravelWills] = useState('no');
 
-    if (error) { '' };
+    if (error) {''};
 
     const getData = (slug, setData) => {
         getDataFromApi(`${baseUrl}/${slug}`, setData, setLoading, setError);
@@ -227,8 +227,7 @@ export default function FillApplicationForm() {
         primaryExpLoading ||
         projectTypesLoading ||
         skillsLoading ||
-        yearsOfExpLoading ||
-        loading
+        yearsOfExpLoading
     ) {
         return <MyLoader />;
     };

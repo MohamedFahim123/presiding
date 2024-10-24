@@ -9,6 +9,7 @@ import MyLoader from "../../components/myLoaderSec/MyLoader";
 export default function SubServicesPage() {
     const { subService } = useParams();
     const [currData, loading] = useFetch(`${baseUrl}/show-sub-service/${subService}`);
+    console.log(currData)
 
     if (loading) {
         return <MyLoader />;

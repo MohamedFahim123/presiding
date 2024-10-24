@@ -47,13 +47,12 @@ export default function IndustriesSlider() {
                             currData?.industries?.map((industry) => (
                                 <SwiperSlide key={industry?.id} className="industrySlide__item">
                                     <>
-                                        <div className="industrySlide__info">
+                                        <div className="industrySlide__info mt-5">
                                             <>
                                                 <img src={industry?.image} alt="icon" />
                                                 <h2>
                                                     {industry?.title}
                                                 </h2>
-                                                <i className="bi bi-plus-circle fs-4 cursorPointer"></i>
                                             </>
                                         </div>
                                     </>

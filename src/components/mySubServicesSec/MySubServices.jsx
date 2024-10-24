@@ -1,9 +1,15 @@
 import styles from './mySubServices.module.css'
-import subServImg from '../../assets/subServ/subServImage.png'
 import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
 
-export default function MySubServices({currData}) {
+export default function MySubServices({ currData }) {
+    const [currentHTML, setCurrentHTML] = useState([]);
 
+    useEffect(() => {
+        setCurrentHTML([currData?.subService?.body]);
+    }, []);
+
+    console.log(currentHTML)
 
     return (
         <div className={`${styles.subServices__handler}`}>
@@ -17,19 +23,16 @@ export default function MySubServices({currData}) {
                                 ''
                         }
                     </h5>
-                    <p>
-                        {
-                            currData?.subService?.body ?
-                                currData?.subService?.body
-                                :
-                                ''
-                        }
-                    </p>
+                    <div>
+                        <div className={styles.textEditor}>
+                            <div dangerouslySetInnerHTML={{ __html: currentHTML[0] }} />
+                        </div>
+                    </div>
                     <div className="row">
                         {currData?.subService?.medias?.map(media => (
                             <div key={media?.id} className="col-md-6">
                                 <div className={`${styles.subServices__image}`}>
-                                    <img src={subServImg} alt="subServ-image" />
+                                    {/* <img src={subServImg} alt="subServ-image" /> */}
                                 </div>
                             </div>
                         ))}
