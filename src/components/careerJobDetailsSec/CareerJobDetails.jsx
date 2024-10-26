@@ -18,7 +18,7 @@ export default function CareerJobDetails({ jobDetails }) {
                                 </li>
                                 <li className={`${styles.mainInfoJob}`}>
                                     <h3>
-                                        Seniority Level
+                                        Career Level
                                     </h3>
                                     <p>
                                         {jobDetails?.managment_level}
@@ -44,15 +44,6 @@ export default function CareerJobDetails({ jobDetails }) {
                                         {jobDetails?.description}
                                     </p>
                                 </div>
-                                <div className={`${styles.JobDetails_singleInfo}`}>
-                                    <h3>
-                                        department
-                                    </h3>
-                                    <p>
-                                        {jobDetails?.department}
-                                    </p>
-                                </div>
-
                                 <div className={`${styles.JobDetails_singleInfo}`}>
                                     <h3>
                                         education

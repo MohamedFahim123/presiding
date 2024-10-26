@@ -15,7 +15,7 @@ import { baseUrl } from "../../functions/baseUrl";
 import toast from "react-hot-toast";
 
 export default function ApplyForJobForm({ jobId }) {
-    const { register, setValue, reset , handleSubmit, formState: { errors , isSubmitting } } = useForm({
+    const { register, setValue, reset, handleSubmit, formState: { errors, isSubmitting } } = useForm({
         defaultValues: {
             full_name: '',
             email: '',
@@ -129,7 +129,7 @@ export default function ApplyForJobForm({ jobId }) {
         })
             .then(res => {
                 console.log(res?.data)
-                toast.success(res?.data?.message || 'Applied Successfully!' ,{
+                toast.success(res?.data?.message || 'Applied Successfully!', {
                     id: toastId,
                     duration: 1000,
                 });
@@ -137,8 +137,8 @@ export default function ApplyForJobForm({ jobId }) {
             })
             .catch(err => {
                 console.log(err?.response?.data);
-                toast.error(err?.response?.data?.message || 'Something went Wrong!' ,{
-                    id: toastId ,
+                toast.error(err?.response?.data?.message || 'Something went Wrong!', {
+                    id: toastId,
                     duration: 1000,
                 });
             });
@@ -148,11 +148,22 @@ export default function ApplyForJobForm({ jobId }) {
         <div className="form__handler py-5 ">
             <div className="container">
                 <form onSubmit={handleSubmit(onSubmit)} className="row">
+                    <h3 className="mb-3">
+                        Personal Information
+                    </h3>
                     {
                         formInputs?.map((formInput, idx) => (
-                            <div key={idx} className="col-lg-8 my-2">
-                                <CustomInput error={formInput.error} type={formInput.type} register={register} placeholder={formInput.placeholder} name={formInput.name} lableName={formInput.lableName} id={formInput.id} />
-                            </div>
+                            <>
+                                {
+                                    formInput?.name === 'major' &&
+                                    <h3 className="my-3">
+                                        Education
+                                    </h3>
+                                }
+                                <div key={idx} className="col-lg-8 my-2">
+                                    <CustomInput error={formInput.error} type={formInput.type} register={register} placeholder={formInput.placeholder} name={formInput.name} lableName={formInput.lableName} id={formInput.id} />
+                                </div>
+                            </>
                         ))
                     }
                     {
