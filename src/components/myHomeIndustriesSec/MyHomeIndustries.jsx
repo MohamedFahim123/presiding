@@ -1,6 +1,6 @@
 import './myHomeIndustries.css';
 import startBg from '../../assets/home-industries/start.png';
-import endBg from '../../assets/home-industries/end.png';
+import endBg from '../../assets/home-overview/backGround.jpg';
 import IndustriesSlider from '../industriesSliderSec/IndustriesSlider';
 import { useRef } from 'react';
 import { motion, useInView } from "framer-motion";
@@ -37,7 +37,7 @@ export default function MyHomeIndustries() {
               </div>
               <div className="col-6 ms-0 ps-0 pe-0">
                 <div className="end__bg"
-                  style={{ backgroundImage: `url(${endBg})` }}
+                  style={{ backgroundImage: `url(${endBg})` , backgroundPosition: 'right' }}
                 >
                   <div className="container"></div>
                 </div>
