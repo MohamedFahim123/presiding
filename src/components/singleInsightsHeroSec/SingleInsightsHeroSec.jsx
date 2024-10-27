@@ -3,14 +3,13 @@ import viewIcon from '../../assets/insightsPage/fluent-mdl2_view.svg';
 import downloadIcon from '../../assets/insightsPage/material-symbols-light_download-sharp.svg';
 import PropTypes from 'prop-types';
 
-export default function SingleInsightsHeroSec({ bgImage, created_at, title, attachment }) {
+export default function SingleInsightsHeroSec({ bgImage, title, attachment }) {
     return (
         <div className={`${styles.singleInsight__heroSec}`}>
             <div className="container-fluid h-100">
                 <div className="row h-100">
                     <div className="col-md-6 ps-5 pt-4">
                         <div className={styles.text__container}>
-                            <p className='ps-5'>{created_at ? created_at : ''}</p>
                             <h1 className='ps-5 pt-3'>{title ? title : ''}</h1>
                             <div className={`${styles.btnContainer} ps-4 mt-5`}>
                                 <button className={styles.downloadBtn}>
@@ -37,5 +36,4 @@ SingleInsightsHeroSec.propTypes = {
     bgImage: PropTypes.string,
     title: PropTypes.string,
     attachment: PropTypes.string,
-    created_at: PropTypes.string,
 }

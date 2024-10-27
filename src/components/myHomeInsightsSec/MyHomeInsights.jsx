@@ -7,11 +7,11 @@ import "swiper/css/autoplay";
 import Autoplay from "../../../node_modules/swiper/modules/autoplay.mjs";
 import { Navigation } from "swiper/modules";
 import MyMainHeader from '../myMainHeaderSec/MyMainHeader'
-import { NavLink } from 'react-router-dom';
 import { useFetch } from '../../hooks/useFetch';
 import { baseUrl } from '../../functions/baseUrl';
 import { useRef } from 'react';
 import { motion, useInView } from "framer-motion";
+import mainImg from '../../assets/home-insights/WhatsApp Image 2024-10-27 at 17.53.26_a6394369.jpg';
 
 export default function MyHomeInsights() {
     const [currData] = useFetch(`${baseUrl}/home-blogs`);
@@ -33,7 +33,7 @@ export default function MyHomeInsights() {
                             <div className="col-12 headingColumn">
                                 <MyMainHeader
                                     secHead='PUBLICATIONS'
-                                    secText='Market Insights'
+                                    secText='Business Insights'
                                 />
                             </div>
                             <div className="col-12">
@@ -77,27 +77,23 @@ export default function MyHomeInsights() {
                                     }}
                                 >
                                     {
-                                        console.log(currData)
-                                    }
-                                    {
                                         currData?.blogs?.map((blog) => (
                                             <SwiperSlide key={blog?.id} className="insightSlide__item">
                                                 <div className="row">
-                                                    <div className="col-6 insighSlide__info">
+                                                    {/* <div className="col-6 insighSlide__info">
                                                         <h2 title={blog?.title}>
-                                                            {blog?.title?.length > 30 ? blog?.title?.slice(0, 30)+ '...' : blog?.title}
+                                                            {blog?.title?.length > 30 ? blog?.title?.slice(0, 30) + '...' : blog?.title}
                                                         </h2>
-                                                        <p>
-                                                            {blog?.created_at}
-                                                        </p>
-                                                        <NavLink className={'nav-link'} to={`insights/${blog?.id}`}>
+
+
+
+                                                    </div> */}
+                                                    <div className="insighSlide__image col-12">
+                                                        <img src={mainImg} alt="icon" />
+                                                        {/* <NavLink className={'nav-link'} to={`insights/${blog?.id}`}>
                                                             <span>read more</span>
                                                             <i className="bi bi-arrow-bar-right"></i>
-                                                        </NavLink>
-
-                                                    </div>
-                                                    <div className="insighSlide__image col-6">
-                                                        <img src={blog?.image} alt="icon" />
+                                                        </NavLink> */}
                                                     </div>
                                                 </div>
                                             </SwiperSlide>

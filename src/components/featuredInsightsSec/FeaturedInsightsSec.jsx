@@ -3,7 +3,6 @@ import styles from './featuredInsightsSec.module.css';
 import PropTypes from "prop-types";
 
 export default function FeaturedInsightsSec({ isSingleInsight,currData }) {
-
     return (
         <div className={`section__handler`}>
             <div className="container">
@@ -12,7 +11,7 @@ export default function FeaturedInsightsSec({ isSingleInsight,currData }) {
                         {
                             isSingleInsight ?
                                 <div className={styles.singleInsightHeader}>
-                                    <h3 className='text-center'>Explore Market Insights</h3>
+                                    <h3 className='text-center'>Other Business Insights</h3>
                                 </div>
                                 :
                                 <div className="header_ofSec text-start">

@@ -159,3 +159,6 @@
 .subService__item:hover i{
   padding-inline-start: 5px;
 }
+.subService__item:hover i {
+  color: #469338;
+}

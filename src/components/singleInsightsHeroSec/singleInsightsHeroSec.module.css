@@ -2,6 +2,7 @@
     height: 70vh;
     background: #022E54;
 }
+
 .text__container {
     max-width: 370px;
     margin-top: 20px;
@@ -67,9 +68,12 @@
     color: #022E54;
 }
 .imgContainer {
+    transform: translateX(140px);
+    /* margin-inline-start: auto; */
     background-image: url('../../assets/insightsPage/SingleInsighsHeroSec.jpeg');
     background-position: center;
     height: 100%;
+    width: 450px !important;
     background-repeat: no-repeat;
     position: relative;
     z-index: 2;

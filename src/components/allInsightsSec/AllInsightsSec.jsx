@@ -8,7 +8,7 @@ export default function AllInsightsSec({currData}) {
                 <div className="row justify-content-center">
                     {
                         currData?.blogs?.map(insight => (
-                            <div key={insight?.id} className="col-lg-3 col-md-4">
+                            <div key={insight?.id} className="col-md-4">
                                 <InsightsMainCard
                                     insight={insight}
                                 />

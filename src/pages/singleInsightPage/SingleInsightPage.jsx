@@ -14,11 +14,10 @@ export default function SingleInsightPage() {
     if (loading) {
         return <MyLoader />;
     };
-    console.log(currData)
 
     return (
         <>
-            <SingleInsightsHeroSec title={currData?.blog?.title} created_at={currData?.blog?.created_at} attachment={currData?.blog?.attachment} bgImage={currData?.blog?.image} />
+            <SingleInsightsHeroSec title={currData?.blog?.title} attachment={currData?.blog?.attachment} bgImage={currData?.blog?.image} />
             <SingleInsightsDescriptionSec
                 head={currData?.blog?.description}
                 disc={currData?.blog?.body}

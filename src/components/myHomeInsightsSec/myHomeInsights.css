@@ -61,7 +61,7 @@
     color: var(--main-dark-blue-color-text);
 }
 .insighSlide__image {
-    height: 180px;
+    height: 387px;
     object-fit: contain;
     overflow: hidden;
 }

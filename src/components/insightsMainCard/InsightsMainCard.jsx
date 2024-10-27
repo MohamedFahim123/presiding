@@ -13,10 +13,9 @@ export default function InsightsMainCard({ insight }) {
             navigate(`/insights/${insight?.id}`);
         }} className={`${styles.isnightsCard}`} style={{ backgroundImage: `url(${insight?.image ? insight?.image : testImg4})`}}>
             <div className={`${styles.insightsCard__body}`}>
-                <p>{insight?.title ? insight?.title : ''}</p>
+                <p>Read More</p>
                 <div className={styles.animatedContent}>
                     <h4>{insight?.description ? insight?.description?.slice(0, 50) + '....' : ''}</h4>
-                    <small>{insight?.created_at ? insight?.created_at : ''}</small>
                 </div>
             </div>
         </div>

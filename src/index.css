@@ -46,7 +46,9 @@ img {
 li {
     list-style: none;
 }
-
+.swiper-backface-hidden .swiper-slide {
+    border-radius: 0 !important;
+}
 .form-control:hover ,
 .form-control:focus ,
 .form-control:focus-visible ,
