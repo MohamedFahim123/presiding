@@ -2,22 +2,14 @@ import './myHomeServices.css';
 import MyMainHeader from '../myMainHeaderSec/MyMainHeader';
 import { useFetch } from '../../hooks/useFetch';
 import { baseUrl } from '../../functions/baseUrl';
-import { useState, useRef } from 'react';
-import { Button, Modal } from 'react-bootstrap';
+import { useRef, useState } from 'react';
 import { motion, useInView } from "framer-motion";
 
 export default function MyHomeServices() {
     const [currData] = useFetch(`${baseUrl}/home-services`);
-    const [currChosedService, setCurrChosedService] = useState([]);
-    const [show, setShow] = useState(false);
     const scrollRef = useRef(null);
     const isInView = useInView(scrollRef, { once: true });
-
-    const handleClose = () => {
-        setShow(false);
-        setCurrChosedService([]);
-    };
-    const handleShow = () => setShow(true);
+    const [isVisible, setIsVisible] = useState([false, false, false, false]);
 
     return (
         <motion.div
@@ -39,44 +31,30 @@ export default function MyHomeServices() {
                     <div className="servicesItem__handler">
                         <div className="row mt-5 mb-3">
                             {
-                                currData?.services?.map((service) => (
-                                    <div key={service?.id} className="col-lg-3 col-md-3 mb-5" onClick={() => {
-                                        handleShow();
-                                        setCurrChosedService(service);
-                                    }}>
-                                        <div className="serviceItem_box">
+                                currData?.services?.map((service, idx) => (
+                                    <div key={service?.id} className="col-lg-3 col-md-3 mb-5 position-relative overflow-hidden">
+                                        <div className="serviceItem_box" onClick={() => {
+                                            setIsVisible(isVisible.map((el, index) => idx === index ? true : false))
+                                        }}>
                                             <img className='rounded' src={service?.image} alt={`icon-${service?.id}`} />
                                             <div className="serviceItem_info">
                                                 <h3 className='cursorPointer'>
                                                     {service?.title}
                                                 </h3>
-                                                <p>
-                                                    {service?.description?.slice(0, 50)}...
-                                                </p>
                                             </div>
+                                        </div>
+                                        <div className={`hidden__content ${isVisible[idx] && 'visible__content'}`}>
+                                            <span className='position-absolute'><i className="bi bi-x-circle cursorPointer" onClick={() => setIsVisible([false, false, false, false])}></i></span>
+                                            <h5>Sub Services</h5>
+                                            <ul>
+                                                <li className='subService__item'><i className="bi bi-arrow-right-circle-fill"></i> sub serv1</li>
+                                                <li className='subService__item'><i className="bi bi-arrow-right-circle-fill"></i> sub serv2</li>
+                                                <li className='subService__item'><i className="bi bi-arrow-right-circle-fill"></i> sub serv3</li>
+                                            </ul>
                                         </div>
                                     </div>
                                 ))
                             }
-                        </div>
-                        <div className="modalContainer">
-                            <Modal show={show} onHide={handleClose} animation={false}>
-                                <Modal.Header closeButton>
-                                    <Modal.Title>{currChosedService?.title ? currChosedService?.title : ''}</Modal.Title>
-                                </Modal.Header>
-                                <Modal.Body>
-                                    <ul>
-                                        <li className='subService__item'><i className="bi bi-arrow-right-circle-fill"></i> sub serv1</li>
-                                        <li className='subService__item'><i className="bi bi-arrow-right-circle-fill"></i> sub serv2</li>
-                                        <li className='subService__item'><i className="bi bi-arrow-right-circle-fill"></i> sub serv3</li>
-                                    </ul>
-                                </Modal.Body>
-                                <Modal.Footer>
-                                    <Button variant="secondary" onClick={handleClose}>
-                                        Close
-                                    </Button>
-                                </Modal.Footer>
-                            </Modal>
                         </div>
                     </div>
                 </div>

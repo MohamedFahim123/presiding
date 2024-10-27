@@ -14,6 +14,7 @@ export default function SingleInsightPage() {
     if (loading) {
         return <MyLoader />;
     };
+    console.log(currData)
 
     return (
         <>
@@ -23,7 +24,7 @@ export default function SingleInsightPage() {
                 disc={currData?.blog?.body}
             />
             <BreakingSectionLine text="PUBLICATIONS" />
-            <FeaturedInsightsSec isSingleInsight={true} />
+            <FeaturedInsightsSec currData={currData?.relatedBlogs} isSingleInsight={true} />
         </>
     );
 };

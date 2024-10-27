@@ -1,27 +1,11 @@
 import PropTypes from 'prop-types';
 import InsightsMainCard from '../insightsMainCard/InsightsMainCard';
 
-export default function AllInsightsSec({currData,setCurrentPage}) {
-
-    const totalPages = currData?.data?.meta?.last_page || 1;
-    const currentPageMeta = currData?.data?.meta?.current_page || 1;
-
-    const handlePageChange = (newPage) => {
-        setCurrentPage(newPage);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
-
-    console.log(currData)
-
+export default function AllInsightsSec({currData}) {
     return (
         <div className="section__handler sectionBgLight">
             <div className="container">
                 <div className="row justify-content-center">
-                    <div className="col-lg-12 mb-5">
-                        <div className="header_ofSec">
-                            <h3>Our latest insights</h3>
-                        </div>
-                    </div>
                     {
                         currData?.blogs?.map(insight => (
                             <div key={insight?.id} className="col-lg-3 col-md-4">
@@ -32,36 +16,10 @@ export default function AllInsightsSec({currData,setCurrentPage}) {
                         ))
                     }
                 </div>
-                <div className="pagination justify-content-center mt-4">
-                    <button
-                        onClick={() => handlePageChange(currentPageMeta - 1)}
-                        disabled={currentPageMeta === 1}
-                        className={`paginationBtn mx-1`}
-                    >
-                        Prev
-                    </button>
-                    {[...Array(totalPages)].map((_, i) => (
-                        <button
-                            key={i + 1}
-                            onClick={() => handlePageChange(i + 1)}
-                            className={`paginationBtn mx-1 ${currentPageMeta === i + 1 ? 'active' : ''}`}
-                        >
-                            {i + 1}
-                        </button>
-                    ))}
-                    <button
-                        onClick={() => handlePageChange(currentPageMeta + 1)}
-                        disabled={currentPageMeta === totalPages}
-                        className={`paginationBtn mx-1`}
-                    >
-                        Next
-                    </button>
-                </div>
             </div>
         </div>
     );
 };
 AllInsightsSec.propTypes = {
-    currData: PropTypes.array,
-    setCurrentPage: PropTypes.func,
+    currData: PropTypes.any,
 }

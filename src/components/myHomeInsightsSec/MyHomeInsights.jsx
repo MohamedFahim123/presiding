@@ -77,12 +77,15 @@ export default function MyHomeInsights() {
                                     }}
                                 >
                                     {
+                                        console.log(currData)
+                                    }
+                                    {
                                         currData?.blogs?.map((blog) => (
                                             <SwiperSlide key={blog?.id} className="insightSlide__item">
                                                 <div className="row">
                                                     <div className="col-6 insighSlide__info">
-                                                        <h2>
-                                                            {blog?.description?.slice(0, 30)}...
+                                                        <h2 title={blog?.title}>
+                                                            {blog?.title?.length > 30 ? blog?.title?.slice(0, 30)+ '...' : blog?.title}
                                                         </h2>
                                                         <p>
                                                             {blog?.created_at}

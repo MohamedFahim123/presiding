@@ -1,11 +1,8 @@
 import InsightsMainCard from "../insightsMainCard/InsightsMainCard";
 import styles from './featuredInsightsSec.module.css';
 import PropTypes from "prop-types";
-import { baseUrl } from "../../functions/baseUrl";
-import { useFetch } from "../../hooks/useFetch";
 
-export default function FeaturedInsightsSec({ isSingleInsight }) {
-    const [currData] = useFetch(`${baseUrl}/home-blogs`);
+export default function FeaturedInsightsSec({ isSingleInsight,currData }) {
 
     return (
         <div className={`section__handler`}>
@@ -24,7 +21,7 @@ export default function FeaturedInsightsSec({ isSingleInsight }) {
                         }
                     </div>
                     {
-                        currData?.blogs?.slice(0,3).map(insight => (
+                        currData?.slice(0,3).map(insight => (
                             <div key={insight?.id} className="col-lg-4 col-md-4">
                                 <InsightsMainCard 
                                     featuredCard={true}
@@ -41,4 +38,5 @@ export default function FeaturedInsightsSec({ isSingleInsight }) {
 
 FeaturedInsightsSec.propTypes = {
     isSingleInsight: PropTypes.bool.isRequired,
+    currData: PropTypes.any,
 };

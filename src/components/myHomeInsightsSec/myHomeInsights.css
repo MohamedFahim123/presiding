@@ -60,7 +60,14 @@
 .insightsSlider__handler .swiper-button-next-custom{
     color: var(--main-dark-blue-color-text);
 }
-
+.insighSlide__image {
+    height: 180px;
+    object-fit: contain;
+    overflow: hidden;
+}
+.insighSlide__image img {
+    height: 100%;
+}
 @media screen and (max-width: 1024px) {
     .insighSlide__info h2 {
         font-size: 14px;
