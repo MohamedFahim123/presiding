@@ -12,6 +12,7 @@ import { baseUrl } from '../../functions/baseUrl';
 import { useRef } from 'react';
 import { motion, useInView } from "framer-motion";
 import mainImg from '../../assets/home-insights/WhatsApp Image 2024-10-27 at 17.53.26_a6394369.jpg';
+import { NavLink } from 'react-router-dom';
 
 export default function MyHomeInsights() {
     const [currData] = useFetch(`${baseUrl}/home-blogs`);
@@ -27,7 +28,7 @@ export default function MyHomeInsights() {
             style={{ margin: '0 auto' }}
         >
             <div className='myHomeInsights__handler'>
-                <div className="container-fluid">
+                <div className="container">
                     <div className="insightsSlider__handler">
                         <div className="row">
                             <div className="col-12 headingColumn">
@@ -78,22 +79,16 @@ export default function MyHomeInsights() {
                                 >
                                     {
                                         currData?.blogs?.map((blog) => (
-                                            <SwiperSlide key={blog?.id} className="insightSlide__item">
+                                            <SwiperSlide key={blog?.id} className="insightSlide__item position-relative">
                                                 <div className="row">
-                                                    {/* <div className="col-6 insighSlide__info">
-                                                        <h2 title={blog?.title}>
-                                                            {blog?.title?.length > 30 ? blog?.title?.slice(0, 30) + '...' : blog?.title}
-                                                        </h2>
-
-
-
-                                                    </div> */}
                                                     <div className="insighSlide__image col-12">
                                                         <img src={mainImg} alt="icon" />
-                                                        {/* <NavLink className={'nav-link'} to={`insights/${blog?.id}`}>
-                                                            <span>read more</span>
+                                                    </div>
+                                                    <div className="insightSlide__link">
+                                                        <NavLink className={'nav-link'} to={`insights/${blog?.id}`}>
+                                                            <span>read more </span>
                                                             <i className="bi bi-arrow-bar-right"></i>
-                                                        </NavLink> */}
+                                                        </NavLink>
                                                     </div>
                                                 </div>
                                             </SwiperSlide>

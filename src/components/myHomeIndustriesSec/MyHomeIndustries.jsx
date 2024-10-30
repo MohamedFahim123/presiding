@@ -37,7 +37,7 @@ export default function MyHomeIndustries() {
               </div>
               <div className="col-6 ms-0 ps-0 pe-0">
                 <div className="end__bg"
-                  style={{ backgroundImage: `url(${endBg})` , backgroundPosition: 'right' }}
+                  style={{ backgroundImage: `url(${endBg})`, backgroundPosition: 'right' }}
                 >
                   <div className="container"></div>
                 </div>

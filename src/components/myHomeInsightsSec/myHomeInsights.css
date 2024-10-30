@@ -1,6 +1,5 @@
 .myHomeInsights__handler{
     margin-top: 60px;
-    padding-inline-start: 80px;
 }
 .insightsSlider__handler{
     padding-inline-start: 22px;
@@ -8,45 +7,12 @@
     position: relative;
 }
 .insightSlide__item{
+    overflow: hidden;
     background-color: rgba(246, 246, 245, 1);
 }
 .insighSlide__info{
     padding: 15px;
     padding-left: 30px;
-}
-.insighSlide__info h2{
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-transform: capitalize;
-    color: var(--main-dark-blue-color-text);
-}
-.insighSlide__info p{
-    font-size: 16px;
-    font-weight: 400;
-    color: rgba(121, 193, 67, 1);
-    margin-bottom: 20px;
-
-}
-.insighSlide__info .nav-link span{
-    font-size: 14px;
-    transition: all 0.3s ease-in-out;
-    font-weight: 500;
-    color: var(--main-dark-blue-color-text);
-    text-transform: uppercase;
-    margin-right: 10px;
-    font-family: "Montserrat", sans-serif;
-}
-.insighSlide__info .nav-link i{
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--main-dark-blue-color-text);
-    transition: all 0.3s ease-in-out;
-}
-.insighSlide__info .nav-link:hover span,
-.insighSlide__info .nav-link:hover i {
-    color: var(--main-green-color);
-    padding-inline-start: 3px;
 }
 .insightsSlider__handler .custom-navigation{
     position: relative;
@@ -67,6 +33,39 @@
 }
 .insighSlide__image img {
     height: 100%;
+}
+.insightSlide__link  {
+    position: absolute;
+    transition: all 0.5s ease-in-out;
+    left: 50%;
+    top: 50%;
+    width: 0%;
+    visibility: hidden;
+    height: 0%;
+    background-color: #00000030;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50%, -50%);
+}
+.insightSlide__item:hover .insightSlide__link {
+    width: 100%;
+    height: 100%;
+    visibility: visible;
+}
+.insightSlide__link a {
+    color: #ffffff;
+    font-size: 0;
+    text-transform: capitalize;
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+}
+.insightSlide__item:hover .insightSlide__link a {
+    opacity: 1;
+    font-size: 20px;
+}
+.insightSlide__item:hover .insightSlide__link a:hover {
+    color: #ffffff !important;
 }
 @media screen and (max-width: 1024px) {
     .insighSlide__info h2 {

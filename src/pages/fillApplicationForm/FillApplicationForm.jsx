@@ -39,6 +39,7 @@ export default function FillApplicationForm() {
             skills_id: '',
             industry_id: '',
             languages_id: '',
+            lang_lvl: '',
             attachment: '',
             portfolio_file: '',
             portfolio_link: '',
@@ -74,24 +75,41 @@ export default function FillApplicationForm() {
     const [loading, setLoading] = useState(false);
     const [skillsFields, setSkillsFields] = useState([{ id: Date.now(), value: '' }]);
     const [industriesFeilds, setIndustriesFields] = useState([{ id: Date.now(), value: '' }]);
-    const [languagesFeilds, setLanguagesFields] = useState([{ id: Date.now(), value: '' }]);
+    const [languagesFeilds, setLanguagesFields] = useState([{
+        id: Date.now(),
+        value: '',
+        radioBtnValue: '',
+        radioBtn: [{ value: 'Intermediate' }, { value: 'Beginner' }, { value: 'Fluent' }]
+    }]);
     const [checkedPreferredTypes, setcheckedPreferredTypes] = useState([]);
     const [travelWills, setTravelWills] = useState('no');
 
-    if (error) {''};
+    console.log(error,loading);
 
     const getData = (slug, setData) => {
         getDataFromApi(`${baseUrl}/${slug}`, setData, setLoading, setError);
     };
 
-    const handleAddField = (setFields, fields) => {
-        setFields([...fields, { id: Date.now(), name: '', value: '' }]);
+    const handleAddField = (setFields, fields, lableName) => {
+        const field = lableName === 'Language' ?
+            {
+                id: Date.now(),
+                name: '',
+                value: '',
+                radioBtn: [{ value: 'Intrmediate' }, { value: 'Beginner' }, { value: 'Fluent' }]
+            }
+            : { id: Date.now(), name: '', value: '' };
+        setFields([...fields, field]);
     };
 
-    const handleInputChange = (id, event, setFields, fields) => {
+    const handleInputChange = (id, event, setFields, fields, radioBtnName) => {
         const newFields = fields.map((field) => {
             if (field.id === id) {
-                return { ...field, [event.target.name]: event.target.value };
+                if (radioBtnName) {
+                    return { ...field, radioBtnValue: radioBtnName };
+                } else {
+                    return { ...field, [event.target.name]: event.target.value };
+                }
             }
             return field;
         });
@@ -141,7 +159,7 @@ export default function FillApplicationForm() {
         setValue('industry_id', industriesFeilds?.map(el => el?.value));
     }, [industriesFeilds]);
     useEffect(() => {
-        setValue('languages_id', languagesFeilds?.map(el => el?.value));
+        setValue('languages_id', languagesFeilds.map(field => ({ value: field.value, proficiency: field.radioBtnValue })));
     }, [languagesFeilds]);
     useEffect(() => {
         setValue('skills_id', skillsFields?.map(el => el?.value));
@@ -337,7 +355,7 @@ export default function FillApplicationForm() {
                             ))
                         }
                         <div className="col-lg-8 my-2">
-                            <label className="fs-5 text-capitalize mt-4 mb-2">Preferred types of projects <span className="requiredStar">*</span></label>
+                            <label className="fs-5 text-capitalize mt-4 mb-2">Preferred Employment Type <span className="requiredStar">*</span></label>
                             <div className="row">
                                 {
                                     projectTypes?.map((type) => (

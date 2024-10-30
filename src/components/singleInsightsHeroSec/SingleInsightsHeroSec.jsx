@@ -2,10 +2,11 @@ import styles from './singleInsightsHeroSec.module.css';
 import viewIcon from '../../assets/insightsPage/fluent-mdl2_view.svg';
 import downloadIcon from '../../assets/insightsPage/material-symbols-light_download-sharp.svg';
 import PropTypes from 'prop-types';
-
+// import imgBack from '../../assets/home-insights/cover1.jpg';
+// style={{backgroundImage: `url(${})` ,backgroundPosition: 'top',backgroundRepeat: 'no-repeat',backgroundSize: 'cover'}}
 export default function SingleInsightsHeroSec({ bgImage, title, attachment }) {
     return (
-        <div className={`${styles.singleInsight__heroSec}`}>
+        <div className={`${styles.singleInsight__heroSec}`} >
             <div className="container-fluid h-100">
                 <div className="row h-100">
                     <div className="col-md-6 ps-5 pt-4">

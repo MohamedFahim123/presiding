@@ -13,10 +13,7 @@ export default function ServiceCard({ service , index}) {
                 <h5>
                     {service?.title}
                 </h5>
-                <p>
-                    {service?.description}
-                </p>
-                <ul className={`${styles.cardSubLinks}`}>
+                <ul>
                     {
                         service?.subServices?.map((subServ, idx) => (
                             <li className={`${styles.SubLink}`} key={idx}>
