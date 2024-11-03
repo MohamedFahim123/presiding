@@ -25,3 +25,11 @@
 .myTextItem__content .text_sign p span{
     font-weight: normal;
 }
+@media (max-width: 768px) {
+    .myTextItem__content .text_quote h5{
+        font-size: 25px;
+    }
+    .myTextItem__content .text_sign p{
+        font-size: 15px;
+    }
+}

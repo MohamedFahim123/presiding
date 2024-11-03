@@ -1,5 +1,7 @@
 .myHomeServices__handler{
     margin-top: 60px;
+}
+.servicesItem__handler {
     padding-inline-start: 80px;
 }
 .serviceItem_box{
@@ -46,6 +48,43 @@
     right: 10px;
     top: 5px;
     font-size: 20px;
+}
+@media (max-width: 1024px) {
+    .serviceItem_box {
+        max-height: 200px;
+        min-height: 180px;
+    }
+    .hidden__content h5 {
+        font-size: 16px;
+    }
+    .hidden__content li {
+        font-size: 15px;
+    }
+}
+@media (max-width: 991px) {
+    .serviceItem_box {
+        min-height: 180px ;
+    }
+    .hidden__content h5 {
+        font-size: 14px;
+    }
+}
+@media (max-width: 768px) {
+    .hidden__content li {
+        font-size: 12px;
+    }
+    .hidden__content {
+        padding: 20px 5px;
+    }
+    .serviceItem_info h3{
+        font-size: 16px;
+    }
+    .myHomeServices__handler .col-md-3 {
+        max-width: 50%;
+    }
+    .hidden__content {
+        width: 100%;
+    }
 }
 @media screen and (max-width:600px) {
     .myHomeServices__handler

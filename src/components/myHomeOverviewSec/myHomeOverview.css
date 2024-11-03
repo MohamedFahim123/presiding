@@ -19,8 +19,12 @@
   position: relative;
 }
 .item_small {
+  height: 315px;
   position: relative;
   overflow: hidden;
+}
+.item_small img {
+  object-fit: cover;
 }
 .overview_item .item_small .overflow {
   position: absolute;
@@ -32,7 +36,6 @@
 }
 .overview_item .overflow.bg_color {
   background: rgba(141, 115, 82, 0.553);
-
 }
 .overview_item .overview_info {
   position: absolute;
@@ -64,6 +67,21 @@
 @media screen and (max-width: 992px) {
   .overview_item .overview_info {
     padding: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .fullOverview_items {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, auto);
+    height: fit-content;
+  }
+  .fullOverview_items .overview_item {
+    margin-inline: 20px;
+    flex-direction: row !important;
+    gap: 20px;
+  }
+  .fullOverview_items .overview_item .item_small {
+    width: 50% !important;
   }
 }
 @media screen and (max-width: 600px) {

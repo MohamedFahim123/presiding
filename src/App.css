@@ -151,7 +151,7 @@
 .subService__item ,
 .subService__item i {
   font-weight: 500;
-  padding-block: 10px;
+  padding-top: 10px;
   transition: all 0.4s ease-in-out;
   cursor: pointer;
 }

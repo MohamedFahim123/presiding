@@ -48,7 +48,7 @@ export default function MyNewsLetter() {
                         <div className="myNewsLetterForm__handler">
                             <div className="row justify-content-center align-items-center px-3">
                                 <div className="col-lg-6 col-md-6">
-                                    <div className="NewsLetter__text">
+                                    <div className="NewsLetter__text mb-2">
                                         <p>
                                             Subscribe to our News Letter<br />
                                             to get latest insights & updates

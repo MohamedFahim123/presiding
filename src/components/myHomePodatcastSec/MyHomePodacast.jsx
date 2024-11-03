@@ -24,7 +24,7 @@ export default function MyHomePodacast() {
                     <div className="row">
                         <div className="col-lg-8 col-md-8 p-0 m-0">
                             <div className="podacastVideo__handler">
-                                <img src={videoCover} alt="video-cover" />
+                                <img src={videoCover} style={{objectFit: 'cover'}} alt="video-cover" />
                                 <div className="videoIcon_container cursorPointer" onClick={() => window.location.href = currData?.video_cover?.link}>
                                     <div className="viedo_icon">
                                         <i className="bi bi-play-fill"></i>

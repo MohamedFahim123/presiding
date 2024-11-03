@@ -2,7 +2,6 @@
     margin-top: 60px;
     background-size: cover;
     background-position: center center;
-    /* height: 80vh; */
     width: 100%;
     background-repeat: no-repeat;
 }
@@ -45,13 +44,24 @@
 
 @media screen and (max-width: 992px) {
     .myHomeJobs__handler p{
-        font-size: 25px;
+        font-size: 22px;
     }
     .myHomeJobs__handler h3{
-        font-size: 53px;
+        font-size: 50px;
     }
     .myHomeJobs__handler button{
         font-size: 18px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .myHomeJobs__handler p{
+        font-size: 18px;
+    }
+    .myHomeJobs__handler h3{
+        font-size: 38px;
+    }
+    .myHomeJobs__handler button{
+        font-size: 16px;
     }
 }
 @media screen and (max-width: 600px){

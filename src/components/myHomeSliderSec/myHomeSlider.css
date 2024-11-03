@@ -2,8 +2,8 @@
     position: relative;
     width: 100%;
     height: 80vh;
+    overflow: hidden;
 }
-
 .slide__item__handler {
     position: relative;
     width: 100% !important;
@@ -14,6 +14,7 @@
     display: flex;
     align-items: flex-end;
     justify-content: start;
+    overflow: hidden;
 }
 
 .slideItem__info {
@@ -50,8 +51,6 @@
     background: var(--primary-white);
     color: var(--main-dark-blue-color-text);
 }
-
-
 .custom-navigation {
     position: absolute;
     z-index: 888;
@@ -76,4 +75,19 @@
 }
 .swiper-button-prev-custom{
     opacity: .6;
+}
+@media (max-width: 767px) {
+    .slider__handler{
+        height: 60vh;
+    }
+    .slide__item__handler {
+        height: 60vh;
+
+    }
+    .slideItem__info p{
+        font-size: 14px;
+    }
+    .slideItem__info h2{
+        font-size: 30px;
+    }
 }

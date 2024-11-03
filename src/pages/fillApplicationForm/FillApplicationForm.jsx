@@ -84,7 +84,7 @@ export default function FillApplicationForm() {
     const [checkedPreferredTypes, setcheckedPreferredTypes] = useState([]);
     const [travelWills, setTravelWills] = useState('no');
 
-    console.log(error,loading);
+    console.log(error, loading);
 
     const getData = (slug, setData) => {
         getDataFromApi(`${baseUrl}/${slug}`, setData, setLoading, setError);

@@ -14,12 +14,16 @@
     font-size: 16px;
     font-weight: 400;
 }
-
-@media screen and (max-width:600px) {
+@media (max-width: 768px) {
     .ourMission__handler
     {
         padding-inline-start: 0;
     }
+    .missionInfo__handler p{
+        font-size: 14px;
+    }
+}
+@media screen and (max-width:600px) {
     .missionInfo__handler,
     .myTextItem__content .text_quote 
     {

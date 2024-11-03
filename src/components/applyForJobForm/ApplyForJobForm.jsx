@@ -80,20 +80,37 @@ export default function ApplyForJobForm({ jobId }) {
             options: availabilities, error: errors?.availability_id?.message, name: 'availability_id', labelName: 'Availability', id: 'applyForAJobavailability_id'
         },
     ];
-    const [languagesFeilds, setLanguagesFields] = useState([{ id: Date.now(), value: '' }]);
+    const [languagesFeilds, setLanguagesFields] = useState([{
+        id: Date.now(),
+        value: '',
+        radioBtnValue: '',
+        radioBtn: [{ value: 'Intermediate' }, { value: 'Beginner' }, { value: 'Fluent' }]
+    }]);
 
     useEffect(() => {
-        setValue('languages_id', languagesFeilds?.map(el => el?.value));
+        setValue('languages_id', languagesFeilds.map(field => ({ value: field.value, proficiency: field.radioBtnValue })));
     }, [languagesFeilds]);
 
-    const handleAddField = (setFields, fields) => {
-        setFields([...fields, { id: Date.now(), name: '', value: '' }]);
+    const handleAddField = (setFields, fields, lableName) => {
+        const field = lableName === 'Language' ?
+            {
+                id: Date.now(),
+                name: '',
+                value: '',
+                radioBtn: [{ value: 'Intrmediate' }, { value: 'Beginner' }, { value: 'Fluent' }]
+            }
+            : { id: Date.now(), name: '', value: '' };
+        setFields([...fields, field]);
     };
 
-    const handleInputChange = (id, event, setFields, fields) => {
+    const handleInputChange = (id, event, setFields, fields, radioBtnName) => {
         const newFields = fields.map((field) => {
             if (field.id === id) {
-                return { ...field, [event.target.name]: event.target.value };
+                if (radioBtnName) {
+                    return { ...field, radioBtnValue: radioBtnName };
+                } else {
+                    return { ...field, [event.target.name]: event.target.value };
+                }
             }
             return field;
         });

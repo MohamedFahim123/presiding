@@ -20,7 +20,7 @@ export default function MyHomeServices() {
             style={{ margin: '0 auto' }}
         >
             <div className='myHomeServices__handler'>
-                <div className="container">
+                <div className="servicesItem__handler ">
                     <>
                         <MyMainHeader
                             secHead='OUR services'
@@ -28,20 +28,20 @@ export default function MyHomeServices() {
                             secText2='are bold & up with the times'
                         />
                     </>
-                    <div className="servicesItem__handler">
-                        <div className="row mt-5 mb-3">
-                            {
-                                currData?.services?.map((service, idx) => (
-                                    <div key={service?.id} className="col-lg-3 col-md-3 mb-5 position-relative overflow-hidden">
-                                        <div className="serviceItem_box" onClick={() => {
-                                            setIsVisible(isVisible.map((el, index) => idx === index ? true : false))
-                                        }}>
-                                            <img className='rounded' src={service?.image} alt={`icon-${service?.id}`} />
-                                            <div className="serviceItem_info">
-                                                <h3 className='cursorPointer'>
-                                                    {service?.title}
-                                                </h3>
-                                            </div>
+                </div>
+                <div className="container">
+                    <div className="row mt-5 mb-3">
+                        {
+                            currData?.services?.map((service, idx) => (
+                                <div key={service?.id} className="col-lg-3 col-md-3 mb-5 position-relative overflow-hidden">
+                                    <div className="serviceItem_box position-relative" onClick={() => {
+                                        setIsVisible(isVisible.map((el, index) => idx === index ? true : false))
+                                    }}>
+                                        <img className='rounded' src={service?.image} alt={`icon-${service?.id}`} />
+                                        <div className="serviceItem_info">
+                                            <h3 className='cursorPointer'>
+                                                {service?.title}
+                                            </h3>
                                         </div>
                                         <div className={`hidden__content ${isVisible[idx] && 'visible__content'}`}>
                                             <span className='position-absolute'><i className="bi bi-x-circle cursorPointer" onClick={() => setIsVisible([false, false, false, false])}></i></span>
@@ -53,9 +53,9 @@ export default function MyHomeServices() {
                                             </ul>
                                         </div>
                                     </div>
-                                ))
-                            }
-                        </div>
+                                </div>
+                            ))
+                        }
                     </div>
                 </div>
             </div>
