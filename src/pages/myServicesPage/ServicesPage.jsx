@@ -34,7 +34,7 @@ export default function ServicesPage() {
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, fuga ipsum, explicabo ipsam consequuntur libero saepe iusto tempore vero earum ut amet aperiam porro ipsa molestiae sequi at sed. Magni?
                 </p>
             </div>
-            <MyServicesCards currData={currData} />
+            <MyServicesCards currData={currData?.services} />
             <MyPartnersSlider />
         </>
     );

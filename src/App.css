@@ -37,7 +37,7 @@
 }
 .requiredStar {
   color: #ff2020;
-  font-size: 18px;
+  font-size: 18px !important;
 }
 .mainTextColor {
   color: var(--main-blue-color-text);
@@ -161,4 +161,30 @@
 }
 .subService__item:hover i {
   color: #469338;
+}
+
+@media (max-width: 768px) {
+  .insightSectionHandler .col-lg-4 {
+    width: 60% !important;
+  }
+}
+@media (max-width: 700px) {
+  .insightSectionHandler .col-lg-4 {
+    width: 65% !important;
+  }
+}
+@media (max-width: 600px) {
+  .insightSectionHandler .col-lg-4 {
+    width: 75% !important;
+  }
+}
+@media (max-width: 500px) {
+  .insightSectionHandler .col-lg-4 {
+    width: 90% !important;
+  }
+}
+@media (max-width: 400px) {
+  .insightSectionHandler .col-lg-4 {
+    width: 100% !important;
+  }
 }

@@ -18,3 +18,25 @@
 .servicesIcons__handler .textContainer p {
     font-size: 12px;
 }
+@media (max-width: 1024px) {
+    .iconContainer {
+        padding-inline-end: 10px;
+        font-size: 35px;
+    }
+}
+@media (max-width: 991px) {
+    .gridContainerItem {
+        width: calc(100% / 3) !important;
+    }
+}
+@media (max-width: 768px) {
+    .iconContainer {
+        font-size: 25px;
+    }
+    .gridContainerItem{
+        width: 100% !important;
+    }
+    .gridContainerItem:not(:last-child){
+        margin-bottom: 20px;
+    }
+}

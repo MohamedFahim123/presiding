@@ -7,7 +7,7 @@ import { scrollToTop } from '../../functions/scrollToTop';
 import main_logo from '../../assets/logos/presiding-nav-logo.png'
 import PropTypes from 'prop-types';
 
-export default function MyNavBar({scrollToggle}) {
+export default function MyNavBar({ scrollToggle }) {
     const [showOffcanvas, setShowOffcanvas] = useState(false);
 
     function handleOffcanvasToggle() {
@@ -84,19 +84,18 @@ export default function MyNavBar({scrollToggle}) {
                             </NavLink>
                         </Nav>
                         <Nav>
-                        <>
-                            <NavLink
-                                onClick={() => {
-                                    scrollToTop();
-                                }}
-                                aria-label="Close"
-                                className={`nav-link nav__link__style sign__up__btn`}
-                                to={`/client-portal`}
-                            >
-                                CLIENT PORTAL
-                            </NavLink>
-                                        
-                        </>
+                            <>
+                                <NavLink
+                                    onClick={() => {
+                                        scrollToTop();
+                                    }}
+                                    aria-label="Close"
+                                    className={`nav-link nav__link__style sign__up__btn`}
+                                    to={`/client-portal`}
+                                >
+                                    CLIENT PORTAL
+                                </NavLink>
+                            </>
                         </Nav>
                     </Navbar.Collapse>
                     {/* end navbar min-width 992px */}
@@ -110,7 +109,7 @@ export default function MyNavBar({scrollToggle}) {
                             <Offcanvas.Title className='offCanvas__head' id="offcanvasNavbarLabel">
                                 <NavLink className='logo__text' to={`/`}>
                                     <>
-                                        ReachMag<span className='letter__color'>n</span>et
+                                        <img src={main_logo} alt="main-logo" />
                                     </>
                                 </NavLink>
                             </Offcanvas.Title>
@@ -170,7 +169,7 @@ export default function MyNavBar({scrollToggle}) {
                                 >
                                     About
                                 </NavLink>
-                                
+
                                 <>
                                     <NavLink
                                         onClick={() => {

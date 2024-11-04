@@ -20,7 +20,7 @@ export default function MyHomeServices() {
             style={{ margin: '0 auto' }}
         >
             <div className='myHomeServices__handler'>
-                <div className="servicesItem__handler ">
+                <div className="servicesItem__handler">
                     <>
                         <MyMainHeader
                             secHead='OUR services'
@@ -34,7 +34,7 @@ export default function MyHomeServices() {
                         {
                             currData?.services?.map((service, idx) => (
                                 <div key={service?.id} className="col-lg-3 col-md-3 mb-5 position-relative overflow-hidden">
-                                    <div className="serviceItem_box position-relative" onClick={() => {
+                                    <div className="serviceItem_box" onClick={() => {
                                         setIsVisible(isVisible.map((el, index) => idx === index ? true : false))
                                     }}>
                                         <img className='rounded' src={service?.image} alt={`icon-${service?.id}`} />
@@ -43,15 +43,15 @@ export default function MyHomeServices() {
                                                 {service?.title}
                                             </h3>
                                         </div>
-                                        <div className={`hidden__content ${isVisible[idx] && 'visible__content'}`}>
-                                            <span className='position-absolute'><i className="bi bi-x-circle cursorPointer" onClick={() => setIsVisible([false, false, false, false])}></i></span>
-                                            <h5>Sub Services</h5>
-                                            <ul>
-                                                <li className='subService__item'><i className="bi bi-arrow-right-circle-fill"></i> sub serv1</li>
-                                                <li className='subService__item'><i className="bi bi-arrow-right-circle-fill"></i> sub serv2</li>
-                                                <li className='subService__item'><i className="bi bi-arrow-right-circle-fill"></i> sub serv3</li>
-                                            </ul>
-                                        </div>
+                                    </div>
+                                    <div className={`hidden__content ${isVisible[idx] && 'visible__content'}`}>
+                                        <span className='position-absolute'><i className="bi bi-x-circle cursorPointer" onClick={() => setIsVisible([false, false, false, false])}></i></span>
+                                        <h5>Sub Services</h5>
+                                        <ul>
+                                            <li className='subService__item'><i className="bi bi-arrow-right-circle-fill"></i> sub serv1</li>
+                                            <li className='subService__item'><i className="bi bi-arrow-right-circle-fill"></i> sub serv2</li>
+                                            <li className='subService__item'><i className="bi bi-arrow-right-circle-fill"></i> sub serv3</li>
+                                        </ul>
                                     </div>
                                 </div>
                             ))

@@ -6,9 +6,9 @@ export default function CareerJobDetails({ jobDetails }) {
             <div className={`${styles.careerJobDetails_handler}`}>
                 <div className="container">
                     <div className="row">
-                        <div className="co-12">
-                            <ul className={`${styles.JobDetails_action}`}>
-                                <li className={`${styles.mainInfoJob}`}>
+                        <div className="col-12">
+                            <ul className={`row mb-5`}>
+                                <li className={`${styles.mainInfoJob} col-lg-4 text-center`}>
                                     <h3>
                                         Experience
                                     </h3>
@@ -16,7 +16,7 @@ export default function CareerJobDetails({ jobDetails }) {
                                         {jobDetails?.years_of_experience}
                                     </p>
                                 </li>
-                                <li className={`${styles.mainInfoJob}`}>
+                                <li className={`${styles.mainInfoJob} col-lg-4 text-center`}>
                                     <h3>
                                         Career Level
                                     </h3>
@@ -24,7 +24,7 @@ export default function CareerJobDetails({ jobDetails }) {
                                         {jobDetails?.managment_level}
                                     </p>
                                 </li>
-                                <li className={`${styles.mainInfoJob}`}>
+                                <li className={`${styles.mainInfoJob} col-lg-4 text-center`}>
                                     <h3>
                                         Employment Type
                                     </h3>

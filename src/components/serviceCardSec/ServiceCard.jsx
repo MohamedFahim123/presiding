@@ -6,7 +6,7 @@ import defaultImage from '../../assets/insightsPage/c100949ed0aa8c7afea6638c9a97
 export default function ServiceCard({ service , index}) {
     return (
         <div className={`${styles.serviceCard__handler} row mb-0 align-items-center`}>
-            <div className={`col-md-6 px-0 ${((index % 2) === 0) ? 'order-0' : 'order-1'}`}>
+            <div className={`col-md-6 px-0 ${styles.imgContainer} ${((index % 2) === 0) ? 'order-0' : 'order-1'}`}>
                 <img src={defaultImage} alt={service?.title} />
             </div>
             <div className={`col-md-6 ps-5 ${styles.cardInfo} ${((index % 2) === 0) ? 'order-1' : 'order-0'}`}>

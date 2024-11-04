@@ -9,7 +9,6 @@ import MyLoader from "../../components/myLoaderSec/MyLoader";
 export default function SubServicesPage() {
     const { subService } = useParams();
     const [currData, loading] = useFetch(`${baseUrl}/show-sub-service/${subService}`);
-    console.log(currData)
 
     if (loading) {
         return <MyLoader />;
@@ -18,7 +17,7 @@ export default function SubServicesPage() {
     return (
         <>
             <MyHeroImage title={`${currData?.subService?.title}`} bgImage={bgImage} />
-            <MySubServices currData={currData} />
+            <MySubServices currData={currData?.subService} />
         </>
     );
 };

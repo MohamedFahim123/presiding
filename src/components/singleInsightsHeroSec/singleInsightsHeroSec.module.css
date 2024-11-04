@@ -1,19 +1,10 @@
 .singleInsight__heroSec {
-    height: 70vh;
+    height: 80vh;
     background: #022E54;
 }
-
 .text__container {
     max-width: 370px;
     margin-top: 20px;
-}
-.text__container p {
-    color: #469338;
-    font-weight: 700;
-    line-height: 30px;
-    letter-spacing: 3.2px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
 }
 .text__container h1 {
     color: #FFF;
@@ -69,11 +60,11 @@
 }
 .imgContainer {
     transform: translateX(140px);
-    /* margin-inline-start: auto; */
     background-image: url('../../assets/insightsPage/SingleInsighsHeroSec.jpeg');
     background-position: center;
     height: 100%;
-    width: 450px !important;
+    width: 550px !important;
+    background-size: contain;
     background-repeat: no-repeat;
     position: relative;
     z-index: 2;
@@ -86,4 +77,44 @@
     height: 100%;
     width: 100%;
     background-color: rgba(8, 59, 103, 0.239);
+}
+@media (max-width: 1200px) {
+    .imgContainer {
+        transform: translateX(0px);
+        width: 600px !important;
+    }
+}
+@media (max-width: 991px) {
+    .singleInsight__heroSec{
+        height: 50vh;
+    }
+    .imgContainer {
+        display: none;
+    }
+}
+@media (max-width: 768px) {
+    .text__container {
+        margin: 40px auto 0 !important;
+    }
+    .text__container h1 {
+        font-size: 30px;
+    }
+    .btnContainer .veiwBtn {
+        font-size: 15px;
+        width: 90%;
+        padding: 15px;
+    }
+    .btnContainer .downloadBtn {
+        font-size: 15px;
+        width: 90%;
+        padding: 15px;
+    }
+}
+@media (max-width: 600px) {
+    .text__container {
+        margin: 40px 0 !important;
+    }
+    .text__container h1 {
+        font-size: 25px;
+    }
 }

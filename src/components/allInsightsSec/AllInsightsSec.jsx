@@ -3,12 +3,12 @@ import InsightsMainCard from '../insightsMainCard/InsightsMainCard';
 
 export default function AllInsightsSec({currData}) {
     return (
-        <div className="section__handler sectionBgLight">
+        <div className="section__handler sectionBgLight insightSectionHandler">
             <div className="container">
                 <div className="row justify-content-center">
                     {
                         currData?.blogs?.map(insight => (
-                            <div key={insight?.id} className="col-md-4">
+                            <div key={insight?.id} className="col-lg-4 col-md-6">
                                 <InsightsMainCard
                                     insight={insight}
                                 />
@@ -22,4 +22,4 @@ export default function AllInsightsSec({currData}) {
 };
 AllInsightsSec.propTypes = {
     currData: PropTypes.any,
-}
+};

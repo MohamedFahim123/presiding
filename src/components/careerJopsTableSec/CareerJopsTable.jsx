@@ -5,8 +5,6 @@ import PropTypes from 'prop-types';
 export default function CareerJopsTable({currData}) {
     const navigate = useNavigate();
 
-    console.log(currData)
-
     return (
         <div className={`${styles.careerJopsTable__handler}`}>
             <div className="container">
@@ -22,15 +20,15 @@ export default function CareerJopsTable({currData}) {
                                         <th className={` ${styles.jopTitle}`}>
                                             job Title
                                         </th>
-                                        <th className=''>Employment Type</th>
-                                        <th className=''>job Type</th>
-                                        <th className=''>Location</th>
-                                        <th className=''>Experience Level</th>
+                                        <th>job Type</th>
+                                        <th>Employment Type</th>
+                                        <th>Location</th>
+                                        <th>Experience Level</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {currData?.jobs?.map((row, index) => (
+                                    {currData?.map((row, index) => (
                                         <tr className={`${styles.table__Body}`} key={index}>
                                             <td title={row?.title} className={`${styles.BodyJopTit}`}>
                                                 <NavLink to={`job-Details/${row?.id}`} className={'nav-link'}>

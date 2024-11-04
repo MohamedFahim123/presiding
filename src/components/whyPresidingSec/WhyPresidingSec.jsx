@@ -17,7 +17,7 @@ export default function WhyPresidingSec({ heading, paraOne, paraTwo }) {
                             {paraTwo ? paraTwo : ''}
                         </p>
                     </div>
-                    <div className="col-lg-3 d-flex justify-content-end">
+                    <div className="col-lg-3 d-none d-lg-block d-flex justify-content-end">
                         <img src={logoImg} className={`${styles.whyPresidingImage}`} alt={'Logo Image'} />
                     </div>
                 </div>

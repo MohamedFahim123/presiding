@@ -3,13 +3,13 @@
     position: relative;
     display: flex;
     align-items: flex-end;
-    min-height: 400px;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     transition: all 0.4s ease-in-out;
     cursor: pointer;
+    min-height: 400px;
     margin-bottom: 30px;
 }
 .insightsCard__body {
@@ -52,4 +52,19 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+}
+@media (max-width: 768px) {
+    .isnightsCard {
+        min-height: 380px;
+    }
+}
+@media (max-width: 600px) {
+    .isnightsCard {
+        min-height: 370px;
+    }
+}
+@media (max-width: 500px) {
+    .isnightsCard {
+        min-height: 370px;
+    }
 }

@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import styles from './myHeroImage.module.css';
 import { NavLink, useNavigate } from 'react-router-dom';
+import { memo } from 'react';
 
-export default function MyHeroImage({ btnNavigation, backGroundOverLoay, itemsPosition, title, subTit, actions, btnName, linkName, linkDistenation, bgImage, bgPosition, height }) {
+function MyHeroImage({ btnNavigation, backGroundOverLoay, itemsPosition, title, subTit, actions, btnName, linkName, linkDistenation, bgImage, bgPosition, height }) {
     const navigate = useNavigate();
     return (
         <div className={`${styles.heroImage__handler}`} style={bgImage && { backgroundImage: `url(${bgImage})`, backgroundSize: 'cover', backgroundPosition: bgPosition ? bgPosition : 'top', alignItems: itemsPosition ? itemsPosition : 'end', height: height ? height : '60vh' }}>
@@ -52,3 +53,4 @@ MyHeroImage.propTypes = {
     height: PropTypes.string,
     backGroundOverLoay: PropTypes.string,
 };
+export default memo(MyHeroImage);

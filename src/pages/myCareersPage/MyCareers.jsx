@@ -34,7 +34,7 @@ export default function MyCareers() {
         paraTwo={'Whether you are looking to raise finance, improve M&A post deal integration, model extraction revenues or benchmark key engineers pay, we have experienced teams able to work for the duration of the project lifecycle, and beyond.'}
       />
       <InternShipSec />
-      <CareerJopsTable currData={currData} />
+      <CareerJopsTable currData={currData?.jobs} />
     </>
   );
 };

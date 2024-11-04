@@ -25,3 +25,16 @@
     height: 1px;
     background-color: #022E54;
 }
+
+@media (max-width: 768px) {
+    .breakingLine::after {
+        display: none;
+    }
+    .breakingLine::before {
+        display: none;
+    }
+    .breakingLine {
+        padding-top: 20px;
+        border-top: 1px solid #022E54;
+    }
+}

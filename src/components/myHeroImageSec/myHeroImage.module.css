@@ -64,3 +64,48 @@
     text-decoration: underline;
     font-weight: 300;
 }
+
+@media (max-width: 1024px) {
+    .heroImage__handler {
+        height: 60vh !important;
+    }
+}
+@media (max-width: 991px) {
+    .heroImage__text h2{ 
+        font-size: 30px;
+    }
+    .heroImage__text p{
+        font-size: 16px;
+    }
+    .heroImage__actions button{
+        font-size: 14px;
+    }
+    .heroImage__actions h5{
+        font-size: 16px;
+    }
+}
+@media (max-width: 768px) {
+    .heroImage__handler {
+        height: 40vh !important;
+    }
+    .heroImage__text h2{ 
+        font-size: 25px;
+    }
+    .heroImage__text p{
+        font-size: 15px;
+    }
+    .heroImage__actions button{
+        font-size: 13px;
+    }
+    .heroImage__actions h5{
+        font-size: 14px;
+    }
+}
+@media (max-width: 600px) {
+    .heroImage__text h2{ 
+        font-size: 20px;
+    }
+    .heroImage__text p{
+        font-size: 14px;
+    }
+}

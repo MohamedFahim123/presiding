@@ -7,3 +7,8 @@
 .myServicesCards__handler p {
     color: #ffffff !important;
 }
+@media (max-width: 767px) {
+    .myServicesCards__handler {
+        background: #ffffff !important;
+    };
+}

@@ -24,7 +24,7 @@ export default function SingleInsightsHeroSec({ bgImage, title, attachment }) {
                             </div>
                         </div>
                     </div>
-                    <div className={`col-md-6 px-0`}>
+                    <div className={`col-md-6 px-0 d-none d-md-block`}>
                         <div className={`${styles.imgContainer} w-100`} style={{ backgroundImage: `url(${bgImage ? bgImage : ''})`, backgroundSize: 'cover' }}></div>
                     </div>
                 </div>
