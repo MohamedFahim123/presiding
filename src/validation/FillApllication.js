@@ -26,4 +26,5 @@ export const FillApplicationFormShema = z.object({
     portfolio_file: z.any(),
     portfolio_link: z.any(),
     industry_id: z.any(),
+    year_exp_id: z.string().min(1, {message: 'Required'}),
 });

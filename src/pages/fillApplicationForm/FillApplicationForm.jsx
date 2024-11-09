@@ -33,6 +33,7 @@ export default function FillApplicationForm() {
             email: '',
             phone: '',
             phone_code: '',
+            position: '',
             linkedin_url: '',
             country_id: '',
             city_id: '',
@@ -54,13 +55,13 @@ export default function FillApplicationForm() {
             languages: '',
             cv: '',
             availability_id: '',
-
+            year_exp_id: '',
             primary_expertise_id: '',
-            // portfolio_file: '',
-            // portfolio_link: '',
             skills_id: '',
             project_type_id: '',
             willingness_to_travel: '',
+            // portfolio_file: '',
+            // portfolio_link: '',
         },
         resolver: zodResolver(FillApplicationFormShema),
     });
@@ -79,6 +80,7 @@ export default function FillApplicationForm() {
     const primaryExpLoading = usePrimaryExpStore(state => state.primaryExpLoading);
     const projectTypesLoading = useProjectTypesStore(state => state.projectTypesLoading);
     const skillsLoading = useSkillsStore(state => state.skillsLoading);
+    const yearsOfExp = useYearsOfExpStore((state) => state.yearsOfExp);
     const yearsOfExpLoading = useYearsOfExpStore(state => state.yearsOfExpLoading);
     // const [typeOfPortFolio, setTypeOfPortFolio] = useState('');
     // const [portFolioLinks, setPortFolioLinks] = useState([]);
@@ -144,25 +146,27 @@ export default function FillApplicationForm() {
     useEffect(() => {
         setValue('willingness_to_travel', travelWills);
     }, [travelWills]);
-    // useEffect(() => {
-    //     setValue('industry_id', industriesFeilds?.map(el => el?.value));
-    // }, [industriesFeilds]);
     useEffect(() => {
         setValue('skills_id', skillsFields?.map(el => el?.value));
     }, [skillsFields]);
+    // useEffect(() => {
+    //     setValue('industry_id', industriesFeilds?.map(el => el?.value));
+    // }, [industriesFeilds]);
     // useEffect(() => {
     //     setValue('portfolio_link', portFolioLinks);
     // }, [portFolioLinks]);
 
     const formSelects = [
         {
-            options: availabilities, error: errors?.availability_id?.message, name: 'availability_id', labelName: 'Availability', id: 'applyForAJobavailability_id'
+            options: yearsOfExp, error: errors?.year_exp_id?.message, name: 'year_exp_id', labelName: 'Years Of Experience', id: 'fillApplicationFormyear_exp_id'
         },
         {
             options: primaryExp, error: errors?.primary_expertise_id?.message, name: 'primary_expertise_id', labelName: 'Primary Expertise', id: 'fillApplicationFormprimary_expertise_id'
-        }
+        },
+        {
+            options: availabilities, error: errors?.availability_id?.message, name: 'availability_id', labelName: 'Availability', id: 'applyForAJobavailability_id'
+        },
     ];
-
 
     const onSubmit = async (data) => {
         const toastId = toast.loading('loading...');
@@ -226,9 +230,19 @@ export default function FillApplicationForm() {
                         <div className="col-12 mb-4">
                             <h1 className="my-4 mainTextColor">Application Form</h1>
                         </div>
-                        <PersonalInformationInputs watch={watch} citizenships={citizenships} errors={errors} register={register} countries={countries} />
+                        <PersonalInformationInputs isFillForm={true} watch={watch} citizenships={citizenships} errors={errors} register={register} countries={countries} />
                         <EducationInformationInputs register={register} errors={errors} />
                         <ProfessionalExperienceInputs control={control} register={register} />
+                        <CustomCrudFields
+                            error={errors?.skills_id}
+                            fields={skillsFields}
+                            options={skills}
+                            setFields={setSkillsFields}
+                            handleAddField={handleAddField}
+                            handleDeleteField={handleDeleteField}
+                            handleInputChange={handleInputChange}
+                            labelName={'Skill'}
+                        />
                         <LanguageFeild langs={langs} setValue={setValue} handleAddField={handleAddField} handleDeleteField={handleDeleteField} handleInputChange={handleInputChange} errors={errors} />
                         <AttachMentsInputs fillFrom={true} errors={errors} register={register} />
                         {
@@ -239,7 +253,7 @@ export default function FillApplicationForm() {
                             ))
                         }
                         <div className="col-lg-8 my-2">
-                            <label className="fs-5 text-capitalize mt-4 mb-2">Preferred Employment Type <span className="requiredStar">*</span></label>
+                            <label className="fs-5 text-capitalize mt-4 mb-2 fw-bold">Preferred Employment Type <span className="requiredStar">*</span></label>
                             <div className="row">
                                 {
                                     projectTypes?.map((type) => (
@@ -259,16 +273,6 @@ export default function FillApplicationForm() {
                                 }
                             </div>
                         </div>
-                        <CustomCrudFields
-                            error={errors?.skills_id}
-                            fields={skillsFields}
-                            options={skills}
-                            setFields={setSkillsFields}
-                            handleAddField={handleAddField}
-                            handleDeleteField={handleDeleteField}
-                            handleInputChange={handleInputChange}
-                            labelName={'Skill'}
-                        />
                         <div className="col-lg-8 my-2">
                             <label className="mb-3">Willing To Travel <span className="requiredStar">*</span></label>
                             <div className="form-check mb-2">

@@ -5,24 +5,39 @@ import { getDataFromApi } from "../../functions/getDataFromApi";
 import { useEffect, useState } from "react";
 import { baseUrl } from "../../functions/baseUrl";
 
-export default function PersonalInformationInputs({ errors, watch, register, countries, citizenships }) {
+export default function PersonalInformationInputs({ isFillForm, errors, watch, register, countries, citizenships }) {
     const [cities, setCities] = useState([]);
-    const [loading,setLoading] = useState(false);
-    const [error ,setError] = useState(null);
-    const formTextInputs = [
-        {
-            error: errors?.full_name?.message, type: 'text', placeholder: 'Full Name', name: 'full_name', lableName: 'Full Name', id: 'applyForAJobFullName'
-        },
-        {
-            error: errors?.email?.message, type: 'email', placeholder: 'Example@gmail.com', name: 'email', lableName: 'Email', id: 'applyForAJobEmail'
-        },
-        {
-            error: errors?.company?.message, type: 'text', placeholder: 'Enter Your Company Name', name: 'company', lableName: 'Company Name', id: 'applyForAJobCompany'
-        },
-        {
-            error: errors?.linkedin_url?.message, type: 'text', placeholder: 'Enter Linkedin Url', name: 'linkedin_url', lableName: 'Linkedin Url', id: 'applyForAJoblinkedin_url'
-        },
-    ];
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const formTextInputs = isFillForm ?
+        [
+            {
+                error: errors?.full_name?.message, type: 'text', placeholder: 'Full Name', name: 'full_name', lableName: 'Full Name', id: 'applyForAJobFullName'
+            },
+            {
+                error: errors?.email?.message, type: 'email', placeholder: 'Example@gmail.com', name: 'email', lableName: 'Email', id: 'applyForAJobEmail'
+            },
+            {
+                error: errors?.position?.message, type: 'text', placeholder: 'Enter Your position Name', name: 'position', lableName: 'position Name', id: 'applyForAJobposition'
+            },
+            {
+                error: errors?.linkedin_url?.message, type: 'text', placeholder: 'Enter Linkedin Url', name: 'linkedin_url', lableName: 'Linkedin Url', id: 'applyForAJoblinkedin_url'
+            },
+        ]
+        :
+        [
+            {
+                error: errors?.full_name?.message, type: 'text', placeholder: 'Full Name', name: 'full_name', lableName: 'Full Name', id: 'applyForAJobFullName'
+            },
+            {
+                error: errors?.email?.message, type: 'email', placeholder: 'Example@gmail.com', name: 'email', lableName: 'Email', id: 'applyForAJobEmail'
+            },
+            {
+                error: errors?.linkedin_url?.message, type: 'text', placeholder: 'Enter Linkedin Url', name: 'linkedin_url', lableName: 'Linkedin Url', id: 'applyForAJoblinkedin_url'
+            },
+        ];
+
+
     const formSelectInputs = [
         {
             options: citizenships, error: errors?.citizenship_id?.message, name: 'citizenship_id', labelName: 'Nationality', id: 'applyForAJobCitizenShip_id'
@@ -34,13 +49,13 @@ export default function PersonalInformationInputs({ errors, watch, register, cou
 
     useEffect(() => {
         if (watch('country_id')) {
-            getDataFromApi(`${baseUrl}/countries/${watch('country_id')}`, setCities,setLoading,setError);
+            getDataFromApi(`${baseUrl}/countries/${watch('country_id')}`, setCities, setLoading, setError);
         };
     }, [watch('country_id')]);
 
-    if (loading) {''};
+    if (loading) { '' };
 
-    if (error) {''};
+    if (error) { '' };
 
     return (
         <>
@@ -146,12 +161,13 @@ export default function PersonalInformationInputs({ errors, watch, register, cou
                 ))
             }
         </>
-    )
-}
+    );
+};
 PersonalInformationInputs.propTypes = {
     errors: PropTypes.object.isRequired,
     register: PropTypes.any,
     countries: PropTypes.array,
     citizenships: PropTypes.array,
     watch: PropTypes.any,
-}
+    isFillForm: PropTypes.bool.isRequired,
+};

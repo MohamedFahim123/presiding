@@ -4,7 +4,9 @@ export default function AttachMentsInputs({ register, errors, fillFrom }) {
     return (
         <>
             <h3 className="my-3">
-                Attachments
+                {
+                    fillFrom ? 'Extra Informations' : 'Attachments'
+                }
             </h3>
             <div className="col-lg-8 my-2">
                 <label className='text-capitalize mb-1' htmlFor={'applyForAJobCVFile'}>Your CV <span className="requiredStar">*</span></label>

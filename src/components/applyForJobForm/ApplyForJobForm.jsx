@@ -153,7 +153,7 @@ export default function ApplyForJobForm({ jobId }) {
         <div className="form__handler py-5 ">
             <div className="container">
                 <form onSubmit={handleSubmit(onSubmit)} className="row">
-                    <PersonalInformationInputs watch={watch} citizenships={citizenships} errors={errors} register={register} countries={countries} />
+                    <PersonalInformationInputs isFillForm={false} watch={watch} citizenships={citizenships} errors={errors} register={register} countries={countries} />
                     <EducationInformationInputs register={register} errors={errors} />
                     <ProfessionalExperienceInputs control={control} register={register} />
                     <LanguageFeild langs={langs} setValue={setValue} handleAddField={handleAddField} handleDeleteField={handleDeleteField} handleInputChange={handleInputChange} errors={errors} />
