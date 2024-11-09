@@ -4,12 +4,14 @@ import { useFetch } from '../../hooks/useFetch';
 import { baseUrl } from '../../functions/baseUrl';
 import { useRef, useState } from 'react';
 import { motion, useInView } from "framer-motion";
+import { useNavigate } from 'react-router-dom';
 
 export default function MyHomeServices() {
     const [currData] = useFetch(`${baseUrl}/home-services`);
     const scrollRef = useRef(null);
     const isInView = useInView(scrollRef, { once: true });
     const [isVisible, setIsVisible] = useState([false, false, false, false]);
+    const navigate = useNavigate()
 
     return (
         <motion.div
@@ -35,7 +37,7 @@ export default function MyHomeServices() {
                             currData?.services?.map((service, idx) => (
                                 <div key={service?.id} className="col-lg-3 col-md-3 mb-5 position-relative overflow-hidden">
                                     <div className="serviceItem_box" onClick={() => {
-                                        setIsVisible(isVisible.map((el, index) => idx === index ? true : false))
+                                        setIsVisible(isVisible.map((_, index) => idx === index ? true : false))
                                     }}>
                                         <img className='rounded' src={service?.image} alt={`icon-${service?.id}`} />
                                         <div className="serviceItem_info">
@@ -46,11 +48,12 @@ export default function MyHomeServices() {
                                     </div>
                                     <div className={`hidden__content ${isVisible[idx] && 'visible__content'}`}>
                                         <span className='position-absolute'><i className="bi bi-x-circle cursorPointer" onClick={() => setIsVisible([false, false, false, false])}></i></span>
-                                        <h5>Sub Services</h5>
                                         <ul>
-                                            <li className='subService__item'><i className="bi bi-arrow-right-circle-fill"></i> sub serv1</li>
-                                            <li className='subService__item'><i className="bi bi-arrow-right-circle-fill"></i> sub serv2</li>
-                                            <li className='subService__item'><i className="bi bi-arrow-right-circle-fill"></i> sub serv3</li>
+                                            {
+                                                service?.subServices?.map((subService) => (
+                                                    <li onClick={()=> navigate(`/services/${subService?.id}`)} key={subService?.id} className='subService__item'><i className="bi bi-arrow-right-circle-fill"></i> {subService?.title}</li>
+                                                ))
+                                            }
                                         </ul>
                                     </div>
                                 </div>

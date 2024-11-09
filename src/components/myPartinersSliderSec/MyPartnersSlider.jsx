@@ -11,13 +11,16 @@ export default function MyPartnersSlider() {
 
     return (
         <div className="myPartener__slider__handler">
-            <div className="row myPartener__slider">
-                <div className="col-12">
+            <div className="myPartener__slider">
+                <h3 className="ms-4 ps-3 mb-5">
+                    Our Clients
+                </h3>
+                <div    >
                     <Swiper
                         className='mySwiper'
                         modules={[Autoplay]}
                         autoplay={{
-                            delay: 2500,
+                            delay: 4500,
                             pauseOnMouseEnter: true,
                             disableOnInteraction: false
                         }}

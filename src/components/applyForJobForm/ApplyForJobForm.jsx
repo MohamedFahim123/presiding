@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { ApplyForJobShema } from "../../validation/ApplyForJobSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useCitizenShipStore } from "../../store/useCitizenShipStore";
-import { useYearsOfExpStore } from "../../store/useYearsOfExpStore";
 import { useAvailabilitiesStore } from "../../store/useAvailabilitiesStore";
 import { useLangStore } from "../../store/useLangStore";
 import CustomSelect from "../../custom/CustomSelect";
@@ -16,6 +15,7 @@ import EducationInformationInputs from "../EducationInformationInputs/EducationI
 import ProfessionalExperienceInputs from "../ProfessionalExperienceInputs/ProfessionalExperienceInputs";
 import LanguageFeild from "../LanguageFeild/LanguageFeild";
 import AttachMentsInputs from "../AttachMentsInputs/AttachMentsInputs";
+import ApplyBtn from "../ApplyBtn/ApplyBtn";
 
 export default function ApplyForJobForm({ jobId }) {
     const { register, control, setValue, reset, watch, handleSubmit, formState: { errors, isSubmitting } } = useForm({
@@ -33,7 +33,6 @@ export default function ApplyForJobForm({ jobId }) {
             degree: '',
             university: '',
             graduate_year: '',
-            year_exp_id: '',
             professional_experience: [
                 {
                     position: '',
@@ -45,7 +44,7 @@ export default function ApplyForJobForm({ jobId }) {
             ],
             languages: '',
             cv: '',
-            cover_letter: '?',
+            cover_letter: '',
             availability_id: '',
             expected_salary: '',
             visa: '',
@@ -53,7 +52,6 @@ export default function ApplyForJobForm({ jobId }) {
         resolver: zodResolver(ApplyForJobShema),
     });
     const citizenships = useCitizenShipStore((state) => state.citizenships);
-    const yearsOfExp = useYearsOfExpStore((state) => state.yearsOfExp);
     const availabilities = useAvailabilitiesStore((state) => state.availabilities);
     const countries = useCountriesStore((state) => state.countries);
     const langs = useLangStore((state) => state.langs);
@@ -157,9 +155,9 @@ export default function ApplyForJobForm({ jobId }) {
                 <form onSubmit={handleSubmit(onSubmit)} className="row">
                     <PersonalInformationInputs watch={watch} citizenships={citizenships} errors={errors} register={register} countries={countries} />
                     <EducationInformationInputs register={register} errors={errors} />
-                    <ProfessionalExperienceInputs control={control} register={register} errors={errors} yearsOfExp={yearsOfExp} />
+                    <ProfessionalExperienceInputs control={control} register={register} />
                     <LanguageFeild langs={langs} setValue={setValue} handleAddField={handleAddField} handleDeleteField={handleDeleteField} handleInputChange={handleInputChange} errors={errors} />
-                    <AttachMentsInputs errors={errors} register={register} />
+                    <AttachMentsInputs fillForm={false} errors={errors} register={register} />
                     <div className="col-md-8 my-2">
                         <label className={`text-capitalize mb-1`} htmlFor={'applyJobFormExpectedSalary'}>Expected Salary <span className="requiredStar">*</span></label>
                         <input
@@ -201,9 +199,7 @@ export default function ApplyForJobForm({ jobId }) {
                             </label>
                         </div>
                     </div>
-                    <div className="col-12 d-flex justify-content-center">
-                        <button disabled={isSubmitting} className="btn btn-outline-primary submitApplicationBtn py-2">Apply</button>
-                    </div>
+                    <ApplyBtn isSubmitting={isSubmitting} />
                 </form>
             </div>
         </div>

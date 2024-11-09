@@ -22,11 +22,11 @@ export default function IndustriesSlider() {
                         }}
                         breakpoints={{
                             300: {
-                                slidesPerView: 1.1,
+                                slidesPerView: 2.1,
                                 spaceBetween: 10
                             },
                             426: {
-                                slidesPerView: 1.2,
+                                slidesPerView: 2.2,
                                 spaceBetween: 20
                             },
                             600: {

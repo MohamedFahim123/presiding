@@ -20,8 +20,8 @@ export default function CareerJopsTable({currData}) {
                                         <th className={` ${styles.jopTitle}`}>
                                             job Title
                                         </th>
-                                        <th>job Type</th>
                                         <th>Employment Type</th>
+                                        {/* <th>job Type</th> */}
                                         <th>Location</th>
                                         <th>Experience Level</th>
                                         <th>Actions</th>
@@ -34,9 +34,6 @@ export default function CareerJopsTable({currData}) {
                                                 <NavLink to={`job-Details/${row?.id}`} className={'nav-link'}>
                                                     {row?.title}
                                                 </NavLink>
-                                            </td>
-                                            <td>
-                                                {}
                                             </td>
                                             <td title={row?.job_type}>
                                                 {row?.job_type}

@@ -6,7 +6,7 @@ import { useFetch } from '../../hooks/useFetch';
 import MyLoader from '../../components/myLoaderSec/MyLoader';
 import ServicesIconsSection from '../../components/servicesIconsSec/ServicesIconsSection';
 import styles from './servicesPage.module.css';
-import MyPartnersSlider from '../../components/myPartinersSliderSec/MyPartnersSlider';
+// import MyPartnersSlider from '../../components/myPartinersSliderSec/MyPartnersSlider';
 
 export default function ServicesPage() {
     const [currData, loading] = useFetch(`${baseUrl}/all-services`);
@@ -35,7 +35,7 @@ export default function ServicesPage() {
                 </p>
             </div>
             <MyServicesCards currData={currData?.services} />
-            <MyPartnersSlider />
+            {/* <MyPartnersSlider /> */}
         </>
     );
 };

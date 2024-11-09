@@ -21,14 +21,13 @@
     height: 62px;
 }
 .serviceItem_info h3{
-    padding: 0 0px 0 0 ;
     font-size: 20px;
     font-weight: 400;
     color: var(--main-dark-blue-color-text);
     margin-bottom: 15px;
 }
 .hidden__content {
-    padding: 20px;
+    padding: 10px 15px 20px;
     position: absolute;
     left: -100%;
     width: 90%;
@@ -39,6 +38,23 @@
     color: #f5f5f5;
     transition: all 0.5s ease-in-out;
     opacity: 0;
+    overflow-y: auto;
+}
+.hidden__content::-webkit-scrollbar {
+    width: 15px;
+    background-color: #f5f5f5;
+}
+.hidden__content::-webkit-scrollbar-track {
+    border-radius: 8px;
+    background-color: #f5f5f5;
+    margin: 2px;
+}
+.hidden__content::-webkit-scrollbar-thumb {
+    background-color: var(--main-blue-color-bg);
+    border-radius: 8px; 
+    width: 8px;
+    margin: 4px;
+    cursor: grab;
 }
 .visible__content {
     left: 5%;

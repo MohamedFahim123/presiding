@@ -19,6 +19,7 @@ import { useYearsOfExpStore } from '../../store/useYearsOfExpStore';
 import { usePrimaryExpStore } from '../../store/usePrimaryExpStore';
 import MyLoader from '../../components/myLoaderSec/MyLoader';
 import { useEffect, useState } from 'react';
+import MyPartnersSlider from '../../components/myPartinersSliderSec/MyPartnersSlider';
 
 export default function MyHome() {
     const availabilitiesLoading = useAvailabilitiesStore(state => state.availabilitiesLoading);
@@ -62,6 +63,7 @@ export default function MyHome() {
             <MyHomePodacast />
             <MyHomeOurMission />
             <MyHomeIndustries />
+            <MyPartnersSlider />
             <MyHomeInsights />
             <MyHomeJobs />
         </>
