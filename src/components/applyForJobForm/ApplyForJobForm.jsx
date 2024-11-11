@@ -146,6 +146,13 @@ export default function ApplyForJobForm({ jobId }) {
             })
             .catch(err => {
                 Object.keys(err?.response?.data?.errors).forEach((field) => {
+                    err?.response?.data?.errors[field]?.forEach((message) => {
+                        toast.error(message,{
+                            duration: 2000,
+                        });
+                    });
+                });
+                Object.keys(err?.response?.data?.errors).forEach((field) => {
                     setError(field, {
                         type: 'server',
                         message: err?.response?.data?.errors[field][0],

@@ -85,7 +85,6 @@ export default function FillApplicationForm() {
     // const [typeOfPortFolio, setTypeOfPortFolio] = useState('');
     // const [portFolioLinks, setPortFolioLinks] = useState([]);
     const [skillsFields, setSkillsFields] = useState([{ id: Date.now(), value: '' }]);
-
     const [checkedPreferredTypes, setcheckedPreferredTypes] = useState([]);
     const [travelWills, setTravelWills] = useState('no');
 
@@ -212,6 +211,13 @@ export default function FillApplicationForm() {
             })
             .catch(err => {
                 Object.keys(err?.response?.data?.errors).forEach((field) => {
+                    err?.response?.data?.errors[field]?.forEach((message) => {
+                        toast.error(message,{
+                            duration: 2000,
+                        });
+                    });
+                });
+                Object.keys(err?.response?.data?.errors).forEach((field) => {
                     setError(field, {
                         type: 'server',
                         message: err?.response?.data?.errors[field][0],
@@ -249,9 +255,9 @@ export default function FillApplicationForm() {
                         </div>
                         <PersonalInformationInputs isFillForm={true} watch={watch} citizenships={citizenships} errors={errors} register={register} countries={countries} />
                         <EducationInformationInputs register={register} errors={errors} />
-                        <ProfessionalExperienceInputs control={control} register={register} />
+                        <ProfessionalExperienceInputs errors={errors} control={control} register={register} />
                         <CustomCrudFields
-                            error={errors?.skills_id}
+                            error={errors?.skills_id?.message}
                             fields={skillsFields}
                             options={skills}
                             setFields={setSkillsFields}
@@ -311,7 +317,6 @@ export default function FillApplicationForm() {
                                 </label>
                             </div>
                         </div>
-
 
 
                         {/* <CustomCrudFields

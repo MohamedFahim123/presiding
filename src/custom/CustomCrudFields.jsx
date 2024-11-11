@@ -1,8 +1,6 @@
 import PropTypes from "prop-types";
 
 export default function CustomCrudFields({ error, fields, options, labelName, setFields, handleInputChange, handleDeleteField, handleAddField }) {
-    // const numbersNamesArr = ['First', 'Second', 'Third', 'Fourth', 'Fifth'];
-
     return (
         <>
             {fields?.map((field, index) => (
