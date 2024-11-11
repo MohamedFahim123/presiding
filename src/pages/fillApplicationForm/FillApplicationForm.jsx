@@ -27,14 +27,14 @@ import LanguageFeild from "../../components/LanguageFeild/LanguageFeild";
 import AttachMentsInputs from "../../components/AttachMentsInputs/AttachMentsInputs";
 
 export default function FillApplicationForm() {
-    const { register, control, setValue, watch, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm({
+    const { register, control, setError, setValue, watch, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm({
         defaultValues: {
             full_name: '',
             email: '',
             phone: '',
             phone_code: '',
             position: '',
-            linkedin_url: '',
+            linkedin_profile: '',
             country_id: '',
             city_id: '',
             citizenship_id: '',
@@ -48,7 +48,7 @@ export default function FillApplicationForm() {
                     position: '',
                     company: '',
                     start_date: '',
-                    end_data: '',
+                    end_date: '',
                     present: '',
                 }
             ],
@@ -95,7 +95,7 @@ export default function FillApplicationForm() {
                 id: Date.now(),
                 name: '',
                 value: '',
-                radioBtn: [{ value: 'Intrmediate' }, { value: 'Beginner' }, { value: 'Fluent' }]
+                radioBtn: [{ value: 'intrmediate' }, { value: 'beginner' }, { value: 'fluent' }]
             }
             : { id: Date.now(), name: '', value: '' };
         setFields([...fields, field]);
@@ -169,19 +169,31 @@ export default function FillApplicationForm() {
     ];
 
     const onSubmit = async (data) => {
+        console.log(data);
         const toastId = toast.loading('loading...');
         const formData = new FormData();
         Object.keys(data).forEach((key) => {
-            if (key !== 'portfolio_file' && key !== 'attachment' && !Array.isArray(data[key])) {
+            if (key === 'professional_experience') {
+                data.professional_experience.forEach((exp, index) => {
+                    formData.append(`professional_experience[${index}][position]`, exp.position);
+                    formData.append(`professional_experience[${index}][company]`, exp.company);
+                    formData.append(`professional_experience[${index}][start_date]`, exp.start_date);
+                    formData.append(`professional_experience[${index}][end_date]`, exp.end_date);
+                    formData.append(`professional_experience[${index}][present]`, exp.present ? 'yes' : 'no');
+                });
+            } else if (key === 'languages') {
+                data.languages.forEach((language, index) => {
+                    formData.append(`languages[${index}][languages_id]`, language.languages_id);
+                    formData.append(`languages[${index}][level]`, language.level);
+                });
+            } else if (key !== 'portfolio_file' && key !== 'cv' && !Array.isArray(data[key])) {
                 formData.append(key, data[key]);
-            } else if (key !== 'portfolio_file' && key !== 'attachment' && Array.isArray(data[key])) {
+            } else if (key !== 'portfolio_file' && key !== 'cv' && Array.isArray(data[key])) {
                 data[key].forEach((item, index) => {
                     formData.append(`${key}[${index}]`, item);
                 });
-            } else if (key === 'attachment' || key === 'portfolio_file') {
-                Array.from(data[key]).forEach((file, index) => {
-                    formData.append(`${key}[${index}]`, file);
-                });
+            } else if (key === 'cv' || key === 'portfolio_file') {
+                formData.append(`${key}`, data[key][0]);
             };
         });
         await axios.post(`${baseUrl}/fill-application`, formData, {
@@ -199,7 +211,12 @@ export default function FillApplicationForm() {
                 reset();
             })
             .catch(err => {
-                console.log(err?.response?.data)
+                Object.keys(err?.response?.data?.errors).forEach((field) => {
+                    setError(field, {
+                        type: 'server',
+                        message: err?.response?.data?.errors[field][0],
+                    });
+                });
                 toast.error(err?.response?.data?.message || 'Something Went Wrong please try Again', {
                     id: toastId,
                     duration: 1000,

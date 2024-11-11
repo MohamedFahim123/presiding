@@ -16,9 +16,10 @@ import ProfessionalExperienceInputs from "../ProfessionalExperienceInputs/Profes
 import LanguageFeild from "../LanguageFeild/LanguageFeild";
 import AttachMentsInputs from "../AttachMentsInputs/AttachMentsInputs";
 import ApplyBtn from "../ApplyBtn/ApplyBtn";
+import { VISATYPES } from "../../functions/VISATYPES";
 
 export default function ApplyForJobForm({ jobId }) {
-    const { register, control, setValue, reset, watch, handleSubmit, formState: { errors, isSubmitting } } = useForm({
+    const { register, control, setValue, setError, reset, watch, handleSubmit, formState: { errors, isSubmitting } } = useForm({
         defaultValues: {
             full_name: '',
             email: '',
@@ -59,6 +60,9 @@ export default function ApplyForJobForm({ jobId }) {
     const formSelects = [
         {
             options: availabilities, error: errors?.availability_id?.message, name: 'availability_id', labelName: 'Availability', id: 'applyForAJobavailability_id'
+        },
+        {
+            options: VISATYPES, error: errors?.visa?.message, name: 'visa', labelName: 'Visa Type', id: 'applyForAJobVisa'
         },
     ];
 
@@ -141,7 +145,12 @@ export default function ApplyForJobForm({ jobId }) {
                 reset();
             })
             .catch(err => {
-                console.log(err?.response?.data);
+                Object.keys(err?.response?.data?.errors).forEach((field) => {
+                    setError(field, {
+                        type: 'server',
+                        message: err?.response?.data?.errors[field][0],
+                    });
+                });
                 toast.error(err?.response?.data?.message || 'Something went Wrong!', {
                     id: toastId,
                     duration: 1000,
@@ -179,26 +188,6 @@ export default function ApplyForJobForm({ jobId }) {
                             </div>
                         ))
                     }
-                    <div className="col-lg-8 my-2">
-                        <div className="form-check mb-2">
-                            <input
-                                className="form-check-input cursorPointer"
-                                type="checkbox"
-                                defaultValue={''}
-                                id={`applyForAJobVisa`}
-                                onChange={(event) => {
-                                    if (event.target.checked === true) {
-                                        setValue('visa', 'yes');
-                                    } else {
-                                        setValue('visa', 'no');
-                                    };
-                                }}
-                            />
-                            <label className="form-check-label cursorPointer" htmlFor={`applyForAJobVisa`}>
-                                Do you have a Visa? <span className="requiredStar">*</span>
-                            </label>
-                        </div>
-                    </div>
                     <ApplyBtn isSubmitting={isSubmitting} />
                 </form>
             </div>

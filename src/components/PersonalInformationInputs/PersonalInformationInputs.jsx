@@ -21,7 +21,7 @@ export default function PersonalInformationInputs({ isFillForm, errors, watch, r
                 error: errors?.position?.message, type: 'text', placeholder: 'Enter Your position Name', name: 'position', lableName: 'position Name', id: 'applyForAJobposition'
             },
             {
-                error: errors?.linkedin_url?.message, type: 'text', placeholder: 'Enter Linkedin Url', name: 'linkedin_url', lableName: 'Linkedin Url', id: 'applyForAJoblinkedin_url'
+                error: errors?.linkedin_profile?.message, type: 'text', placeholder: 'Enter Linkedin Url', name: 'linkedin_profile', lableName: 'Linkedin Profile', id: 'applyForAJoblinkedin_url'
             },
         ]
         :

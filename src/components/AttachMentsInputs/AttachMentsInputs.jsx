@@ -45,5 +45,5 @@ export default function AttachMentsInputs({ register, errors, fillFrom }) {
 AttachMentsInputs.propTypes = {
     register: PropTypes.any.isRequired,
     errors: PropTypes.object,
-    fillFrom: PropTypes.boolean,
+    fillFrom: PropTypes.any,
 };

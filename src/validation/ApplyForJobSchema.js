@@ -11,7 +11,6 @@ export const ApplyForJobShema = z.object({
     linkedin_url: z.string().min(1, { message: 'Required' }),
     languages: z.any(),
     cv: z.any(),
-    company: z.string().min(1, { message: 'Company is Required' }),
     major: z.string().min(1, { message: 'Major is Required' }),
     university: z.string().min(1, { message: 'University is Required' }),
     phone_code: z.string().min(1, { message: 'Phone Code is Required' }),
