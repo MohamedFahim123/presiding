@@ -24,7 +24,7 @@ export default function MyHomePodacast() {
                     <div className="row">
                         <div className="col-lg-8 col-md-8 p-0 m-0">
                             <div className="podacastVideo__handler">
-                                <img src={videoCover} style={{objectFit: 'cover'}} alt="video-cover" />
+                                <img src={videoCover} style={{ objectFit: 'cover' }} alt="video-cover" />
                                 <div className="videoIcon_container cursorPointer" onClick={() => window.location.href = currData?.video_cover?.link}>
                                     <div className="viedo_icon">
                                         <i className="bi bi-play-fill"></i>
@@ -36,6 +36,35 @@ export default function MyHomePodacast() {
                             <div className="podacastInfo">
                                 <img src={videoInfo} alt="video-cover" />
                                 <div className="overflow"></div>
+                                <ul className="podacast__icons">
+                                    <li>
+                                        Presiding Facts
+                                    </li>
+                                    <li>
+                                        <i className='bi-clock-history'></i>
+                                        <span>
+                                            30+ years of experience
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <i className='bi-kanban'></i>
+                                        <span>
+                                            150+ projects
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <i className='bi-people'></i>
+                                        <span>
+                                            75+ clients
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <i className='bi-globe'></i>
+                                        <span>
+                                            5 Branches Globally
+                                        </span>
+                                    </li>
+                                </ul>
                                 <div className="podaInfo_text cursorPointer" onClick={() => window.location.href = currData?.video_cover?.link}>
                                     <h3>
                                         Podcast 01 <i className="bi bi-arrow-bar-right"></i>

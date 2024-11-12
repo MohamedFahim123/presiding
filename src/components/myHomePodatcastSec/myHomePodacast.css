@@ -92,7 +92,57 @@ z-index: 10;
 .podacastInfo .podaInfo_text h3 i{
     margin-inline-start: 10px;
 }
+.podacast__icons {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    padding: 20px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+}
+.podacast__icons li {
+    color: #fff;
+    font-size: 22px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+.podacast__icons li:first-child {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+.podacast__icons li i {
+    font-size: 30px;
+}
+.podacast__icons li span small {
+    font-size: 16px;
+}
+@media (max-width: 1024px) {
+    .podacast__icons li {
+        font-size: 20px;
+    }
+    .podacast__icons li:first-child {
+        font-size: 25px;
+    }
+    .podacast__icons li i {
+        font-size: 25px;
+    }
+}
 @media (max-width: 991px) {
+    .podacast__icons li {
+        font-size: 18px;
+    }
+    .podacast__icons li:first-child {
+        font-size: 22px;
+    }
+    .podacast__icons li i {
+        font-size: 22px;
+    }
     .podacastVideo__handler img{
         width: 100% ;
         height: 448px; 
@@ -103,6 +153,20 @@ z-index: 10;
     }
 }
 @media (max-width: 768px) {
+    .podacast__icons {
+        gap: 5px;
+    }
+    .podacast__icons li {
+        gap: 10px;
+        font-size: 14px;
+    }
+    .podacast__icons li:first-child {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+    .podacast__icons li i {
+        font-size: 18px;
+    }
     .podacastInfo .podaInfo_text h3{
         font-size: 16px;
     }
