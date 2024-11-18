@@ -18,7 +18,7 @@ export default function MyMainHeader({ secHead, secText ,secText2}) {
 }
 
 MyMainHeader.propTypes = {
-    secHead: PropTypes.string.isRequired,
+    secHead: PropTypes.string,
     secText: PropTypes.string.isRequired,
     secText2: PropTypes.string,
 }

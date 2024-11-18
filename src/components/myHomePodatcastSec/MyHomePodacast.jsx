@@ -11,6 +11,8 @@ export default function MyHomePodacast() {
     const scrollRef = useRef(null);
     const isInView = useInView(scrollRef, { once: true });
 
+    console.log(currData)
+
     return (
         <motion.div
             ref={scrollRef}
@@ -24,7 +26,7 @@ export default function MyHomePodacast() {
                     <div className="row">
                         <div className="col-lg-8 col-md-8 p-0 m-0">
                             <div className="podacastVideo__handler">
-                                <img src={videoCover} style={{ objectFit: 'cover' }} alt="video-cover" />
+                                <img src={currData?.video_cover?.image ? currData?.video_cover?.image : videoCover} style={{ objectFit: 'cover' }} alt="video-cover" />
                                 <div className="videoIcon_container cursorPointer" onClick={() => window.location.href = currData?.video_cover?.link}>
                                     <div className="viedo_icon">
                                         <i className="bi bi-play-fill"></i>
@@ -36,9 +38,11 @@ export default function MyHomePodacast() {
                             <div className="podacastInfo">
                                 <img src={videoInfo} alt="video-cover" />
                                 <div className="overflow"></div>
-                                <ul className="podacast__icons">
-                                    <li>
-                                        Presiding Facts
+                                <ul className="podacast__icons ps-4">
+                                    <li className='pt-3 mb-4'>
+                                        <span className='border-bottom'>
+                                            Presiding Facts
+                                        </span>
                                     </li>
                                     <li>
                                         <i className='bi-clock-history'></i>
@@ -67,10 +71,7 @@ export default function MyHomePodacast() {
                                 </ul>
                                 <div className="podaInfo_text cursorPointer" onClick={() => window.location.href = currData?.video_cover?.link}>
                                     <h3>
-                                        Podcast 01 <i className="bi bi-arrow-bar-right"></i>
-                                    </h3>
-                                    <h3>
-                                        Lorem ipsum dolor sit amet
+                                        Know More <i className="bi bi-arrow-bar-right"></i>
                                     </h3>
                                 </div>
                             </div>

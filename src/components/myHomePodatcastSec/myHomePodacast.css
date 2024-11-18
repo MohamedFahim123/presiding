@@ -73,7 +73,7 @@
     left: 0;
     bottom: 0;
     right: 0;
-    background: rgba(12, 35, 105, 0.562);
+    background: rgba(12, 35, 105, 0.85);
 z-index: 10;
 }
 .podacastInfo .podaInfo_text{
@@ -111,10 +111,10 @@ z-index: 10;
     gap: 20px;
     align-items: center;
     transition: all 0.3s ease-in-out;
+    margin-bottom: 15px;
 }
 .podacast__icons li:first-child {
     font-size: 30px;
-    margin-bottom: 10px;
 }
 .podacast__icons li i {
     font-size: 30px;

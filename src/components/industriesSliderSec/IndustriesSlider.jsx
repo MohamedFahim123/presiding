@@ -13,7 +13,7 @@ export default function IndustriesSlider() {
             <div className="row justify-content-center">
                 <div className="col-10">
                     <Swiper
-                        className='mySwiper '
+                        className='mySwiper cursorGrap'
                         modules={[Autoplay]}
                         autoplay={{
                             delay: 2500,

@@ -19,7 +19,7 @@ export default function MyHomeOurMission() {
                 <div className="container">
                     <div className="mission_header">
                         <MyMainHeader
-                            secHead='OUR MISSION'
+                            secHead='About Presiding'
                             secText='HELPING ENTITIES STAND OUT'
                         />
                     </div>
@@ -28,11 +28,10 @@ export default function MyHomeOurMission() {
                             <div className="missionInfo__handler">
                                 <div className="missionInfo_text">
                                     <p className='mb-3'>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non lacus vehicula, maximus lorem malesuada, condimentum felis. Praesent posuere quam a rutrum dignissim.
+                                        Presiding Solutions stands as a trusted partner for clients seeking to elevate their business performance and achieve transformative results. Our unwavering commitment to quality, professionalism, and client-focused service has established us as a leader in the consultancy industry.
                                     </p>
                                     <p>
-                                        Pellentesque dolor sapien, lobortis vel pulvinar rhoncus, auctor consectetur dolor. Aliquam eget velit vel massa ornare tincidunt. Nunc sagittis in urna quis sagittis. Morbi dignissim eleifend orci a iaculis. Proin nunc justo, dictum vitae ante ut, accumsan tristique tellus. In lectus velit, dictum ut pretium non, placerat nec ante.
-                                        Duis congue mauris ac nibh congue tristique. Aenean eget felis faucibus neque placerat volutpat. Ut nec risus consectetur, elementum enim a, malesuada sapien. Praesent scelerisque ligula ac orci ultrices semper. Nunc fringilla nulla ut tellus pharetra facilisis nec rhoncus ipsum. Nam lacus augue, suscipit eget dui eu.
+                                        By combining deep expertise across Finance, Management, CSR, Oil & Gas, and Training Services, we deliver tailored solutions that meet the highest standards. At Presiding, we don’t just offer services; we provide leadership that drives real value and lasting impact for our clients.
                                     </p>
                                 </div>
                             </div>
