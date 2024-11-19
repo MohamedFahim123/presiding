@@ -1,23 +1,23 @@
 export const VISATYPES =
     [
         {
-            name: 'tourist visa',
+            name: 'Tourist Visa',
             id: 'tourist visa',
         },
         {
-            name: 'business visa',
+            name: 'Business Visa',
             id: 'business visa',
         },
         {
-            name: 'visit visa',
+            name: 'Visit Visa',
             id: 'visit visa',
         },
         {
-            name: 'transferable iqama',
+            name: 'Transferable Iqama',
             id: 'transferable iqama',
         },
         {
-            name: 'non-transferable iqama',
+            name: 'Non-Transferable Iqama',
             id: 'non-transferable iqama',
         },
     ];

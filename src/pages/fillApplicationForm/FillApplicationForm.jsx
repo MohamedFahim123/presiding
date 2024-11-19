@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-import CustomSelect from "../../custom/CustomSelect";
 import { useEffect, useState } from "react";
 import { baseUrl } from "../../functions/baseUrl";
 import CustomCrudFields from "../../custom/CustomCrudFields";
@@ -69,9 +68,9 @@ export default function FillApplicationForm() {
     const countries = useCountriesStore((state) => state.countries);
     const langs = useLangStore((state) => state.langs);
     const skills = useSkillsStore((state) => state.skills);
-    const availabilities = useAvailabilitiesStore((state) => state.availabilities);
-    const projectTypes = useProjectTypesStore((state) => state.projectTypes);
-    const primaryExp = usePrimaryExpStore((state) => state.primaryExp);
+    // const availabilities = useAvailabilitiesStore((state) => state.availabilities);
+    // const projectTypes = useProjectTypesStore((state) => state.projectTypes);
+    // const primaryExp = usePrimaryExpStore((state) => state.primaryExp);
     const availabilitiesLoading = useAvailabilitiesStore(state => state.availabilitiesLoading);
     const citizenshipsLoading = useCitizenShipStore(state => state.citizenshipsLoading);
     const countriesLoading = useCountriesStore(state => state.countriesLoading);
@@ -80,13 +79,12 @@ export default function FillApplicationForm() {
     const primaryExpLoading = usePrimaryExpStore(state => state.primaryExpLoading);
     const projectTypesLoading = useProjectTypesStore(state => state.projectTypesLoading);
     const skillsLoading = useSkillsStore(state => state.skillsLoading);
-    const yearsOfExp = useYearsOfExpStore((state) => state.yearsOfExp);
     const yearsOfExpLoading = useYearsOfExpStore(state => state.yearsOfExpLoading);
     // const [typeOfPortFolio, setTypeOfPortFolio] = useState('');
     // const [portFolioLinks, setPortFolioLinks] = useState([]);
     const [skillsFields, setSkillsFields] = useState([{ id: Date.now(), value: '' }]);
-    const [checkedPreferredTypes, setcheckedPreferredTypes] = useState([]);
-    const [travelWills, setTravelWills] = useState('no');
+    // const [checkedPreferredTypes, setcheckedPreferredTypes] = useState([]);
+    // const [travelWills, setTravelWills] = useState('no');
 
     const handleAddField = (setFields, fields, lableName) => {
         const field = lableName === 'Language' ?
@@ -127,24 +125,24 @@ export default function FillApplicationForm() {
     //     };
     // };
 
-    const handleCheckboxChange = (event, item, setCheckedItems, checkedItems) => {
-        const isChecked = event.target.checked;
-        if (isChecked) {
-            setCheckedItems([...checkedItems, item]);
-        } else {
-            setCheckedItems(checkedItems.filter((checkedItem) => checkedItem.id !== item.id));
-        };
-    };
+    // const handleCheckboxChange = (event, item, setCheckedItems, checkedItems) => {
+    //     const isChecked = event.target.checked;
+    //     if (isChecked) {
+    //         setCheckedItems([...checkedItems, item]);
+    //     } else {
+    //         setCheckedItems(checkedItems.filter((checkedItem) => checkedItem.id !== item.id));
+    //     };
+    // };
 
-    useEffect(() => {
-        if (checkedPreferredTypes.length > 0) {
-            setValue('project_type_id', checkedPreferredTypes?.map(el => `${el?.id}`));
-        };
-    }, [checkedPreferredTypes]);
+    // useEffect(() => {
+    //     if (checkedPreferredTypes.length > 0) {
+    //         setValue('project_type_id', checkedPreferredTypes?.map(el => `${el?.id}`));
+    //     };
+    // }, [checkedPreferredTypes]);
 
-    useEffect(() => {
-        setValue('willingness_to_travel', travelWills);
-    }, [travelWills]);
+    // useEffect(() => {
+    //     setValue('willingness_to_travel', travelWills);
+    // }, [travelWills]);
     useEffect(() => {
         setValue('skills_id', skillsFields?.map(el => el?.value));
     }, [skillsFields]);
@@ -156,17 +154,14 @@ export default function FillApplicationForm() {
     //     setValue('portfolio_link', portFolioLinks);
     // }, [portFolioLinks]);
 
-    const formSelects = [
-        {
-            options: yearsOfExp, error: errors?.year_exp_id?.message, name: 'year_exp_id', labelName: 'Years Of Experience', id: 'fillApplicationFormyear_exp_id'
-        },
-        {
-            options: primaryExp, error: errors?.primary_expertise_id?.message, name: 'primary_expertise_id', labelName: 'Primary Expertise', id: 'fillApplicationFormprimary_expertise_id'
-        },
-        {
-            options: availabilities, error: errors?.availability_id?.message, name: 'availability_id', labelName: 'Availability', id: 'applyForAJobavailability_id'
-        },
-    ];
+    // const formSelects = [
+    //     {
+    //         options: primaryExp, error: errors?.primary_expertise_id?.message, name: 'primary_expertise_id', labelName: 'Primary Expertise', id: 'fillApplicationFormprimary_expertise_id'
+    //     },
+    //     {
+    //         options: availabilities, error: errors?.availability_id?.message, name: 'availability_id', labelName: 'Availability', id: 'applyForAJobavailability_id'
+    //     },
+    // ];
 
     const onSubmit = async (data) => {
         console.log(data);
@@ -269,14 +264,16 @@ export default function FillApplicationForm() {
                         />
                         <LanguageFeild langs={langs} setValue={setValue} handleAddField={handleAddField} handleDeleteField={handleDeleteField} handleInputChange={handleInputChange} errors={errors} />
                         <AttachMentsInputs fillFrom={true} errors={errors} register={register} />
-                        {
+                        
+                        {/*  Check   */}
+                        {/* {
                             formSelects?.map((formSelect, idx) => (
                                 <div key={idx} className="col-lg-8 my-2">
                                     <CustomSelect optional={formSelect?.optional} error={formSelect?.error} options={formSelect?.options} register={register} name={formSelect.name} labelName={formSelect.labelName} id={formSelect.id} />
                                 </div>
                             ))
-                        }
-                        <div className="col-lg-8 my-2">
+                        } */}
+                        {/* <div className="col-lg-8 my-2">
                             <label className="fs-5 text-capitalize mt-4 mb-2 fw-bold">Preferred Employment Type <span className="requiredStar">*</span></label>
                             <div className="row">
                                 {
@@ -296,8 +293,8 @@ export default function FillApplicationForm() {
                                     ))
                                 }
                             </div>
-                        </div>
-                        <div className="col-lg-8 my-2">
+                        </div> */}
+                        {/* <div className="col-lg-8 my-2">
                             <label className="mb-3">Willing To Travel <span className="requiredStar">*</span></label>
                             <div className="form-check mb-2">
                                 <input
@@ -317,9 +314,10 @@ export default function FillApplicationForm() {
                                     Will you want to travel?
                                 </label>
                             </div>
-                        </div>
+                        </div> */}
 
 
+                        {/*  Check */}
                         {/* <CustomCrudFields
                             error={errors?.industry_id}
                             fields={industriesFeilds}

@@ -4,11 +4,13 @@ import CustomSelect from "../../custom/CustomSelect";
 import { getDataFromApi } from "../../functions/getDataFromApi";
 import { useEffect, useState } from "react";
 import { baseUrl } from "../../functions/baseUrl";
+import { useYearsOfExpStore } from "../../store/useYearsOfExpStore";
 
 export default function PersonalInformationInputs({ isFillForm, errors, watch, register, countries, citizenships }) {
     const [cities, setCities] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const yearsOfExp = useYearsOfExpStore((state) => state.yearsOfExp);
     const formTextInputs = isFillForm ?
         [
             {
@@ -45,6 +47,9 @@ export default function PersonalInformationInputs({ isFillForm, errors, watch, r
         {
             optional: true, options: citizenships, error: errors?.another_citizenship_id?.message, name: 'another_citizenship_id', labelName: 'Other Nationality', id: 'applyForAJobanother_citizenship_id'
         },
+        {
+            options: yearsOfExp, error: errors?.year_exp_id?.message, name: 'year_exp_id', labelName: 'Years Of Experience', id: 'fillApplicationFormyear_exp_id'
+        },
     ];
 
     useEffect(() => {
@@ -77,9 +82,9 @@ export default function PersonalInformationInputs({ isFillForm, errors, watch, r
             }
             <div className="col-lg-8 my-2">
                 <div className="row p-0">
+                    <label className={`text-capitalize mb-1`} htmlFor={'fillFormMobileNumber'}>Phone Number<span className="requiredStar">*</span></label>
                     <div className="col-3">
                         <select
-                            id=""
                             defaultValue={''}
                             {...register('phone_code')}
                             className={`form-select ${errors.phone_code ? 'error_input' : ''}`}
@@ -102,7 +107,7 @@ export default function PersonalInformationInputs({ isFillForm, errors, watch, r
                     <div className="col-9">
                         <input
                             type='text'
-                            id='signUpMobileNumber'
+                            id='fillFormMobileNumber'
                             placeholder='Enter your phone number'
                             {...register('phone')}
                             className={`form-control ${errors.phone ? 'error_input' : ''}`}

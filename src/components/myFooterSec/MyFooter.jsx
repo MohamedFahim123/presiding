@@ -15,6 +15,7 @@ export default function MyFooter() {
             items: ["Marketplace", "Campaigns", "Awards"]
         },
     ];
+    console.log(currData)
 
     return (
         <div className='myFooterSec__handler'>

@@ -18,7 +18,7 @@ export default function MyCareers() {
     <>
       <MyHeroImage
         title={`Looking For More Talented Jobs`}
-        subTit={'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci aut maiores itaque perferendis, laborum quisquam.'}
+        subTit={'"The best company culture thrives on respect, collaboration, and innovation, creating an environment where talents are welcomed, valued, and empowered to grow."'}
         height={'80vh'}
         btnName={'Fill Talent Form'}
         btnNavigation={'fill-application-form'}

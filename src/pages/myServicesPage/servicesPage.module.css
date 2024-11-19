@@ -2,6 +2,7 @@
     color: var(--primary-black) !important;
     max-width: 600px;
     text-transform: unset !important;
+    font-size: 20px !important;
 }
 .mainHeaderServices {
     margin: 50px 0;
@@ -10,7 +11,7 @@
 @media (max-width: 768px) {
     .mainParagraph {
         max-width: 90%;
-        font-size: 13px !important;
+        font-size: 16px !important;
     }
     .mainHeaderServices h3{
         margin: auto;
@@ -20,7 +21,7 @@
 @media (max-width: 500px) {
     .mainParagraph {
         max-width: 90%;
-        font-size: 13px !important;
+        font-size: 14px !important;
     }
     .mainHeaderServices h3{
         font-size: 25px !important;

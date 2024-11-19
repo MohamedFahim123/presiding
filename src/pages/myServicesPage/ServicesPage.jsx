@@ -20,7 +20,7 @@ export default function ServicesPage() {
             <MyHeroImage
                 title={`Our Services`}
                 bgImage={bgImage}
-                subTit={'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae voluptatem labore repudiandae a cupiditate!'}
+                subTit={'"It’s not about paperwork; it’s about delivering tailored services that ensure the best results."'}
                 actions={true}
                 btnName={'Get in touch'}
                 btnNavigation={'/contact-us'}
@@ -28,10 +28,10 @@ export default function ServicesPage() {
             <ServicesIconsSection />
             <div className={`header_ofSec text-center py-4 ${styles.mainHeaderServices}`}>
                 <h3>
-                    Lorem, ipsum dolor.
+                    Diverse Industries, Global Reach
                 </h3>
                 <p className={`mt-3 m-auto ${styles?.mainParagraph}`}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, fuga ipsum, explicabo ipsam consequuntur libero saepe iusto tempore vero earum ut amet aperiam porro ipsa molestiae sequi at sed. Magni?
+                We serve various industries across several countries, delivering tailored solutions with a global perspective.
                 </p>
             </div>
             <MyServicesCards currData={currData?.services} />
