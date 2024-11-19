@@ -9,12 +9,14 @@ import MyCareers from "../pages/myCareersPage/MyCareers";
 import SingleCareer from "../pages/singleCareerPage/SingleCareer";
 import ApplyForAJob from "../pages/applyForAJob/ApplyForAJob";
 import FillApplicationForm from "../pages/fillApplicationForm/FillApplicationForm";
+import ContactUs from "../pages/contactUs/ContactUs";
+import NotFound from "../pages/notFound/NotFound";
 
 export const Routes = createBrowserRouter([
     {
         path: '/',
         element: <MyLayout />,
-        // errorElement: <></>,
+        errorElement: <NotFound />,
         children: [
             { index: true, element: <MyHome /> },
             { path: 'home', element: <MyHome /> },
@@ -26,6 +28,7 @@ export const Routes = createBrowserRouter([
             { path: 'careers/job-details/:JobId', element: <SingleCareer /> },
             { path: 'careers/apply/:JobId', element: <ApplyForAJob /> },
             { path: 'careers/fill-application-form', element: <FillApplicationForm /> },
+            { path: 'contact-us', element: <ContactUs /> },
         ],
     },
 ]);

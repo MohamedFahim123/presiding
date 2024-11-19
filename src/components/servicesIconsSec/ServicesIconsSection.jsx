@@ -5,28 +5,36 @@ export default function ServicesIconsSection() {
         <div className={styles.servicesIcons__handler}>
             <div className="container">
                 <div className="row justify-content-center align-items-center">
-                    <div className={`col-md-3 d-flex px-2 ${styles.gridContainerItem}`}>
+                    <div className={`col-md-2 d-flex px-2 ${styles.gridContainerItem}`}>
                         <h3 className={styles.iconContainer}>
-                            20
+                            <i className='bi-clock-history'></i>
                         </h3>
                         <div className={styles.textContainer}>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit Corporis.</p>
+                            <p>30+ years of experience</p>
                         </div>
                     </div>
-                    <div className={`col-md-3 d-flex px-2 ${styles.gridContainerItem}`}>
+                    <div className={`col-md-2 d-flex px-2 ${styles.gridContainerItem}`}>
                         <h3 className={styles.iconContainer}>
-                            32
+                            <i className='bi-kanban'></i>
                         </h3>
                         <div className={styles.textContainer}>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit Corporis.</p>
+                            <p>150+ projects</p>
                         </div>
                     </div>
-                    <div className={`col-md-3 d-flex px-2 ${styles.gridContainerItem}`}>
+                    <div className={`col-md-2 d-flex px-2 ${styles.gridContainerItem}`}>
                         <h3 className={styles.iconContainer}>
-                            10
+                            <i className='bi-people'></i>
                         </h3>
                         <div className={styles.textContainer}>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit Corporis.</p>
+                            <p>75+ clients</p>
+                        </div>
+                    </div>
+                    <div className={`col-md-2 d-flex px-2 ${styles.gridContainerItem}`}>
+                        <h3 className={styles.iconContainer}>
+                            <i className='bi-globe'></i>
+                        </h3>
+                        <div className={styles.textContainer}>
+                            <p>5 Branches Globally</p>
                         </div>
                     </div>
                 </div>

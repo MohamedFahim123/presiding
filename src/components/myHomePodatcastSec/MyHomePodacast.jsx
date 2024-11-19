@@ -11,8 +11,6 @@ export default function MyHomePodacast() {
     const scrollRef = useRef(null);
     const isInView = useInView(scrollRef, { once: true });
 
-    console.log(currData)
-
     return (
         <motion.div
             ref={scrollRef}

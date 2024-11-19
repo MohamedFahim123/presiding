@@ -30,7 +30,6 @@ export default function MyNavBar({ scrollToggle }) {
                         </NavLink>
                     </Navbar.Brand>
                     <Navbar.Toggle onClick={handleOffcanvasToggle} aria-controls="basic-navbar-nav" />
-                    {/* start navbar min-width 992px */}
                     <Navbar.Collapse id="navbar-nav" className='Navbar__Collapse__none__on__med'>
                         <Nav className="mx-auto" >
                             <NavLink
@@ -78,9 +77,9 @@ export default function MyNavBar({ scrollToggle }) {
                                 }}
                                 aria-label="Close"
                                 className={`nav-link nav__link__style`}
-                                to={`/about`}
+                                to={`/contact-us`}
                             >
-                                About
+                                Contact
                             </NavLink>
                         </Nav>
                         <Nav>
@@ -98,8 +97,6 @@ export default function MyNavBar({ scrollToggle }) {
                             </>
                         </Nav>
                     </Navbar.Collapse>
-                    {/* end navbar min-width 992px */}
-                    {/* start navbar min-width 320px */}
                     <Navbar.Offcanvas
                         id="offcanvasNavbar" className='Navbar__offCanvas__none__on__lg' aria-labelledby="offcanvasNavbarLabel"
                         show={showOffcanvas}
@@ -126,7 +123,6 @@ export default function MyNavBar({ scrollToggle }) {
                                     to={`/`}>
                                     home
                                 </NavLink>
-
                                 <NavLink
                                     onClick={() => {
                                         scrollToTop();
@@ -147,7 +143,6 @@ export default function MyNavBar({ scrollToggle }) {
                                     to={`/Careers`}>
                                     Careers
                                 </NavLink>
-
                                 <NavLink
                                     onClick={() => {
                                         scrollToTop();
@@ -165,11 +160,10 @@ export default function MyNavBar({ scrollToggle }) {
                                     }}
                                     aria-label="Close"
                                     className={`nav-link nav__link__style`}
-                                    to={`/about`}
+                                    to={`/contact-us`}
                                 >
-                                    About
+                                    Contact
                                 </NavLink>
-
                                 <>
                                     <NavLink
                                         onClick={() => {
@@ -183,10 +177,8 @@ export default function MyNavBar({ scrollToggle }) {
                                     </NavLink>
                                 </>
                             </Nav>
-
                         </Offcanvas.Body>
                     </Navbar.Offcanvas>
-                    {/* end navbar min-width 320px */}
                 </Container>
             </Navbar>
         </>

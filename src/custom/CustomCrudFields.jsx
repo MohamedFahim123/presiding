@@ -8,8 +8,7 @@ export default function CustomCrudFields({ error, fields, options, labelName, se
                     <div className="row">
                         <div className="col-md-8">
                             <label className="text-capitalize mb-1  fw-bold" htmlFor={field?.id}>
-                                {/* {numbersNamesArr[index]}  */}
-                                {labelName} ({index+1}) <span className="requiredStar">*</span>
+                                {labelName} ({index + 1}) <span className="requiredStar">*</span>
                             </label>
                             <select
                                 className="form-select"

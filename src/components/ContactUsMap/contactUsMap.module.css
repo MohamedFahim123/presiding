@@ -1,0 +1,8 @@
+.map_container {
+    box-shadow: 0px 4px 50px 0px #00000040;
+}
+@media (max-width: 768px) {
+    .contactMap {
+        max-height: 400px;
+    }
+}

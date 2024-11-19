@@ -148,6 +148,7 @@ export default function FillApplicationForm() {
     useEffect(() => {
         setValue('skills_id', skillsFields?.map(el => el?.value));
     }, [skillsFields]);
+
     // useEffect(() => {
     //     setValue('industry_id', industriesFeilds?.map(el => el?.value));
     // }, [industriesFeilds]);

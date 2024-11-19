@@ -1,0 +1,35 @@
+.contact_section {
+  padding: 60px 0;
+}
+.head {
+  font-size: 48px;
+  font-weight: 600;
+  color: #514b4b;
+  line-height: 52px;
+}
+.text {
+  color: #898989;
+  font-size: 25px;
+  line-height: 50px;
+  font-weight: 500;
+}
+@media (max-width: 991px) {
+  .head {
+    font-size: 35px;
+    line-height: 45px;
+  }
+  .text {
+    font-size: 20px;
+    line-height: 40px;
+  }
+}
+@media (max-width: 650px) {
+  .head {
+    font-size: 28px;
+    line-height: 40px;
+  }
+  .text {
+    font-size: 16px;
+    line-height: 35px;
+  }
+}
