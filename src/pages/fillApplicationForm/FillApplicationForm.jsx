@@ -4,13 +4,10 @@ import { baseUrl } from "../../functions/baseUrl";
 import CustomCrudFields from "../../custom/CustomCrudFields";
 import { useCitizenShipStore } from "../../store/useCitizenShipStore";
 import { useCountriesStore } from "../../store/useCountriesStore";
-import { usePrimaryExpStore } from "../../store/usePrimaryExpStore";
 import { useYearsOfExpStore } from "../../store/useYearsOfExpStore";
 import { useLangStore } from "../../store/useLangStore";
 import { useSkillsStore } from "../../store/useSkillsStore";
 import { useIndustriesStore } from "../../store/useIndustriesStore";
-import { useAvailabilitiesStore } from "../../store/useAvailabilitiesStore";
-import { useProjectTypesStore } from "../../store/useProjectTypesStore";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FillApplicationFormShema } from "../../validation/FillApllication";
 import axios from "axios";
@@ -53,12 +50,15 @@ export default function FillApplicationForm() {
             ],
             languages: '',
             cv: '',
-            availability_id: '',
             year_exp_id: '',
-            primary_expertise_id: '',
             skills_id: '',
-            project_type_id: '',
-            willingness_to_travel: '',
+
+            // willingness_to_travel: '',
+            // project_type_id: '',
+            // primary_expertise_id: '',
+            // availability_id: '',
+
+
             // portfolio_file: '',
             // portfolio_link: '',
         },
@@ -71,13 +71,13 @@ export default function FillApplicationForm() {
     // const availabilities = useAvailabilitiesStore((state) => state.availabilities);
     // const projectTypes = useProjectTypesStore((state) => state.projectTypes);
     // const primaryExp = usePrimaryExpStore((state) => state.primaryExp);
-    const availabilitiesLoading = useAvailabilitiesStore(state => state.availabilitiesLoading);
+    // const availabilitiesLoading = useAvailabilitiesStore(state => state.availabilitiesLoading);
     const citizenshipsLoading = useCitizenShipStore(state => state.citizenshipsLoading);
     const countriesLoading = useCountriesStore(state => state.countriesLoading);
     const industriesLoading = useIndustriesStore(state => state.industriesLoading);
     const langsLoading = useLangStore(state => state.langsLoading);
-    const primaryExpLoading = usePrimaryExpStore(state => state.primaryExpLoading);
-    const projectTypesLoading = useProjectTypesStore(state => state.projectTypesLoading);
+    // const primaryExpLoading = usePrimaryExpStore(state => state.primaryExpLoading);
+    // const projectTypesLoading = useProjectTypesStore(state => state.projectTypesLoading);
     const skillsLoading = useSkillsStore(state => state.skillsLoading);
     const yearsOfExpLoading = useYearsOfExpStore(state => state.yearsOfExpLoading);
     // const [typeOfPortFolio, setTypeOfPortFolio] = useState('');
@@ -208,7 +208,7 @@ export default function FillApplicationForm() {
             .catch(err => {
                 Object.keys(err?.response?.data?.errors).forEach((field) => {
                     err?.response?.data?.errors[field]?.forEach((message) => {
-                        toast.error(message,{
+                        toast.error(message, {
                             duration: 2000,
                         });
                     });
@@ -227,13 +227,10 @@ export default function FillApplicationForm() {
     };
 
     if (
-        availabilitiesLoading ||
         citizenshipsLoading ||
         countriesLoading ||
         industriesLoading ||
         langsLoading ||
-        primaryExpLoading ||
-        projectTypesLoading ||
         skillsLoading ||
         yearsOfExpLoading
     ) {
@@ -264,7 +261,7 @@ export default function FillApplicationForm() {
                         />
                         <LanguageFeild langs={langs} setValue={setValue} handleAddField={handleAddField} handleDeleteField={handleDeleteField} handleInputChange={handleInputChange} errors={errors} />
                         <AttachMentsInputs fillFrom={true} errors={errors} register={register} />
-                        
+
                         {/*  Check   */}
                         {/* {
                             formSelects?.map((formSelect, idx) => (

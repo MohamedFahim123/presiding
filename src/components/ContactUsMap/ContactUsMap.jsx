@@ -1,18 +1,47 @@
+import { MapContainer, TileLayer, Marker, useMap } from 'react-leaflet';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 import styles from './contactUsMap.module.css';
+import { useEffect } from 'react';
+
+const customIcon = new L.Icon({
+    iconUrl: './2e43ef7093427ceb8adf6de9dad09693.png',
+    iconSize: [50, 50],
+    iconAnchor: [25, 50],
+    popupAnchor: [0, -40],
+});
+
+// eslint-disable-next-line react/prop-types
+const PopupOpener = ({ position }) => {
+    const map = useMap();
+
+    useEffect(() => {
+        L.popup()
+            .setLatLng(position)
+            .setContent('Riyadh, Saudi Arabia')
+            .openOn(map);
+    }, [map, position]);
+
+    return null;
+};
 
 export default function ContactUsMap() {
     return (
         <div className={`${styles.map_container}`}>
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3492525.947927653!2d34.480823254772446!3d31.257561052818215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15006f476664de99%3A0x8d285b0751264e99!2sJordan!5e0!3m2!1sen!2seg!4v1732018080993!5m2!1sen!2seg"
-                width="100%"
+            <MapContainer
+                center={[24.7136, 46.6753]}
+                zoom={8}
+                style={{ height: '500px', width: '100%' }}
                 className={styles.contactMap}
-                height="550"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
+            >
+                <TileLayer
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors"
+                />
+                <Marker position={[24.7136, 46.6753]} icon={customIcon} />
+                {/* Automatically open popup */}
+                <PopupOpener position={[24.9, 46.77]} />
+            </MapContainer>
         </div>
     );
 };
