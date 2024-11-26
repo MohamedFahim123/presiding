@@ -5,7 +5,7 @@ export default function CustomSelect({ optional, error, register, name, options,
         <>
             {
                 labelName &&
-                <label className={`text-capitalize mb-1`} htmlFor={id}>{labelName}
+                <label className={`text-capitalize mb-1 fw-bold`} htmlFor={id}>{labelName}
                     {
                         optional ?
                             <span className="optional">( optional )</span>

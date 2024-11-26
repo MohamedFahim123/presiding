@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 export default function AttachMentsInputs({ register, errors, fillFrom }) {
     return (
         <>
+            <h3 className="mb-2">
+                Additional Requirments
+            </h3>
             {
                 !fillFrom &&
                 (
@@ -12,9 +15,9 @@ export default function AttachMentsInputs({ register, errors, fillFrom }) {
                 )
             }
             <div className="col-lg-8 my-2">
-                <label className='text-capitalize mb-1' htmlFor={'applyForAJobCVFile'}>
+                <label className='text-capitalize fw-bold mb-1' htmlFor={'applyForAJobCVFile'}>
                     {
-                        fillFrom ? 'Attach CV' : 'Your CV'
+                        fillFrom ? 'Attach CV' : 'CV'
                     } <span className="requiredStar">*</span>
                 </label>
                 <input
@@ -32,7 +35,7 @@ export default function AttachMentsInputs({ register, errors, fillFrom }) {
             {
                 !fillFrom &&
                 <div className="col-lg-8 my-2">
-                    <label className='text-capitalize mb-1' htmlFor={'applyForAJobCVFile'}>Your Cover <span className="optional">( optional )</span></label>
+                    <label className='text-capitalize mb-1' htmlFor={'applyForAJobCVFile'}>Cover Letter <span className="optional">( optional )</span></label>
                     <input
                         type="file"
                         id={'applyForAJobCoverLetter'}

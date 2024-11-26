@@ -13,7 +13,7 @@ import { FillApplicationFormShema } from "../../validation/FillApllication";
 import axios from "axios";
 import MyHeroImage from "../../components/myHeroImageSec/MyHeroImage";
 import toast from "react-hot-toast";
-import bgImage from '../../assets/home-overview/9ed0b317c009431f96f7364d813c33b8.jpeg';
+import bgImage from '../../assets/home-overview/applyForAJobImage.avif';
 import MyLoader from "../../components/myLoaderSec/MyLoader";
 import ApplyBtn from "../../components/ApplyBtn/ApplyBtn";
 import PersonalInformationInputs from "../../components/PersonalInformationInputs/PersonalInformationInputs";
@@ -21,6 +21,7 @@ import EducationInformationInputs from "../../components/EducationInformationInp
 import ProfessionalExperienceInputs from "../../components/ProfessionalExperienceInputs/ProfessionalExperienceInputs";
 import LanguageFeild from "../../components/LanguageFeild/LanguageFeild";
 import AttachMentsInputs from "../../components/AttachMentsInputs/AttachMentsInputs";
+import { useProjectTypesStore } from "../../store/useProjectTypesStore";
 
 export default function FillApplicationForm() {
     const { register, control, setError, setValue, watch, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm({
@@ -46,21 +47,14 @@ export default function FillApplicationForm() {
                     start_date: '',
                     end_date: '',
                     present: '',
+                    industry: '',
                 }
             ],
             languages: '',
             cv: '',
             year_exp_id: '',
             skills_id: '',
-
-            // willingness_to_travel: '',
-            // project_type_id: '',
-            // primary_expertise_id: '',
-            // availability_id: '',
-
-
-            // portfolio_file: '',
-            // portfolio_link: '',
+            primary_expertise_id: '',
         },
         resolver: zodResolver(FillApplicationFormShema),
     });
@@ -68,23 +62,16 @@ export default function FillApplicationForm() {
     const countries = useCountriesStore((state) => state.countries);
     const langs = useLangStore((state) => state.langs);
     const skills = useSkillsStore((state) => state.skills);
-    // const availabilities = useAvailabilitiesStore((state) => state.availabilities);
-    // const projectTypes = useProjectTypesStore((state) => state.projectTypes);
-    // const primaryExp = usePrimaryExpStore((state) => state.primaryExp);
-    // const availabilitiesLoading = useAvailabilitiesStore(state => state.availabilitiesLoading);
+    const projectTypes = useProjectTypesStore((state) => state.projectTypes);
     const citizenshipsLoading = useCitizenShipStore(state => state.citizenshipsLoading);
     const countriesLoading = useCountriesStore(state => state.countriesLoading);
     const industriesLoading = useIndustriesStore(state => state.industriesLoading);
     const langsLoading = useLangStore(state => state.langsLoading);
-    // const primaryExpLoading = usePrimaryExpStore(state => state.primaryExpLoading);
-    // const projectTypesLoading = useProjectTypesStore(state => state.projectTypesLoading);
+    const projectTypesLoading = useProjectTypesStore(state => state.projectTypesLoading);
     const skillsLoading = useSkillsStore(state => state.skillsLoading);
     const yearsOfExpLoading = useYearsOfExpStore(state => state.yearsOfExpLoading);
-    // const [typeOfPortFolio, setTypeOfPortFolio] = useState('');
-    // const [portFolioLinks, setPortFolioLinks] = useState([]);
     const [skillsFields, setSkillsFields] = useState([{ id: Date.now(), value: '' }]);
-    // const [checkedPreferredTypes, setcheckedPreferredTypes] = useState([]);
-    // const [travelWills, setTravelWills] = useState('no');
+    const [checkedPreferredTypes, setcheckedPreferredTypes] = useState([]);
 
     const handleAddField = (setFields, fields, lableName) => {
         const field = lableName === 'Language' ?
@@ -92,7 +79,7 @@ export default function FillApplicationForm() {
                 id: Date.now(),
                 name: '',
                 value: '',
-                radioBtn: [{ value: 'intrmediate' }, { value: 'beginner' }, { value: 'fluent' }]
+                radioBtn: [{ value: 'intrmediate' }, { value: 'beginner' }, { value: 'advanced' }]
             }
             : { id: Date.now(), name: '', value: '' };
         setFields([...fields, field]);
@@ -118,50 +105,19 @@ export default function FillApplicationForm() {
         };
     };
 
-    // const handleAddInputValueToPortfolioLinks = (inputValue, setInputValue, setData, data) => {
-    //     if (inputValue.trim()) {
-    //         setData([...data, inputValue]);
-    //         setInputValue('');
-    //     };
-    // };
 
-    // const handleCheckboxChange = (event, item, setCheckedItems, checkedItems) => {
-    //     const isChecked = event.target.checked;
-    //     if (isChecked) {
-    //         setCheckedItems([...checkedItems, item]);
-    //     } else {
-    //         setCheckedItems(checkedItems.filter((checkedItem) => checkedItem.id !== item.id));
-    //     };
-    // };
+    const handleCheckboxChange = (event, item, setCheckedItems, checkedItems) => {
+        const isChecked = event.target.checked;
+        if (isChecked) {
+            setCheckedItems([...checkedItems, item]);
+        } else {
+            setCheckedItems(checkedItems.filter((checkedItem) => checkedItem.id !== item.id));
+        };
+    };
 
-    // useEffect(() => {
-    //     if (checkedPreferredTypes.length > 0) {
-    //         setValue('project_type_id', checkedPreferredTypes?.map(el => `${el?.id}`));
-    //     };
-    // }, [checkedPreferredTypes]);
-
-    // useEffect(() => {
-    //     setValue('willingness_to_travel', travelWills);
-    // }, [travelWills]);
     useEffect(() => {
         setValue('skills_id', skillsFields?.map(el => el?.value));
     }, [skillsFields]);
-
-    // useEffect(() => {
-    //     setValue('industry_id', industriesFeilds?.map(el => el?.value));
-    // }, [industriesFeilds]);
-    // useEffect(() => {
-    //     setValue('portfolio_link', portFolioLinks);
-    // }, [portFolioLinks]);
-
-    // const formSelects = [
-    //     {
-    //         options: primaryExp, error: errors?.primary_expertise_id?.message, name: 'primary_expertise_id', labelName: 'Primary Expertise', id: 'fillApplicationFormprimary_expertise_id'
-    //     },
-    //     {
-    //         options: availabilities, error: errors?.availability_id?.message, name: 'availability_id', labelName: 'Availability', id: 'applyForAJobavailability_id'
-    //     },
-    // ];
 
     const onSubmit = async (data) => {
         console.log(data);
@@ -232,89 +188,71 @@ export default function FillApplicationForm() {
         industriesLoading ||
         langsLoading ||
         skillsLoading ||
-        yearsOfExpLoading
+        yearsOfExpLoading ||
+        projectTypesLoading
     ) {
         return <MyLoader />;
     };
 
     return (
         <>
-            <MyHeroImage title={`Fill Talent Form`} bgImage={bgImage} />
+            <MyHeroImage title={`Application Form`} bgImage={bgImage} bgPosition={'center'} />
             <div className="applicationForm__handler">
                 <div className="container py-5">
                     <form className="row" onSubmit={handleSubmit(onSubmit)}>
-                        <div className="col-12 mb-4">
-                            <h1 className="my-4 mainTextColor">Application Form</h1>
-                        </div>
                         <PersonalInformationInputs isFillForm={true} watch={watch} citizenships={citizenships} errors={errors} register={register} countries={countries} />
                         <EducationInformationInputs register={register} errors={errors} />
                         <ProfessionalExperienceInputs errors={errors} control={control} register={register} />
-                        <CustomCrudFields
-                            error={errors?.skills_id?.message}
-                            fields={skillsFields}
-                            options={skills}
-                            setFields={setSkillsFields}
-                            handleAddField={handleAddField}
-                            handleDeleteField={handleDeleteField}
-                            handleInputChange={handleInputChange}
-                            labelName={'Skill'}
-                        />
-                        <LanguageFeild langs={langs} setValue={setValue} handleAddField={handleAddField} handleDeleteField={handleDeleteField} handleInputChange={handleInputChange} errors={errors} />
-                        <AttachMentsInputs fillFrom={true} errors={errors} register={register} />
-
-                        {/*  Check   */}
-                        {/* {
-                            formSelects?.map((formSelect, idx) => (
-                                <div key={idx} className="col-lg-8 my-2">
-                                    <CustomSelect optional={formSelect?.optional} error={formSelect?.error} options={formSelect?.options} register={register} name={formSelect.name} labelName={formSelect.labelName} id={formSelect.id} />
-                                </div>
-                            ))
-                        } */}
-                        {/* <div className="col-lg-8 my-2">
-                            <label className="fs-5 text-capitalize mt-4 mb-2 fw-bold">Preferred Employment Type <span className="requiredStar">*</span></label>
+                        <div className="col-lg-10 shadow mb-5 p-4 bg-white">
                             <div className="row">
-                                {
-                                    projectTypes?.map((type) => (
-                                        <div key={type?.id} className="form-check ms-2 mb-2 col-md-2">
-                                            <input
-                                                className="form-check-input cursorPointer"
-                                                type="checkbox"
-                                                value={type?.name}
-                                                id={`check-${type?.id}`}
-                                                onChange={(event) => handleCheckboxChange(event, type, setcheckedPreferredTypes, checkedPreferredTypes)}
-                                            />
-                                            <label className="form-check-label cursorPointer" htmlFor={`check-${type?.id}`}>
-                                                {type?.name}
-                                            </label>
-                                        </div>
-                                    ))
-                                }
-                            </div>
-                        </div> */}
-                        {/* <div className="col-lg-8 my-2">
-                            <label className="mb-3">Willing To Travel <span className="requiredStar">*</span></label>
-                            <div className="form-check mb-2">
-                                <input
-                                    className="form-check-input cursorPointer"
-                                    type="checkbox"
-                                    defaultValue={''}
-                                    id={`fillFormWillingness_to_travel`}
-                                    onChange={(event) => {
-                                        if (event.target.checked === true) {
-                                            setTravelWills('yes');
-                                        } else {
-                                            setTravelWills('no')
-                                        };
-                                    }}
+                                <h3 className="col-12 mb-3">
+                                    Skills
+                                </h3>
+                                <CustomCrudFields
+                                    error={errors?.skills_id?.message}
+                                    fields={skillsFields}
+                                    options={skills}
+                                    setFields={setSkillsFields}
+                                    handleAddField={handleAddField}
+                                    handleDeleteField={handleDeleteField}
+                                    handleInputChange={handleInputChange}
+                                    labelName={'Skill'}
                                 />
-                                <label className="form-check-label cursorPointer" htmlFor={`fillFormWillingness_to_travel`}>
-                                    Will you want to travel?
-                                </label>
                             </div>
-                        </div> */}
+                        </div>
+                        <div className="col-lg-10 shadow mb-5 p-4 bg-white">
+                            <div className="row">
+                                <LanguageFeild langs={langs} setValue={setValue} handleAddField={handleAddField} handleDeleteField={handleDeleteField} handleInputChange={handleInputChange} errors={errors} />
+                            </div>
+                        </div>
 
+                        <div className="col-lg-10 shadow mb-5 p-4 bg-white">
+                            <div className="row">
+                                <AttachMentsInputs fillFrom={true} errors={errors} register={register} />
+                                <div className="col-lg-8 my-2">
+                                    <label className="fs-5 text-capitalize mt-4 mb-2 fw-bold">Preferred Employment Type <span className="requiredStar">*</span></label>
+                                    <div className="row">
+                                        {
+                                            projectTypes?.map((type) => (
+                                                <div key={type?.id} className="form-check ms-2 mb-2 col-md-2">
+                                                    <input
+                                                        className="form-check-input cursorPointer"
+                                                        type="checkbox"
+                                                        value={type?.name}
+                                                        id={`check-${type?.id}`}
+                                                        onChange={(event) => handleCheckboxChange(event, type, setcheckedPreferredTypes, checkedPreferredTypes)}
+                                                    />
+                                                    <label className="form-check-label cursorPointer" htmlFor={`check-${type?.id}`}>
+                                                        {type?.name}
+                                                    </label>
+                                                </div>
+                                            ))
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                        {/*  Check */}
                         {/* <CustomCrudFields
                             error={errors?.industry_id}
                             fields={industriesFeilds}
@@ -325,78 +263,6 @@ export default function FillApplicationForm() {
                             handleInputChange={handleInputChange}
                             labelName={'Industry'}
                         /> */}
-                        {/* <div className="col-lg-8 my-2">
-                            <label className='text-capitalize mb-1' htmlFor={'fillApplicationFormPortfolioType'}>Select Portfolio Type <span className="optional">(optional)</span></label>
-                            <select
-                                defaultValue={''}
-                                id={'fillApplicationFormPortfolioType'}
-                                className={`form-select`}
-                                onChange={(e) => {
-                                    setTypeOfPortFolio(e.target.value);
-                                }}
-                            >
-                                <option value="" disabled>Select a type</option>
-                                <option value="files">Files</option>
-                                <option value="links">Links</option>
-                            </select>
-                            {
-                                errors?.attachment?.message &&
-                                <span className="error_message">{errors?.attachment?.message}</span>
-                            }
-                            {
-                                typeOfPortFolio === 'files' ?
-                                    <>
-                                        <label className='text-capitalize mb-1 mt-4' htmlFor={'fillApplicationFormPortFolioTypeFiles'}>PortFolio File <span className="optional">(optional)</span></label>
-                                        <input
-                                            type="file"
-                                            multiple
-                                            id={'fillApplicationFormPortFolioTypeFiles'}
-                                            className={`form-control mt-3 ${errors?.portfolio_file?.message && 'error_input'}`}
-                                            {...register('portfolio_file')}
-                                            accept=".pdf, .doc, .docx, .xls, .xlsx, .ppt, .pptx"
-                                        />
-                                        {
-                                            errors?.portfolio_file?.message &&
-                                            <span className="error_message">{errors?.portfolio_file?.message}</span>
-                                        }
-                                    </>
-                                    :
-                                    <>
-                                        <label className='text-capitalize mt-4 mb-1' htmlFor={'fillApplicationFormPortfolioLinks'}>Portfolio Links <span className="optional">(optional)</span></label>
-                                        <input
-                                            type="text"
-                                            id="fillApplicationFormPortfolioLinks"
-                                            className={`form-control mt-3 ${errors?.portfolio_link?.message && 'error_input'}`}
-                                            placeholder="type a PortFolio Link"
-                                            value={inputValue}
-                                            onChange={(e) => setInputValue(e.target.value)}
-                                        />
-                                        {
-                                            errors?.portfolio_link?.message &&
-                                            <span className="error_message">{errors?.portfolio_link?.message}</span>
-                                        }
-                                        <div className="col-12 mt-3">
-                                            <div className="addLink__btn d-flex justify-content-center">
-                                                <button type="button" className="btn btn-outline-success mb-3" onClick={() => handleAddInputValueToPortfolioLinks(inputValue, setInputValue, setPortFolioLinks, portFolioLinks)}>
-                                                    Add Other Link
-                                                </button>
-                                            </div>
-                                            <div className="added-values">
-                                                {
-                                                    portFolioLinks?.map((link, idx) => (
-                                                        <span
-                                                            key={idx}
-                                                            className="badge bg-success m-1 py-1">
-                                                            {link} <i className="bi bi-trash cursorPointer hoveredIcon" onClick={() => handleRemoveItem(idx, setPortFolioLinks, portFolioLinks)}></i>
-                                                        </span>
-                                                    ))
-                                                }
-                                            </div>
-                                        </div>
-                                    </>
-                            }
-                        </div> */}
-
                         <ApplyBtn isSubmitting={isSubmitting} />
                     </form>
                 </div >

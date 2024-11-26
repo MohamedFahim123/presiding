@@ -21,7 +21,7 @@ export const FillApplicationFormShema = z.object({
     professional_experience: z.any(),
     // willingness_to_travel: z.string().min(1,{message: 'Required'}),
     skills_id: z.any(),
-    // primary_expertise_id: z.string().min(1,{message: 'Required'}),
+    primary_expertise_id: z.string().min(1,{message: 'Required'}),
     // project_type_id: z.any(),
     portfolio_file: z.any(),
     portfolio_link: z.any(),

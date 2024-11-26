@@ -5,7 +5,7 @@ import { baseUrl } from "../../functions/baseUrl";
 import { useParams } from "react-router-dom";
 import MyLoader from "../../components/myLoaderSec/MyLoader";
 import ApplyForJobForm from "../../components/applyForJobForm/ApplyForJobForm";
-import bgImage from '../../assets/home-overview/9ed0b317c009431f96f7364d813c33b8.jpeg';
+import bgImage from '../../assets/home-overview/applyForAJobImage.avif';
 
 export default function ApplyForAJob() {
     const { JobId } = useParams();

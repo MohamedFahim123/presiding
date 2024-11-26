@@ -10,7 +10,7 @@ export default function CareerJopsTable({currData}) {
             <div className="container">
                 <div className="row">
                     <div className="col-12">
-                        <h2 className={`${styles.careerJops__header}`}>
+                        <h2 className={`text-center fs-1 mb-5 ${styles.careerJops__header}`}>
                             Job Openings
                         </h2>
                         <div className={`${styles.jobsTable_sec}`}>

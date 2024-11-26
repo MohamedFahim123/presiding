@@ -17,7 +17,9 @@ export default function SingleInsightsHeroSec({ bgImage, title, attachment }) {
                                     View Online
                                     <img src={viewIcon} alt="view icon" />
                                 </button>
-                                <a className={styles.veiwBtn} href={attachment} download="attachment.pdf">
+                                <a className={styles.veiwBtn}
+                                    href={attachment}
+                                    download="attachment.pdf">
                                     Download Full Report
                                     <img src={downloadIcon} alt="download icon" />
                                 </a>

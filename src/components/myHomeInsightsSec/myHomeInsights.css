@@ -76,6 +76,9 @@
   }
 }
 @media screen and (max-width: 600px) {
+  .insightsSlider__handler .col-md-4 {
+    width: 100%;
+  }
   .myHomeInsights__handler {
     padding-inline-start: 0;
   }

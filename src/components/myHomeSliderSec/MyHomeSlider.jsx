@@ -10,8 +10,10 @@ import PropTypes from "prop-types";
 import { useFetch } from "../../hooks/useFetch";
 import { baseUrl } from "../../functions/baseUrl";
 import { Link } from "react-router-dom";
+
 export default function MyHomeSlider({ heading, title, overLayColor, sliderImg1, btnVisibility ,backGroundPosition}) {
     const [currData] = useFetch(`${baseUrl}/sliders`);
+
 
     return (
         <div className="slider__handler">

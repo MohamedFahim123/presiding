@@ -1,6 +1,6 @@
 import './myHomeIndustries.css';
 import startBg from '../../assets/home-industries/start.png';
-import endBg from '../../assets/home-overview/backGround.jpg';
+import endBg from '../../assets/home-overview/applyForAJobImage.avif';
 import IndustriesSlider from '../industriesSliderSec/IndustriesSlider';
 import { useRef } from 'react';
 import { motion, useInView } from "framer-motion";

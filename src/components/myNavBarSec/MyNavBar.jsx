@@ -1,14 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './myNavBar.css';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { scrollToTop } from '../../functions/scrollToTop';
 import main_logo from '../../assets/logos/presiding-nav-logo.png'
 import PropTypes from 'prop-types';
 
 export default function MyNavBar({ scrollToggle }) {
     const [showOffcanvas, setShowOffcanvas] = useState(false);
+    const {pathname} = useLocation();
+    const [navBarViewed ,setNavBarViewed] = useState(true);
 
     function handleOffcanvasToggle() {
         setShowOffcanvas((prevShowOffcanvas) => !prevShowOffcanvas);
@@ -18,9 +20,15 @@ export default function MyNavBar({ scrollToggle }) {
         setShowOffcanvas(false);
     };
 
+    useEffect(()=>{
+        if(pathname.toLocaleLowerCase() === 'careers/fill-application-form' || pathname.toLocaleLowerCase().includes('careers/apply')){
+            setNavBarViewed(false);
+        };
+    },[pathname]);
+
     return (
         <>
-            <Navbar expand="lg" className={`nav__Bg ${scrollToggle ? "nav__fixed py-3 navTransformationDown" : "nav__relative pb-3"} align-items-center`}>
+            <Navbar expand="lg" className={`nav__Bg ${(scrollToggle && navBarViewed) ? "nav__fixed py-3 navTransformationDown" : "nav__relative pb-3"} align-items-center`}>
                 <Container>
                     <Navbar.Brand className='d-flex align-items-center'>
                         <NavLink className='logo__text' to={`/`}>
@@ -79,7 +87,7 @@ export default function MyNavBar({ scrollToggle }) {
                                 className={`nav-link nav__link__style`}
                                 to={`/contact-us`}
                             >
-                                Contact
+                                Contact Us
                             </NavLink>
                         </Nav>
                         <Nav>
@@ -162,7 +170,7 @@ export default function MyNavBar({ scrollToggle }) {
                                     className={`nav-link nav__link__style`}
                                     to={`/contact-us`}
                                 >
-                                    Contact
+                                    Contact Us
                                 </NavLink>
                                 <>
                                     <NavLink

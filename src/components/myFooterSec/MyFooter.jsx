@@ -3,6 +3,7 @@ import logo from '../../assets/footer-images/Presiding-logo.png'
 import { NavLink } from 'react-router-dom';
 import { useFetch } from '../../hooks/useFetch';
 import { baseUrl } from '../../functions/baseUrl';
+
 export default function MyFooter() {
     const [currData] = useFetch(`${baseUrl}/settings`);
     const listFooterData = [

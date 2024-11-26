@@ -69,7 +69,7 @@ export default function ContactUsForm() {
         <div className="applicationForm__handler">
             <div className="container py-5">
                 <h2 className={`text-center mb-5 ${styles.heading}`}>
-                    How we can assist you?
+                    Submit Your Request
                 </h2>
                 <form className="row" onSubmit={handleSubmit(onSubmit)}>
                     {
@@ -94,7 +94,7 @@ export default function ContactUsForm() {
                         }
                     </div>
                     <div className="col-12">
-                        <button type="submit" disabled={isSubmitting} className="btn btn-outline-primary submitApplicationBtn py-2">Send Message</button>
+                        <button type="submit" disabled={isSubmitting} className="btn btn-outline-primary submitApplicationBtn py-2">Submit</button>
                     </div>
                 </form>
             </div>

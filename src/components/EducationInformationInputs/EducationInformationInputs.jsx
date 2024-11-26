@@ -17,18 +17,20 @@ export default function EducationInformationInputs({ errors, register }) {
         },
     ];
     return (
-        <>
-            <h3 className="my-3">
-                Education
-            </h3>
-            {
-                formInputs?.map((formInput, idx) => (
-                    <div key={idx} className="col-lg-8 my-2">
-                        <CustomInput error={formInput.error} type={formInput.type} register={register} placeholder={formInput.placeholder} name={formInput.name} lableName={formInput.lableName} id={formInput.id} />
-                    </div>
-                ))
-            }
-        </>
+        <div className="col-lg-10 shadow mb-5 p-4 bg-white">
+            <div className="row">
+                <h3 className="my-3">
+                    Education
+                </h3>
+                {
+                    formInputs?.map((formInput, idx) => (
+                        <div key={idx} className="col-lg-6 my-2">
+                            <CustomInput error={formInput.error} type={formInput.type} register={register} placeholder={formInput.placeholder} name={formInput.name} lableName={formInput.lableName} id={formInput.id} />
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
     );
 };
 EducationInformationInputs.propTypes = {

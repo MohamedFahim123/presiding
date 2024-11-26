@@ -16,7 +16,6 @@ import ProfessionalExperienceInputs from "../ProfessionalExperienceInputs/Profes
 import LanguageFeild from "../LanguageFeild/LanguageFeild";
 import AttachMentsInputs from "../AttachMentsInputs/AttachMentsInputs";
 import ApplyBtn from "../ApplyBtn/ApplyBtn";
-import { VISATYPES } from "../../functions/VISATYPES";
 
 export default function ApplyForJobForm({ jobId }) {
     const { register, control, setValue, setError, reset, watch, handleSubmit, formState: { errors, isSubmitting } } = useForm({
@@ -41,6 +40,7 @@ export default function ApplyForJobForm({ jobId }) {
                     start_date: '',
                     end_data: '',
                     present: '',
+                    industry: '',
                 }
             ],
             languages: '',
@@ -48,7 +48,6 @@ export default function ApplyForJobForm({ jobId }) {
             cover_letter: '',
             availability_id: '',
             expected_salary: '',
-            visa: '',
         },
         resolver: zodResolver(ApplyForJobShema),
     });
@@ -58,12 +57,9 @@ export default function ApplyForJobForm({ jobId }) {
     const langs = useLangStore((state) => state.langs);
 
     const formSelects = [
-        {
-            options: availabilities, error: errors?.availability_id?.message, name: 'availability_id', labelName: 'Availability', id: 'applyForAJobavailability_id'
-        },
-        {
-            options: VISATYPES, error: errors?.visa?.message, name: 'visa', labelName: 'Visa Type', id: 'applyForAJobVisa'
-        },
+            {
+                options: availabilities, error: errors?.availability_id?.message, name: 'availability_id', labelName: 'Notice Period', id: 'applyForAJobavailability_id'
+            },
     ];
 
     const handleAddField = (setFields, fields, lableName) => {
@@ -147,7 +143,7 @@ export default function ApplyForJobForm({ jobId }) {
             .catch(err => {
                 Object.keys(err?.response?.data?.errors).forEach((field) => {
                     err?.response?.data?.errors[field]?.forEach((message) => {
-                        toast.error(message,{
+                        toast.error(message, {
                             duration: 2000,
                         });
                     });
@@ -171,30 +167,40 @@ export default function ApplyForJobForm({ jobId }) {
                 <form onSubmit={handleSubmit(onSubmit)} className="row">
                     <PersonalInformationInputs isFillForm={false} watch={watch} citizenships={citizenships} errors={errors} register={register} countries={countries} />
                     <EducationInformationInputs register={register} errors={errors} />
-                    <ProfessionalExperienceInputs control={control} register={register} />
-                    <LanguageFeild langs={langs} setValue={setValue} handleAddField={handleAddField} handleDeleteField={handleDeleteField} handleInputChange={handleInputChange} errors={errors} />
-                    <AttachMentsInputs fillForm={false} errors={errors} register={register} />
-                    <div className="col-md-8 my-2">
-                        <label className={`text-capitalize mb-1`} htmlFor={'applyJobFormExpectedSalary'}>Expected Salary <span className="requiredStar">*</span></label>
-                        <input
-                            type={'number'}
-                            id={'applyJobFormExpectedSalary'}
-                            placeholder={'Type Your expected salary'}
-                            className={`form-control ${errors?.expected_salary?.message && 'error_input'}`}
-                            {...register('expected_salary')}
-                        />
-                        {
-                            errors?.expected_salary &&
-                            <span className="error_message">{errors?.expected_salary?.message}</span>
-                        }
+                    <ProfessionalExperienceInputs errors={errors} control={control} register={register} />
+
+                    <div className="col-lg-10 shadow mb-5 p-4 bg-white">
+                        <div className="row">
+                            <LanguageFeild langs={langs} setValue={setValue} handleAddField={handleAddField} handleDeleteField={handleDeleteField} handleInputChange={handleInputChange} errors={errors} />
+                        </div>
                     </div>
-                    {
-                        formSelects?.map((formSelect, idx) => (
-                            <div key={idx} className="col-lg-8 my-2">
-                                <CustomSelect optional={formSelect?.optional} error={formSelect?.error} options={formSelect?.options} register={register} name={formSelect.name} labelName={formSelect.labelName} id={formSelect.id} />
+                    <div className="col-lg-10 shadow mb-5 p-4 bg-white">
+                        <div className="row">
+                            <AttachMentsInputs fillForm={false} errors={errors} register={register} />
+
+                            <div className="col-md-8 my-2">
+                                <label className={`text-capitalize mb-1`} htmlFor={'applyJobFormExpectedSalary'}>Expected Salary In SAR<span className="requiredStar">*</span></label>
+                                <input
+                                    type={'number'}
+                                    id={'applyJobFormExpectedSalary'}
+                                    placeholder={'Type Your expected salary'}
+                                    className={`form-control ${errors?.expected_salary?.message && 'error_input'}`}
+                                    {...register('expected_salary')}
+                                />
+                                {
+                                    errors?.expected_salary &&
+                                    <span className="error_message">{errors?.expected_salary?.message}</span>
+                                }
                             </div>
-                        ))
-                    }
+                            {
+                                formSelects?.map((formSelect, idx) => (
+                                    <div key={idx} className="col-lg-8 my-2">
+                                        <CustomSelect optional={formSelect?.optional} error={formSelect?.error} options={formSelect?.options} register={register} name={formSelect.name} labelName={formSelect.labelName} id={formSelect.id} />
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
                     <ApplyBtn isSubmitting={isSubmitting} />
                 </form>
             </div>

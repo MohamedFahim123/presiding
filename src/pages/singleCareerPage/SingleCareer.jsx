@@ -5,7 +5,7 @@ import { baseUrl } from "../../functions/baseUrl";
 import CareerJobDetails from "../../components/careerJobDetailsSec/CareerJobDetails";
 import { postDataToApi } from "../../functions/postDataToApi";
 import MyLoader from "../../components/myLoaderSec/MyLoader";
-import bgImage from '../../assets/home-overview/9ed0b317c009431f96f7364d813c33b8.jpeg';
+import bgImage from '../../assets/home-overview/applyForAJobImage.avif';
 
 export default function SingleCareer() {
     const { JobId } = useParams();

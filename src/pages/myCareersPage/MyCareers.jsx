@@ -5,7 +5,6 @@ import { baseUrl } from '../../functions/baseUrl';
 import { useFetch } from '../../hooks/useFetch';
 import MyLoader from "../../components/myLoaderSec/MyLoader";
 import WhyPresidingSec from "../../components/whyPresidingSec/WhyPresidingSec";
-import InternShipSec from "../../components/internShipSec/InternShipSec";
 
 export default function MyCareers() {
   const [currData, loading] = useFetch(`${baseUrl}/all-jobs`);
@@ -17,8 +16,9 @@ export default function MyCareers() {
   return (
     <>
       <MyHeroImage
-        title={`Looking For More Talented Jobs`}
-        subTit={'"The best company culture thrives on respect, collaboration, and innovation, creating an environment where talents are welcomed, valued, and empowered to grow."'}
+        title={`Seeking For More Expertise`}
+        subTitle={' Fill the talent form to be considered for upcoming opportunities with Presiding and collaborate on impactful projects with us !'}
+        subTit={'Join our pool of expertise of talented and skilled consultants.'}
         height={'80vh'}
         btnName={'Fill Talent Form'}
         btnNavigation={'fill-application-form'}
@@ -29,11 +29,11 @@ export default function MyCareers() {
         bgPosition={'center'}
       />
       <WhyPresidingSec 
-        heading={'Why Presiding?'} 
-        paraOne={'We have experienced teams advising companies across the full breadth of the energy and natural resources including upstream and downstream and from conventional resource extraction through to developing the latest clean technologies. Our global network means we can support you as you expand your business and provide on the ground expertise and insight.'}
-        paraTwo={'Whether you are looking to raise finance, improve M&A post deal integration, model extraction revenues or benchmark key engineers pay, we have experienced teams able to work for the duration of the project lifecycle, and beyond.'}
+        heading={'A culture that inspires'} 
+        paraOne={'"A great company culture is the foundation of every successful organization. It thrives on trust, inclusion, and a shared commitment to excellence. At Presiding, we welcome both emerging talents and seasoned experts, creating an environment where collaboration and innovation flourish.'}
+        paraTwo={'By fostering a culture that values growth, dedication, and diverse perspectives, we empower individuals to contribute meaningfully, driving success and delivering impactful results for our clients."'}
       />
-      <InternShipSec />
+      {/* <InternShipSec /> */}
       <CareerJopsTable currData={currData?.jobs} />
     </>
   );

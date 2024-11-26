@@ -7,7 +7,7 @@ export const ApplyForJobShema = z.object({
     email: z.string().email({ message: 'Invalid Email Address' }),
     phone: z.string().min(1, { message: 'Phone is Required' }),
     availability_id: z.any(),
-    visa: z.string().min(1, { message: 'Required' }),
+    // visa: z.string().min(1, { message: 'Required' }),
     linkedin_url: z.string().min(1, { message: 'Required' }),
     languages: z.any(),
     cv: z.any(),

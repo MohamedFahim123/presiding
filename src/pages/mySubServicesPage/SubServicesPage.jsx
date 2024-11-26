@@ -1,5 +1,5 @@
 import MySubServices from "../../components/mySubServicesSec/MySubServices";
-import bgImage from '../../assets/home-insights/8be20325d2160343393bf6f345b1b8fb.jpeg';
+import bgImage from '../../assets/home-overview/applyForAJobImage.avif';
 import MyHeroImage from '../../components/myHeroImageSec/MyHeroImage';
 import { useFetch } from '../../hooks/useFetch';
 import { baseUrl } from '../../functions/baseUrl';

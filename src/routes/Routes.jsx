@@ -27,7 +27,7 @@ export const Routes = createBrowserRouter([
             { path: 'careers', element: <MyCareers /> },
             { path: 'careers/job-details/:JobId', element: <SingleCareer /> },
             { path: 'careers/apply/:JobId', element: <ApplyForAJob /> },
-            { path: 'careers/fill-application-form', element: <FillApplicationForm /> },
+            { path: 'careers/fill-application-form', element: <FillApplicationForm plicationForm /> },
             { path: 'contact-us', element: <ContactUs /> },
         ],
     },

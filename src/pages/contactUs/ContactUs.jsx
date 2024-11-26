@@ -5,7 +5,6 @@ import bgImage from '../../assets/contactUs/ef56f05a5d0cd1d802146cb39bc9c48a.jpg
 import ContactUsMainTextSection from "../../components/ContactUsMainTextSection/ContactUsMainTextSection";
 import ContactUsMap from "../../components/ContactUsMap/ContactUsMap";
 import ContactUsForm from "../../components/ContactUsForm/ContactUsForm";
-import ContactBottmSection from "../../components/ContactBottmSection/ContactBottmSection";
 
 
 export default function ContactUs() {
@@ -27,7 +26,6 @@ export default function ContactUs() {
             <ContactUsMainTextSection />
             <ContactUsMap />
             <ContactUsForm />
-            <ContactBottmSection />
         </>
     );
 };

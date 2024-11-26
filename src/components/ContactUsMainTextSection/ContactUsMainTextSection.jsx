@@ -12,7 +12,7 @@ export default function ContactUsMainTextSection() {
                     </div>
                     <div className="col-md-6">
                         <p className={styles.text}>
-                            Our team is ready to assist you and address any queries you may have. We eagerly await your communication.
+                            Our team is ready to assist you and address any queries you may have.
                         </p>
                     </div>
                 </div>

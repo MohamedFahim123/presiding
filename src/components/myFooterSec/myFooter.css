@@ -100,7 +100,8 @@
     }
     .footerTop__handler .myFooter_logo img{
         width: 130px;
-        height: 67px;
+        object-fit: cover;
+        height: 90px;
         margin-bottom: 30px;
         text-align: center;
     }

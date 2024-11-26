@@ -70,5 +70,12 @@
     }
     .imgContainer {
         order: -1 !important;
+        max-height: 300px;
+        overflow: hidden;
+    }
+    .imgContainer img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
     }
 }

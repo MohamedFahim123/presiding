@@ -5,11 +5,13 @@ import { baseUrl } from '../../functions/baseUrl';
 import { useFetch } from '../../hooks/useFetch';
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 export default function MyHomePodacast() {
     const [currData] = useFetch(`${baseUrl}/video-cover`);
     const scrollRef = useRef(null);
     const isInView = useInView(scrollRef, { once: true });
+    const navigate = useNavigate();
 
     return (
         <motion.div
@@ -37,11 +39,11 @@ export default function MyHomePodacast() {
                                 <img src={videoInfo} alt="video-cover" />
                                 <div className="overflow"></div>
                                 <ul className="podacast__icons ps-4">
-                                    <li className='pt-3 mb-4'>
-                                        <span className='border-bottom'>
-                                            Presiding Facts
+                                    {/* <li className='pt-3 mb-4'>
+                                        <span className='border-bottom text-capitalize'>
+                                            Our Key Wins
                                         </span>
-                                    </li>
+                                    </li> */}
                                     <li>
                                         <i className='bi-clock-history'></i>
                                         <span>
@@ -67,9 +69,9 @@ export default function MyHomePodacast() {
                                         </span>
                                     </li>
                                 </ul>
-                                <div className="podaInfo_text cursorPointer" onClick={() => window.location.href = currData?.video_cover?.link}>
+                                <div className="podaInfo_text cursorPointer" onClick={() => navigate('/contact-us')}>
                                     <h3>
-                                        Know More <i className="bi bi-arrow-bar-right"></i>
+                                        Get In Touch <i className="bi bi-arrow-bar-right"></i>
                                     </h3>
                                 </div>
                             </div>

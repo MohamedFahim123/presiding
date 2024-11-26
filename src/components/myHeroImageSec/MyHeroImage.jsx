@@ -3,7 +3,7 @@ import styles from './myHeroImage.module.css';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { memo } from 'react';
 
-function MyHeroImage({ btnNavigation, backGroundOverLoay, itemsPosition, title, subTit, actions, btnName, linkName, linkDistenation, bgImage, bgPosition, height }) {
+function MyHeroImage({ btnNavigation, backGroundOverLoay, itemsPosition, subTitle, title, subTit, actions, btnName, linkName, linkDistenation, bgImage, bgPosition, height }) {
     const navigate = useNavigate();
     return (
         <div className={`${styles.heroImage__handler}`} style={bgImage && { backgroundImage: `url(${bgImage})`, backgroundSize: 'cover', backgroundPosition: bgPosition ? bgPosition : 'top', alignItems: itemsPosition ? itemsPosition : 'end', height: height ? height : '60vh' }}>
@@ -16,6 +16,9 @@ function MyHeroImage({ btnNavigation, backGroundOverLoay, itemsPosition, title, 
                         </h2>
                         <p>
                             {subTit}
+                        </p>
+                        <p className='fs-6 mt-0'>
+                            {subTitle ? subTitle : ''}
                         </p>
                     </div>
                     {
@@ -42,6 +45,7 @@ function MyHeroImage({ btnNavigation, backGroundOverLoay, itemsPosition, title, 
 MyHeroImage.propTypes = {
     title: PropTypes.string.isRequired,
     subTit: PropTypes.string,
+    subTitle: PropTypes.string,
     actions: PropTypes.bool,
     btnName: PropTypes.string,
     linkName: PropTypes.string,

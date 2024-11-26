@@ -4,10 +4,10 @@ export default function CustomCrudFields({ error, fields, options, labelName, se
     return (
         <>
             {fields?.map((field, index) => (
-                <div key={field?.id} className="col-lg-12 my-2">
+                <div key={field?.id} className="col-12 my-2">
                     <div className="row">
                         <div className="col-md-8">
-                            <label className="text-capitalize mb-1  fw-bold" htmlFor={field?.id}>
+                            <label className="text-capitalize mb-1 fw-bold" htmlFor={field?.id}>
                                 {labelName} ({index + 1}) <span className="requiredStar">*</span>
                             </label>
                             <select
@@ -36,7 +36,7 @@ export default function CustomCrudFields({ error, fields, options, labelName, se
                                             checked={field.radioBtnValue === el.value}
                                             onChange={() => handleInputChange(field.id, {}, setFields, fields, el.value)}
                                         />
-                                        <label className="form-check-label cursorPointer" htmlFor={`fillFormCustomRadioLang${field?.id}${idx}`}>
+                                        <label className="form-check-label cursorPointer text-capitalize" htmlFor={`fillFormCustomRadioLang${field?.id}${idx}`}>
                                             {el?.value}
                                         </label>
                                     </div>
@@ -57,9 +57,9 @@ export default function CustomCrudFields({ error, fields, options, labelName, se
                     </div>
                 </div>
             ))}
-            <div className="col-md-8 text-center mb-3">
+            <div className="col-md-8 text-center mb-3 d-flex mt-3">
                 <button type="button" className="btn btn-outline-success" onClick={() => handleAddField(setFields, fields, labelName)}>
-                    <i className="bi bi-plus-square"></i>
+                    Add More
                 </button>
             </div>
         </>

@@ -60,10 +60,12 @@
         text-align: center;
     }
     .NewsLetter__inputs{
-        justify-content: center;
+        justify-content: center; 
+        flex-direction: column;
     }
     .NewsLetter__inputs input {
-        width: 50%;
+        width: 100%;
+        margin-bottom: 10px;
         font-size: 10px;
     }
 }

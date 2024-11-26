@@ -5,7 +5,7 @@ export default function CustomInput({error, type, register, placeholder, name ,l
         <>
             {
                 lableName &&
-                <label className={`text-capitalize mb-1`} htmlFor={id}>{lableName} <span className="requiredStar">*</span></label>
+                <label className={`text-capitalize mb-1 fw-bold`} htmlFor={id}>{lableName} <span className="requiredStar">*</span></label>
             }
             <input
                 type={type}

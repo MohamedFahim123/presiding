@@ -10,7 +10,7 @@ export default function LanguageFeild({ setValue,errors, langs, handleAddField, 
                 id: Date.now(),
                 value: '',
                 radioBtnValue: '',
-                radioBtn: [{ value: 'beginner' }, { value: 'intermediate' }, { value: 'fluent' }],
+                radioBtn: [{ value: 'beginner' }, { value: 'intermediate' }, { value: 'advanced' }],
             }
         ]
     );
