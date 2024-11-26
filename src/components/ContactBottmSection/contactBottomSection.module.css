@@ -1,0 +1,65 @@
+.sectionContainer {
+  background-color: #011f5b;
+  color: #ffffff;
+  padding: 60px 0;
+}
+.headContent,
+.bottomCard {
+  margin-bottom: 50px;
+}
+.headContent h4 {
+  font-size: 28px;
+  line-height: 42px;
+}
+.headContent a {
+  color: #ffffff;
+}
+.headContent p {
+  display: flex;
+  gap: 15px;
+}
+.bottomCard h5 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  color: #53a843;
+}
+.bottomCard p {
+  color: #c9c9c9;
+  max-width: 60%;
+  font-size: 18px;
+  line-height: 27px;
+}
+@media (max-width: 1024px) {
+  .headContent h4 {
+    font-size: 25px;
+    line-height: 38px;
+  }
+  .bottomCard h5 {
+    font-size: 18px;
+    line-height: 28px;
+  }
+  .bottomCard p {
+    max-width: 75%;
+    line-height: 25px;
+  }
+  .bottomHead {
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+@media (max-width: 768px) {
+  .headContent h4 {
+    font-size: 22px;
+  }
+  .bottomCard h5 {
+    font-size: 16px;
+  }
+  .bottomCard p {
+    max-width: 90%;
+    font-size: 14px;
+  }
+  .bottomHead {
+    font-size: 16px;
+  }
+}
