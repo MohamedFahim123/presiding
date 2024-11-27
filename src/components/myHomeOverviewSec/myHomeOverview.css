@@ -18,6 +18,15 @@
   overflow: hidden;
   position: relative;
 }
+.overview_item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #00000065;
+}
 .item_small {
   height: 315px;
   position: relative;
@@ -57,9 +66,13 @@
   height: 70px;
   margin-bottom: 15px;
   filter: brightness(0) invert(1);
+  position: relative;
+  z-index: 3;
 }
 .overview_item .overview_info p {
   font-weight: 400;
+  position: relative;
+  z-index: 3;
   font-size: 16px;
   color: var(--primary-white);
   text-transform: capitalize;

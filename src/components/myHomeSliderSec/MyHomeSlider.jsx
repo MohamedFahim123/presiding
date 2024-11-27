@@ -14,7 +14,6 @@ import { Link } from "react-router-dom";
 export default function MyHomeSlider({ heading, title, overLayColor, sliderImg1, btnVisibility ,backGroundPosition}) {
     const [currData] = useFetch(`${baseUrl}/sliders`);
 
-
     return (
         <div className="slider__handler">
             <Swiper

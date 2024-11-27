@@ -12,6 +12,7 @@ import { useIndustriesStore } from './store/useIndustriesStore';
 import { useAvailabilitiesStore } from './store/useAvailabilitiesStore';
 import { useProjectTypesStore } from './store/useProjectTypesStore';
 import { Routes } from './routes/Routes';
+import { useJobTypesStore } from './store/useJobTypes';
 
 function App() {
   const getCitizenShips = useCitizenShipStore(state => state.getCitizenShips);
@@ -23,6 +24,7 @@ function App() {
   const getIndustries = useIndustriesStore(state => state.getIndustries);
   const getAvailabilities = useAvailabilitiesStore(state => state.getAvailabilities);
   const getProjectTypes = useProjectTypesStore(state => state.getProjectTypes);
+  const getJobTypes = useJobTypesStore(state => state.getJobTypes);
 
   useEffect(() => {
     getCitizenShips();
@@ -34,7 +36,8 @@ function App() {
     getIndustries();
     getAvailabilities();
     getProjectTypes();
-  }, [getAvailabilities, getCitizenShips, getCountries, getIndustries, getLangs, getPrimaryExp, getProjectTypes, getSkills, getYearsOfExp]);
+    getJobTypes();
+  }, [getJobTypes,getAvailabilities, getCitizenShips, getCountries, getIndustries, getLangs, getPrimaryExp, getProjectTypes, getSkills, getYearsOfExp]);
 
   return (
     <>

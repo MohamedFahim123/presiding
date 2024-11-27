@@ -33,6 +33,7 @@ export default function ApplyForJobForm({ jobId }) {
             degree: '',
             university: '',
             graduate_year: '',
+            year_exp_id: '',
             professional_experience: [
                 {
                     position: '',
@@ -40,7 +41,7 @@ export default function ApplyForJobForm({ jobId }) {
                     start_date: '',
                     end_data: '',
                     present: '',
-                    industry: '',
+                    industry_id: '',
                 }
             ],
             languages: '',
@@ -68,7 +69,7 @@ export default function ApplyForJobForm({ jobId }) {
                 id: Date.now(),
                 name: '',
                 value: '',
-                radioBtn: [{ value: 'beginner' }, { value: 'intermediate' }, { value: 'fluent' }]
+                radioBtn: [{ value: 'beginner' }, { value: 'intermediate' }, { value: 'advanced' }]
             }
             : { id: Date.now(), name: '', value: '' };
         setFields([...fields, field]);
@@ -109,6 +110,7 @@ export default function ApplyForJobForm({ jobId }) {
                     formData.append(`professional_experience[${index}][company]`, exp.company);
                     formData.append(`professional_experience[${index}][start_date]`, exp.start_date);
                     formData.append(`professional_experience[${index}][end_data]`, exp.end_data);
+                    formData.append(`professional_experience[${index}][industry_id]`, exp.industry_id);
                     formData.append(`professional_experience[${index}][present]`, exp.present ? 'yes' : 'no');
                 });
             } else if (key === 'languages') {
@@ -133,12 +135,11 @@ export default function ApplyForJobForm({ jobId }) {
             },
         })
             .then(res => {
-                console.log(res?.data)
+                reset();
                 toast.success(res?.data?.message || 'Applied Successfully!', {
                     id: toastId,
                     duration: 1000,
                 });
-                reset();
             })
             .catch(err => {
                 Object.keys(err?.response?.data?.errors).forEach((field) => {

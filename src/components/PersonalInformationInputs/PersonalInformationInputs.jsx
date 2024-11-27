@@ -27,18 +27,18 @@ export default function PersonalInformationInputs({ isFillForm, errors, watch, r
         :
         [
             {
-                error: errors?.linkedin_url?.message, type: 'text', placeholder: 'Enter Linkedin Url', name: 'linkedin_url', lableName: 'Linkedin Url', id: 'applyForAJoblinkedin_url'
-            },
-            {
                 error: errors?.full_name?.message, type: 'text', placeholder: 'Full Name', name: 'full_name', lableName: 'Full Name', id: 'applyForAJobFullName'
             },
             {
                 error: errors?.email?.message, type: 'email', placeholder: 'Example@gmail.com', name: 'email', lableName: 'Email', id: 'applyForAJobEmail'
             },
+            {
+                error: errors?.linkedin_url?.message, type: 'text', placeholder: 'Enter Linkedin Url', name: 'linkedin_url', lableName: 'Linkedin Url', id: 'applyForAJoblinkedin_url'
+            },
         ];
 
     const otherIntputsAtEnd = [{
-        error: errors?.linkedin_url?.message, type: 'text', placeholder: 'Enter Linkedin Url', name: 'linkedin_url', lableName: 'Linkedin Url', id: 'applyForAJoblinkedin_url'
+        error: errors?.linkedin_profile?.message, type: 'text', placeholder: 'Enter Linkedin Profile', name: 'linkedin_profile', lableName: 'Linkedin Profile', id: 'applyForAJoblinkedin_profile'
     },]
 
 
@@ -169,6 +169,7 @@ export default function PersonalInformationInputs({ isFillForm, errors, watch, r
                     ))
                 }
                 {
+                    isFillForm &&
                     otherIntputsAtEnd?.map((formInput, idx) => (
                         <div key={idx} className="col-lg-6 my-2">
                             {

@@ -1,6 +1,8 @@
 .singleInsight__heroSec {
     height: 80vh;
     background: #022E54;
+    max-width: 100vw;
+    overflow: hidden;
 }
 .text__container {
     max-width: 370px;

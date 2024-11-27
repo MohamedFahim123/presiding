@@ -56,7 +56,7 @@ export default function MyHome() {
 
     return (
         <>
-            <MyHomeSlider btnVisibility={true} title={'Presiding Solutions'} overLayColor={''} heading={'We grow your business'} />
+            <MyHomeSlider btnVisibility={true} title={'Presiding Solutions'} overLayColor={'#00000070'} heading={'We grow your business'} />
             <MyHomeTextInfo />
             <MyHomeOverview />
             <MyHomeServices />

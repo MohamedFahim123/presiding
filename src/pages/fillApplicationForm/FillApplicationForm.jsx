@@ -22,6 +22,7 @@ import ProfessionalExperienceInputs from "../../components/ProfessionalExperienc
 import LanguageFeild from "../../components/LanguageFeild/LanguageFeild";
 import AttachMentsInputs from "../../components/AttachMentsInputs/AttachMentsInputs";
 import { useProjectTypesStore } from "../../store/useProjectTypesStore";
+import { useJobTypesStore } from "../../store/useJobTypes";
 
 export default function FillApplicationForm() {
     const { register, control, setError, setValue, watch, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm({
@@ -47,14 +48,15 @@ export default function FillApplicationForm() {
                     start_date: '',
                     end_date: '',
                     present: '',
-                    industry: '',
-                }
+                    industry_id: '',
+                },
             ],
             languages: '',
             cv: '',
             year_exp_id: '',
             skills_id: '',
-            primary_expertise_id: '',
+            job_type_id: '',
+            project_type_id: '',
         },
         resolver: zodResolver(FillApplicationFormShema),
     });
@@ -63,6 +65,7 @@ export default function FillApplicationForm() {
     const langs = useLangStore((state) => state.langs);
     const skills = useSkillsStore((state) => state.skills);
     const projectTypes = useProjectTypesStore((state) => state.projectTypes);
+    const jobTypes = useJobTypesStore((state) => state.jobTypes);
     const citizenshipsLoading = useCitizenShipStore(state => state.citizenshipsLoading);
     const countriesLoading = useCountriesStore(state => state.countriesLoading);
     const industriesLoading = useIndustriesStore(state => state.industriesLoading);
@@ -72,6 +75,7 @@ export default function FillApplicationForm() {
     const yearsOfExpLoading = useYearsOfExpStore(state => state.yearsOfExpLoading);
     const [skillsFields, setSkillsFields] = useState([{ id: Date.now(), value: '' }]);
     const [checkedPreferredTypes, setcheckedPreferredTypes] = useState([]);
+    const [checkedPreferredJobTypes, setcheckedPreferredJobTypes] = useState([]);
 
     const handleAddField = (setFields, fields, lableName) => {
         const field = lableName === 'Language' ?
@@ -79,7 +83,7 @@ export default function FillApplicationForm() {
                 id: Date.now(),
                 name: '',
                 value: '',
-                radioBtn: [{ value: 'intrmediate' }, { value: 'beginner' }, { value: 'advanced' }]
+                radioBtn: [{ value: 'beginner' }, { value: 'intermediate' }, { value: 'advanced' }]
             }
             : { id: Date.now(), name: '', value: '' };
         setFields([...fields, field]);
@@ -92,8 +96,8 @@ export default function FillApplicationForm() {
                     return { ...field, radioBtnValue: radioBtnName };
                 } else {
                     return { ...field, [event.target.name]: event.target.value };
-                }
-            }
+                };
+            };
             return field;
         });
         setFields(newFields);
@@ -104,7 +108,6 @@ export default function FillApplicationForm() {
             setFields(fields.filter((field) => field.id !== id));
         };
     };
-
 
     const handleCheckboxChange = (event, item, setCheckedItems, checkedItems) => {
         const isChecked = event.target.checked;
@@ -120,7 +123,9 @@ export default function FillApplicationForm() {
     }, [skillsFields]);
 
     const onSubmit = async (data) => {
-        console.log(data);
+        data.job_type_id = checkedPreferredJobTypes?.map(job => job?.id);
+        data.project_type_id = checkedPreferredTypes?.map(type => type?.id);
+        console.log(data)
         const toastId = toast.loading('loading...');
         const formData = new FormData();
         Object.keys(data).forEach((key) => {
@@ -131,19 +136,20 @@ export default function FillApplicationForm() {
                     formData.append(`professional_experience[${index}][start_date]`, exp.start_date);
                     formData.append(`professional_experience[${index}][end_date]`, exp.end_date);
                     formData.append(`professional_experience[${index}][present]`, exp.present ? 'yes' : 'no');
+                    formData.append(`professional_experience[${index}][industry_id]`, exp.industry_id);
                 });
             } else if (key === 'languages') {
                 data.languages.forEach((language, index) => {
                     formData.append(`languages[${index}][languages_id]`, language.languages_id);
                     formData.append(`languages[${index}][level]`, language.level);
                 });
-            } else if (key !== 'portfolio_file' && key !== 'cv' && !Array.isArray(data[key])) {
+            } else if (key !== 'cv' && !Array.isArray(data[key])) {
                 formData.append(key, data[key]);
-            } else if (key !== 'portfolio_file' && key !== 'cv' && Array.isArray(data[key])) {
+            } else if (key !== 'cv' && Array.isArray(data[key])) {
                 data[key].forEach((item, index) => {
                     formData.append(`${key}[${index}]`, item);
                 });
-            } else if (key === 'cv' || key === 'portfolio_file') {
+            } else if (key === 'cv') {
                 formData.append(`${key}`, data[key][0]);
             };
         });
@@ -250,19 +256,29 @@ export default function FillApplicationForm() {
                                         }
                                     </div>
                                 </div>
+                                <div className="col-lg-8 my-2">
+                                    <label className="fs-5 text-capitalize mt-4 mb-2 fw-bold">Preferred Job Type <span className="requiredStar">*</span></label>
+                                    <div className="row">
+                                        {
+                                            jobTypes?.map((type) => (
+                                                <div key={type?.id} className="form-check ms-2 mb-2 col-md-2">
+                                                    <input
+                                                        className="form-check-input cursorPointer"
+                                                        type="checkbox"
+                                                        value={type?.name}
+                                                        id={`check-${type?.id}`}
+                                                        onChange={(event) => handleCheckboxChange(event, type, setcheckedPreferredJobTypes, checkedPreferredJobTypes)}
+                                                    />
+                                                    <label className="form-check-label cursorPointer" htmlFor={`check-${type?.id}`}>
+                                                        {type?.name}
+                                                    </label>
+                                                </div>
+                                            ))
+                                        }
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
-                        {/* <CustomCrudFields
-                            error={errors?.industry_id}
-                            fields={industriesFeilds}
-                            options={industries}
-                            setFields={setIndustriesFields}
-                            handleAddField={handleAddField}
-                            handleDeleteField={handleDeleteField}
-                            handleInputChange={handleInputChange}
-                            labelName={'Industry'}
-                        /> */}
                         <ApplyBtn isSubmitting={isSubmitting} />
                     </form>
                 </div >

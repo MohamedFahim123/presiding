@@ -71,7 +71,7 @@ export default function ProfessionalExperienceInputs({ control, register }) {
                                 <select
                                     id={'profissionalExpIndust'}
                                     className={`form-select`}
-                                    {...register(`professional_experience.${index}.industry`)}
+                                    {...register(`professional_experience.${index}.industry_id`)}
                                 >
                                     <option disabled value="">Select Industry</option>
                                     {

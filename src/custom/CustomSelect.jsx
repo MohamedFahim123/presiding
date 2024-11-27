@@ -18,7 +18,7 @@ export default function CustomSelect({ optional, error, register, name, options,
                 className={`form-select ${error && 'error_input'}`}
                 {...register(name)}
             >
-                <option disabled value="">{labelName ? labelName : 'Select'}</option>
+                <option disabled value="">{labelName}</option>
                 {
                     options?.map(el => (
                         <option key={el?.id} value={el?.id}>{el?.name}</option>
