@@ -38,12 +38,7 @@ export default function MyHomePodacast() {
                             <div className="podacastInfo">
                                 <img src={videoInfo} alt="video-cover" />
                                 <div className="overflow"></div>
-                                <ul className="podacast__icons ps-4">
-                                    {/* <li className='pt-3 mb-4'>
-                                        <span className='border-bottom text-capitalize'>
-                                            Our Key Wins
-                                        </span>
-                                    </li> */}
+                                <ul className="podacast__icons ps-4 fw-bold">
                                     <li>
                                         <i className='bi-clock-history'></i>
                                         <span>

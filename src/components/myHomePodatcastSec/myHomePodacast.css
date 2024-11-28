@@ -114,9 +114,6 @@ z-index: 10;
     transition: all 0.3s ease-in-out;
     margin-bottom: 15px;
 }
-.podacast__icons li:first-child {
-    font-size: 30px;
-}
 .podacast__icons li i {
     font-size: 30px;
 }
