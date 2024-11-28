@@ -1,5 +1,5 @@
 import './myHomeOverview.css';
-import logo from '../../assets/logos/presiding-nav-logo.png';
+import logo from '../../assets/logos/Untitled-2-02.svg';
 import { baseUrl } from '../../functions/baseUrl';
 import { useFetch } from '../../hooks/useFetch';
 import { useRef } from 'react';

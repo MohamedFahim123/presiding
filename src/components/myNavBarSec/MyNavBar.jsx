@@ -4,7 +4,7 @@ import { Container, Nav, Navbar } from 'react-bootstrap';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { NavLink, useLocation } from 'react-router-dom';
 import { scrollToTop } from '../../functions/scrollToTop';
-import main_logo from '../../assets/logos/presiding-nav-logo.png'
+import main_logo from '../../assets/logos/Untitled-2-02.svg'
 import PropTypes from 'prop-types';
 
 export default function MyNavBar({ scrollToggle }) {
@@ -33,7 +33,7 @@ export default function MyNavBar({ scrollToggle }) {
                     <Navbar.Brand className='d-flex align-items-center'>
                         <NavLink className='logo__text' to={`/`}>
                             <>
-                                <img src={main_logo} alt="main-logo" />
+                                <img src={main_logo} alt="main-logo" style={{transform: 'scale(1.4)'}} />
                             </>
                         </NavLink>
                     </Navbar.Brand>
