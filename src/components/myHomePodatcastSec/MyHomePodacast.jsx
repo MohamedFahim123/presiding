@@ -38,7 +38,7 @@ export default function MyHomePodacast() {
                             <div className="podacastInfo">
                                 <img src={videoInfo} alt="video-cover" />
                                 <div className="overflow"></div>
-                                <ul className="podacast__icons ps-4 fw-bold">
+                                <ul className="podacast__icons ps-4 fw-semibold">
                                     <li>
                                         <i className='bi-clock-history'></i>
                                         <span>

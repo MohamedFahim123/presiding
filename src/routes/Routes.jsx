@@ -11,6 +11,7 @@ import ApplyForAJob from "../pages/applyForAJob/ApplyForAJob";
 import FillApplicationForm from "../pages/fillApplicationForm/FillApplicationForm";
 import ContactUs from "../pages/contactUs/ContactUs";
 import NotFound from "../pages/notFound/NotFound";
+import ClientPortal from "../pages/clientPortal/ClientPortal";
 
 export const Routes = createBrowserRouter([
     {
@@ -29,6 +30,7 @@ export const Routes = createBrowserRouter([
             { path: 'careers/apply/:JobId', element: <ApplyForAJob /> },
             { path: 'careers/fill-application-form', element: <FillApplicationForm plicationForm /> },
             { path: 'contact-us', element: <ContactUs /> },
+            { path: 'client-portal',element: <ClientPortal />}
         ],
     },
 ]);

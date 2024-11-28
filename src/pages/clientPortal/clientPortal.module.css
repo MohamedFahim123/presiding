@@ -1,0 +1,18 @@
+.clientPortalHandler {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(0deg, rgba(8, 59, 103, .7),#ffffff);
+    padding: 40px;
+    gap: 10px;
+}
+.clientPortalHandler h2 {
+    font-weight: bold;
+    font-size: 50px;
+}
+.clientPortalHandler p {
+    font-size: 22px;
+    font-weight: 500;
+}

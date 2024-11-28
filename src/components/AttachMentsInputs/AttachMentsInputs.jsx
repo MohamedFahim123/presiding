@@ -6,14 +6,7 @@ export default function AttachMentsInputs({ register, errors, fillFrom }) {
             <h3 className="mb-2">
                 Additional Requirments
             </h3>
-            {
-                !fillFrom &&
-                (
-                    <h3 className="my-3">
-                        Attachments
-                    </h3>
-                )
-            }
+
             <div className="col-lg-8 my-2">
                 <label className='text-capitalize fw-bold mb-1' htmlFor={'applyForAJobCVFile'}>
                     {
@@ -35,7 +28,7 @@ export default function AttachMentsInputs({ register, errors, fillFrom }) {
             {
                 !fillFrom &&
                 <div className="col-lg-8 my-2">
-                    <label className='text-capitalize mb-1' htmlFor={'applyForAJobCVFile'}>Cover Letter <span className="optional">( optional )</span></label>
+                    <label className='text-capitalize mb-1 fw-bold' htmlFor={'applyForAJobCVFile'}>Cover Letter <span className="optional">( optional )</span></label>
                     <input
                         type="file"
                         id={'applyForAJobCoverLetter'}

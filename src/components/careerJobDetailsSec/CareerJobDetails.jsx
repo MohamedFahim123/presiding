@@ -10,7 +10,9 @@ export default function CareerJobDetails({ jobDetails }) {
                             <ul className={`row mb-5`}>
                                 <li className={`${styles.mainInfoJob} col-lg-4 text-center`}>
                                     <h3>
-                                        Experience
+                                        <span className={styles.title__content}>
+                                            Experience
+                                        </span>
                                     </h3>
                                     <p>
                                         {jobDetails?.years_of_experience}
@@ -18,7 +20,9 @@ export default function CareerJobDetails({ jobDetails }) {
                                 </li>
                                 <li className={`${styles.mainInfoJob} col-lg-4 text-center`}>
                                     <h3>
-                                        Career Level
+                                        <span className={styles.title__content}>
+                                            Career Level
+                                        </span>
                                     </h3>
                                     <p>
                                         {jobDetails?.managment_level}
@@ -26,7 +30,9 @@ export default function CareerJobDetails({ jobDetails }) {
                                 </li>
                                 <li className={`${styles.mainInfoJob} col-lg-4 text-center`}>
                                     <h3>
-                                        Employment Type
+                                        <span className={styles.title__content}>
+                                            Employment Type
+                                        </span>
                                     </h3>
                                     <p>
                                         {jobDetails?.job_type}
@@ -38,7 +44,9 @@ export default function CareerJobDetails({ jobDetails }) {
                             <div className={`${styles.JobDetails_allInfo}`}>
                                 <div className={`${styles.JobDetails_singleInfo}`}>
                                     <h3>
-                                        Description
+                                        <span className={styles.title__content}>
+                                            Description
+                                        </span>
                                     </h3>
                                     <p>
                                         {jobDetails?.description}
@@ -46,7 +54,9 @@ export default function CareerJobDetails({ jobDetails }) {
                                 </div>
                                 <div className={`${styles.JobDetails_singleInfo}`}>
                                     <h3>
-                                        education
+                                        <span className={styles.title__content}>
+                                            education
+                                        </span>
                                     </h3>
                                     <p>
                                         {jobDetails?.education}
@@ -54,7 +64,9 @@ export default function CareerJobDetails({ jobDetails }) {
                                 </div>
                                 <div className={`${styles.JobDetails_singleInfo}`}>
                                     <h3>
-                                        travel requirment
+                                        <span className={styles.title__content}>
+                                            travel requirement
+                                        </span>
                                     </h3>
                                     <p>
                                         {jobDetails?.travel_requirment}
@@ -62,7 +74,9 @@ export default function CareerJobDetails({ jobDetails }) {
                                 </div>
                                 <div className={`${styles.JobDetails_singleInfo}`}>
                                     <h3>
-                                        responsabilities
+                                        <span className={styles.title__content}>
+                                            responsibilities
+                                        </span>
                                     </h3>
                                     <p>
                                         {jobDetails?.key_responsabilities}
@@ -70,7 +84,10 @@ export default function CareerJobDetails({ jobDetails }) {
                                 </div>
                                 <div className={`${styles.JobDetails_singleInfo}`}>
                                     <h3>
-                                        languages
+                                        <span className={styles.title__content}>
+                                            languages
+
+                                        </span>
                                     </h3>
                                     {
                                         jobDetails?.languages?.map((el) => (
@@ -82,7 +99,9 @@ export default function CareerJobDetails({ jobDetails }) {
                                 </div>
                                 <div className={`${styles.JobDetails_singleInfo}`}>
                                     <h3>
-                                        skills
+                                        <span className={styles.title__content}>
+                                            skills
+                                        </span>
                                     </h3>
                                     {
                                         jobDetails?.skills?.map((el) => (

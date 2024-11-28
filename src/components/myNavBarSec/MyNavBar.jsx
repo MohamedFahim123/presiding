@@ -98,7 +98,7 @@ export default function MyNavBar({ scrollToggle }) {
                                     }}
                                     aria-label="Close"
                                     className={`nav-link nav__link__style sign__up__btn`}
-                                    // to={`/client-portal`}
+                                    to={`/client-portal`}
                                 >
                                     CLIENT PORTAL
                                 </NavLink>
@@ -179,7 +179,7 @@ export default function MyNavBar({ scrollToggle }) {
                                         }}
                                         aria-label="Close"
                                         className={`nav-link nav__link__style sign__up__btn`}
-                                        // to={`/client-portal`}
+                                        to={`/client-portal`}
                                     >
                                         CLIENT PORTAL
                                     </NavLink>

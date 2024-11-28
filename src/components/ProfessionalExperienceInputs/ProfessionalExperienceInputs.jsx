@@ -1,4 +1,3 @@
-/* eslint-disable no-dupe-keys */
 import PropTypes from "prop-types";
 import { useFieldArray } from "react-hook-form";
 import { useIndustriesStore } from "../../store/useIndustriesStore";
@@ -94,7 +93,7 @@ export default function ProfessionalExperienceInputs({ control, register }) {
                                 !(index === 0) &&
                                 <button
                                     type="button"
-                                    className="btn btn-outline-danger w-auto m-auto"
+                                    className="btn btn-outline-danger radiusNone w-auto m-auto"
                                     onClick={() => remove(index)}
                                 >
                                     Remove Experience
@@ -104,7 +103,7 @@ export default function ProfessionalExperienceInputs({ control, register }) {
                     ))}
                     <button
                         type="button"
-                        className="btn btn-outline-success my-4 mx-auto"
+                        className={`mainAddBtn my-4 mx-auto`}
                         onClick={() => append({ position: '', company: '', start_date: '', end_date: '', present: false })}
                     >
                         Add Experience

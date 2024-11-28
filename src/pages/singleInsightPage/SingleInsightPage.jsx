@@ -22,7 +22,10 @@ export default function SingleInsightPage() {
                 head={currData?.blog?.description}
                 disc={currData?.blog?.body}
             />
-            <BreakingSectionLine text="PUBLICATIONS" />
+            {
+                currData.length > 0 &&
+                <BreakingSectionLine text="MORE INSIGHTS" />
+            }
             <FeaturedInsightsSec currData={currData?.relatedBlogs} isSingleInsight={true} />
         </>
     );

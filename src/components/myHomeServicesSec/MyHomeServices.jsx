@@ -32,10 +32,10 @@ export default function MyHomeServices() {
                     </>
                 </div>
                 <div className="container">
-                    <div className="row mt-5 mb-3">
+                    <div className="row mt-5">
                         {
                             currData?.services?.map((service, idx) => (
-                                <div key={service?.id} className="col-lg-3 col-md-3 mb-5 position-relative overflow-hidden">
+                                <div key={service?.id} className="col-lg-3 col-md-3 mb-3 position-relative overflow-hidden">
                                     <div className="serviceItem_box" onClick={() => {
                                         setIsVisible(isVisible.map((_, index) => idx === index ? true : false))
                                     }}>

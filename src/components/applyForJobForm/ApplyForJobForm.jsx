@@ -180,7 +180,7 @@ export default function ApplyForJobForm({ jobId }) {
                             <AttachMentsInputs fillForm={false} errors={errors} register={register} />
 
                             <div className="col-md-8 my-2">
-                                <label className={`text-capitalize mb-1`} htmlFor={'applyJobFormExpectedSalary'}>Expected Salary In SAR<span className="requiredStar">*</span></label>
+                                <label className={`text-capitalize mb-1 fw-bold`} htmlFor={'applyJobFormExpectedSalary'}>Expected Salary In SAR<span className="requiredStar">*</span></label>
                                 <input
                                     type={'number'}
                                     id={'applyJobFormExpectedSalary'}

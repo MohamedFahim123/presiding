@@ -47,7 +47,7 @@ export default function CustomCrudFields({ error, fields, options, labelName, se
                             <div className="col-md-1 mt-4 pt-2">
                                 <button
                                     type="button"
-                                    className="btn btn-outline-danger"
+                                    className="btn radiusNone btn-outline-danger"
                                     onClick={() => handleDeleteField(field.id, setFields, fields)}
                                 >
                                     <i className="bi bi-trash"></i>
@@ -58,7 +58,7 @@ export default function CustomCrudFields({ error, fields, options, labelName, se
                 </div>
             ))}
             <div className="col-md-8 text-center mb-3 d-flex mt-3">
-                <button type="button" className="btn btn-outline-success" onClick={() => handleAddField(setFields, fields, labelName)}>
+                <button type="button" className="mainAddBtn" onClick={() => handleAddField(setFields, fields, labelName)}>
                     Add More
                 </button>
             </div>
