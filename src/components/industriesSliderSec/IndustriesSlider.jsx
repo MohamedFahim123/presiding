@@ -26,7 +26,7 @@ export default function IndustriesSlider() {
                                 spaceBetween: 10
                             },
                             426: {
-                                slidesPerView: 2.2,
+                                slidesPerView: 2.1,
                                 spaceBetween: 20
                             },
                             600: {
@@ -34,11 +34,11 @@ export default function IndustriesSlider() {
                                 spaceBetween: 15
                             },
                             768: {
-                                slidesPerView: 2.2,
+                                slidesPerView: 3,
                                 spaceBetween: 15
                             },
                             995: {
-                                slidesPerView: 3,
+                                slidesPerView: 4,
                                 spaceBetween: 20
                             },
                         }}
@@ -46,16 +46,12 @@ export default function IndustriesSlider() {
                         {
                             currData?.industries?.map((industry) => (
                                 <SwiperSlide key={industry?.id} className="industrySlide__item">
-                                    <>
-                                        <div className="industrySlide__info mt-5">
-                                            <>
-                                                <img src={industry?.image} alt="icon" />
-                                                <h2>
-                                                    {industry?.title}
-                                                </h2>
-                                            </>
-                                        </div>
-                                    </>
+                                    <div className="industrySlide__info position-relative mt-5">
+                                        <img src={industry?.image} alt="icon" />
+                                        <h2>
+                                            {industry?.title}
+                                        </h2>
+                                    </div>
                                 </SwiperSlide>
                             ))
                         }
@@ -63,7 +59,6 @@ export default function IndustriesSlider() {
                     </Swiper>
                 </div>
             </div>
-
         </div>
     )
 }

@@ -1,19 +1,43 @@
 import './myFooter.css'
 import logo from '../../assets/footer-images/Presiding-logo.png'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useFetch } from '../../hooks/useFetch';
 import { baseUrl } from '../../functions/baseUrl';
+import { scrollToTop } from '../../functions/scrollToTop';
 
 export default function MyFooter() {
     const [currData] = useFetch(`${baseUrl}/settings`);
+    const navigate = useNavigate();
     const listFooterData = [
         {
             title: "Company",
-            items: ["Careers", "Privacy & Policy", "Partnerships"]
+            items: [
+                {
+                    name: 'Insights',
+                    link: '/insights'
+                },
+                {
+                    name: 'Services',
+                    link: '/services'
+                },
+                {
+                    name: 'Contact Us',
+                    link: '/contact-us'
+                }
+            ],
         },
         {
             title: "Explore",
-            items: ["Marketplace", "Campaigns", "Awards"]
+            items: [
+                {
+                    name: "Careers",
+                    link: '/careers'
+                },
+                {
+                    name: 'Client Portal',
+                    link: '/client-portal'
+                }
+            ]
         },
     ];
 
@@ -25,7 +49,10 @@ export default function MyFooter() {
                     <>
                         <div className="col-lg-3 col-md-3 col-sm-12">
                             <div className="myFooter_logo">
-                                <img src={logo} alt="logo" />
+                                <img src={logo} alt="logo" className='cursorPointer' onClick={() => {
+                                    navigate('/');
+                                    scrollToTop();
+                                }} />
                             </div>
                         </div>
                         <div className="col-lg-9 col-md-9 col-sm-12">
@@ -43,13 +70,15 @@ export default function MyFooter() {
                                                             {
                                                                 list?.items?.map((item, idx) => {
                                                                     return (
-                                                                        <li key={idx} className='footer__listBox__items'>
-                                                                            {item}
+                                                                        <li key={idx} onClick={() => {
+                                                                            navigate(item?.link);
+                                                                            scrollToTop();
+                                                                        }} className='footer__listBox__items cursorPointer'>
+                                                                            {item?.name}
                                                                         </li>
                                                                     )
                                                                 })
                                                             }
-
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -61,22 +90,22 @@ export default function MyFooter() {
                                     <div className="footer__listBox lastListbox">
                                         <div className="footer__listBox__tit">
                                             <h5>
-                                                Contact centre
+                                                Get In Touch
                                             </h5>
                                             <ul>
-                                                <li>
+                                                {/* <li>
                                                     <span>Contact us:</span>
                                                     <NavLink to={`tel:${currData?.phone}`} className={'nav-link'}>
                                                         {currData?.phone}
                                                     </NavLink>
-                                                </li>
+                                                </li> */}
                                                 <li>
-                                                    <span>Email us:</span>
+                                                    <span>Email:</span>
                                                     <NavLink to={`mailto:${currData?.email}`} className={'nav-link'}>
                                                         {currData?.email}
                                                     </NavLink>
                                                 </li>
-                                                <li className=''>
+                                                <li>
                                                     <span>Find Us Here:</span>
                                                     <NavLink to={currData?.instagram} className={'nav-link'}>
                                                         <i className="bi bi-instagram"></i>

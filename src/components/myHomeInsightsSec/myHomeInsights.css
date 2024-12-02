@@ -1,7 +1,7 @@
 .insightsSlider__handler {
-  margin-top: 10px;
   position: relative;
-  background-color: #f9f9f967;
+  padding: 0 0 70px 0;
+  background-color: #f7f7f7;
 }
 .insightSlide__item {
   overflow: hidden;
