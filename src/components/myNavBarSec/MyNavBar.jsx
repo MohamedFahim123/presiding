@@ -33,7 +33,7 @@ export default function MyNavBar({ scrollToggle }) {
                     <Navbar.Brand className='d-flex align-items-center'>
                         <NavLink className='logo__text' to={`/`}>
                             <>
-                                <img src={main_logo} alt="main-logo" style={{transform: 'scale(1.4)',marginBottom: '-7px'}} />
+                                <img src={main_logo} alt="main-logo" style={{transform: 'scale(1.5)',marginBottom: '-8px'}} />
                             </>
                         </NavLink>
                     </Navbar.Brand>
