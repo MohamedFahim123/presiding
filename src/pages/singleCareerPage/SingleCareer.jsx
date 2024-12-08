@@ -1,11 +1,11 @@
-import { useParams } from "react-router-dom";
-import MyHeroImage from "../../components/myHeroImageSec/MyHeroImage";
 import { useEffect, useState } from "react";
-import { baseUrl } from "../../functions/baseUrl";
-import CareerJobDetails from "../../components/careerJobDetailsSec/CareerJobDetails";
-import { postDataToApi } from "../../functions/postDataToApi";
-import MyLoader from "../../components/myLoaderSec/MyLoader";
+import { useParams } from "react-router-dom";
 import bgImage from '../../assets/home-overview/applyForAJobImage.avif';
+import CareerJobDetails from "../../components/careerJobDetailsSec/CareerJobDetails";
+import MyHeroImage from "../../components/myHeroImageSec/MyHeroImage";
+import MyLoader from "../../components/myLoaderSec/MyLoader";
+import { baseUrl } from "../../functions/baseUrl";
+import { postDataToApi } from "../../functions/postDataToApi";
 
 export default function SingleCareer() {
     const { JobId } = useParams();

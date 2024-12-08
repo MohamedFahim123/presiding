@@ -1,17 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
 import MyLayout from "../components/myLayoutSec/MyLayout";
+import ApplyForAJob from "../pages/applyForAJob/ApplyForAJob";
+import ClientPortal from "../pages/clientPortal/ClientPortal";
+import ContactUs from "../pages/contactUs/ContactUs";
+import FillApplicationForm from "../pages/fillApplicationForm/FillApplicationForm";
+import MyCareers from "../pages/myCareersPage/MyCareers";
 import MyHome from "../pages/myHomePage/MyHome";
+import InsightsPage from "../pages/myInsightsPage/InsightsPage";
 import ServicesPage from "../pages/myServicesPage/ServicesPage";
 import SubServicesPage from "../pages/mySubServicesPage/SubServicesPage";
-import InsightsPage from "../pages/myInsightsPage/InsightsPage";
-import SingleInsightPage from "../pages/singleInsightPage/SingleInsightPage";
-import MyCareers from "../pages/myCareersPage/MyCareers";
-import SingleCareer from "../pages/singleCareerPage/SingleCareer";
-import ApplyForAJob from "../pages/applyForAJob/ApplyForAJob";
-import FillApplicationForm from "../pages/fillApplicationForm/FillApplicationForm";
-import ContactUs from "../pages/contactUs/ContactUs";
 import NotFound from "../pages/notFound/NotFound";
-import ClientPortal from "../pages/clientPortal/ClientPortal";
+import SingleCareer from "../pages/singleCareerPage/SingleCareer";
+import SingleInsightPage from "../pages/singleInsightPage/SingleInsightPage";
 
 export const Routes = createBrowserRouter([
     {

@@ -1,10 +1,10 @@
+import bgImage from '../../assets/home-overview/f95ccedc77bb0dea110ccc66fa4aef90.jpeg';
 import CareerJopsTable from "../../components/careerJopsTableSec/CareerJopsTable";
 import MyHeroImage from "../../components/myHeroImageSec/MyHeroImage";
-import bgImage from '../../assets/home-overview/f95ccedc77bb0dea110ccc66fa4aef90.jpeg';
-import { baseUrl } from '../../functions/baseUrl';
-import { useFetch } from '../../hooks/useFetch';
 import MyLoader from "../../components/myLoaderSec/MyLoader";
 import WhyPresidingSec from "../../components/whyPresidingSec/WhyPresidingSec";
+import { baseUrl } from '../../functions/baseUrl';
+import { useFetch } from '../../hooks/useFetch';
 
 export default function MyCareers() {
   const [currData, loading] = useFetch(`${baseUrl}/all-jobs`);

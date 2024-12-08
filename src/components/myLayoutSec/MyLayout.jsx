@@ -1,8 +1,8 @@
-import MyNavBar from "../myNavBarSec/MyNavBar";
 import { useState } from "react";
-import MyFooter from "../myFooterSec/MyFooter";
-import MyNewsLetter from "../myNewsLetterSec/MyNewsLetter";
 import { Outlet } from "react-router-dom";
+import MyFooter from "../myFooterSec/MyFooter";
+import MyNavBar from "../myNavBarSec/MyNavBar";
+import MyNewsLetter from "../myNewsLetterSec/MyNewsLetter";
 
 export default function MyLayout() {
     const [scrollToggle, setScrollToggle] = useState(false);

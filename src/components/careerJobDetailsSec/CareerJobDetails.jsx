@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import styles from './careerJobDetails.module.css';
+
 export default function CareerJobDetails({ jobDetails }) {
     return (
         <>
@@ -86,7 +87,6 @@ export default function CareerJobDetails({ jobDetails }) {
                                     <h3>
                                         <span className={styles.title__content}>
                                             languages
-
                                         </span>
                                     </h3>
                                     {

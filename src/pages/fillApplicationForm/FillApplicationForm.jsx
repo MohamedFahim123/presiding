@@ -1,28 +1,28 @@
-import { useForm } from "react-hook-form";
-import { useEffect, useState } from "react";
-import { baseUrl } from "../../functions/baseUrl";
-import CustomCrudFields from "../../custom/CustomCrudFields";
-import { useCitizenShipStore } from "../../store/useCitizenShipStore";
-import { useCountriesStore } from "../../store/useCountriesStore";
-import { useYearsOfExpStore } from "../../store/useYearsOfExpStore";
-import { useLangStore } from "../../store/useLangStore";
-import { useSkillsStore } from "../../store/useSkillsStore";
-import { useIndustriesStore } from "../../store/useIndustriesStore";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FillApplicationFormShema } from "../../validation/FillApllication";
 import axios from "axios";
-import MyHeroImage from "../../components/myHeroImageSec/MyHeroImage";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import bgImage from '../../assets/home-overview/applyForAJobImage.avif';
-import MyLoader from "../../components/myLoaderSec/MyLoader";
 import ApplyBtn from "../../components/ApplyBtn/ApplyBtn";
-import PersonalInformationInputs from "../../components/PersonalInformationInputs/PersonalInformationInputs";
-import EducationInformationInputs from "../../components/EducationInformationInputs/EducationInformationInputs";
-import ProfessionalExperienceInputs from "../../components/ProfessionalExperienceInputs/ProfessionalExperienceInputs";
-import LanguageFeild from "../../components/LanguageFeild/LanguageFeild";
 import AttachMentsInputs from "../../components/AttachMentsInputs/AttachMentsInputs";
-import { useProjectTypesStore } from "../../store/useProjectTypesStore";
+import EducationInformationInputs from "../../components/EducationInformationInputs/EducationInformationInputs";
+import LanguageFeild from "../../components/LanguageFeild/LanguageFeild";
+import MyHeroImage from "../../components/myHeroImageSec/MyHeroImage";
+import MyLoader from "../../components/myLoaderSec/MyLoader";
+import PersonalInformationInputs from "../../components/PersonalInformationInputs/PersonalInformationInputs";
+import ProfessionalExperienceInputs from "../../components/ProfessionalExperienceInputs/ProfessionalExperienceInputs";
+import CustomCrudFields from "../../custom/CustomCrudFields";
+import { baseUrl } from "../../functions/baseUrl";
+import { useCitizenShipStore } from "../../store/useCitizenShipStore";
+import { useCountriesStore } from "../../store/useCountriesStore";
+import { useIndustriesStore } from "../../store/useIndustriesStore";
 import { useJobTypesStore } from "../../store/useJobTypes";
+import { useLangStore } from "../../store/useLangStore";
+import { useProjectTypesStore } from "../../store/useProjectTypesStore";
+import { useSkillsStore } from "../../store/useSkillsStore";
+import { useYearsOfExpStore } from "../../store/useYearsOfExpStore";
+import { FillApplicationFormShema } from "../../validation/FillApllication";
 
 export default function FillApplicationForm() {
     const { register, control, setError, setValue, watch, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm({
@@ -120,7 +120,7 @@ export default function FillApplicationForm() {
 
     useEffect(() => {
         setValue('skills_id', skillsFields?.map(el => el?.value));
-    }, [skillsFields]);
+    }, [setValue, skillsFields]);
 
     const onSubmit = async (data) => {
         data.job_type_id = checkedPreferredJobTypes?.map(job => job?.id);
@@ -245,10 +245,10 @@ export default function FillApplicationForm() {
                                                         className="form-check-input cursorPointer"
                                                         type="checkbox"
                                                         value={type?.name}
-                                                        id={`check-${type?.id}`}
+                                                        id={`checkProjectType-${type?.id}`}
                                                         onChange={(event) => handleCheckboxChange(event, type, setcheckedPreferredTypes, checkedPreferredTypes)}
                                                     />
-                                                    <label className="form-check-label cursorPointer" htmlFor={`check-${type?.id}`}>
+                                                    <label className="form-check-label cursorPointer" htmlFor={`checkProjectType-${type?.id}`}>
                                                         {type?.name}
                                                     </label>
                                                 </div>
@@ -266,10 +266,10 @@ export default function FillApplicationForm() {
                                                         className="form-check-input cursorPointer"
                                                         type="checkbox"
                                                         value={type?.name}
-                                                        id={`check-${type?.id}`}
+                                                        id={`checkJobType-${type?.id}`}
                                                         onChange={(event) => handleCheckboxChange(event, type, setcheckedPreferredJobTypes, checkedPreferredJobTypes)}
                                                     />
-                                                    <label className="form-check-label cursorPointer" htmlFor={`check-${type?.id}`}>
+                                                    <label className="form-check-label cursorPointer" htmlFor={`checkJobType-${type?.id}`}>
                                                         {type?.name}
                                                     </label>
                                                 </div>

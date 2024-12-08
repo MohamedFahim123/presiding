@@ -1,12 +1,12 @@
+import PropTypes from "prop-types";
 import InsightsMainCard from "../insightsMainCard/InsightsMainCard";
 import styles from './featuredInsightsSec.module.css';
-import PropTypes from "prop-types";
 
 export default function FeaturedInsightsSec({ isSingleInsight, currData }) {
     return (
         <>
             {
-                currData.length > 0 &&
+                currData?.length > 0 &&
                 <div className={`section__handler`}>
                     <div className="container">
                         <div className="row justify-content-center">
