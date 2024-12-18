@@ -13,7 +13,6 @@ export default function MyPartnersSlider() {
         <div className="myPartener__slider__handler">
             <div className="container">
                 <div className="myPartener__slider">
-
                     <Swiper
                         className='mySwiper cursorGrap'
                         modules={[Autoplay]}
