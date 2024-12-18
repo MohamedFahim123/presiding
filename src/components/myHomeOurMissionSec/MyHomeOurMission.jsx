@@ -2,6 +2,7 @@ import './myHomeOurMission.css';
 import MyMainHeader from '../myMainHeaderSec/MyMainHeader';
 import { useRef } from 'react';
 import { motion, useInView } from "framer-motion";
+import { Link } from 'react-router-dom';
 
 export default function MyHomeOurMission() {
     const scrollRef = useRef(null);
@@ -30,8 +31,14 @@ export default function MyHomeOurMission() {
                                     <p className='mb-3'>
                                         Presiding Solutions stands as a trusted partner for clients seeking to elevate their business performance and achieve transformative results. Our unwavering commitment to quality, professionalism, and client-focused service has established us as a leader in the consultancy industry.
                                     </p>
-                                    <p>
+                                    <p className='mb-4'>
                                         By combining deep expertise across Finance, Management, CSR, Oil & Gas, and Training Services, we deliver tailored solutions that meet the highest standards. At Presiding, we don’t just offer services; we provide leadership that drives real value and lasting impact for our clients.
+                                    </p>
+                                    <p className='d-flex justify-content-end'>
+                                        <Link to={'/about-us'} className='underLined'>
+                                            More About Us
+                                            <i className="bi bi-arrow-bar-right cursorPointer ms-1"></i>
+                                        </Link>
                                     </p>
                                 </div>
                             </div>

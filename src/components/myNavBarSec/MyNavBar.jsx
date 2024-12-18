@@ -1,11 +1,11 @@
+import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-import './myNavBar.css';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { NavLink, useLocation } from 'react-router-dom';
+import main_logo from '../../assets/logos/Untitled-2-02.svg';
 import { scrollToTop } from '../../functions/scrollToTop';
-import main_logo from '../../assets/logos/Untitled-2-02.svg'
-import PropTypes from 'prop-types';
+import './myNavBar.css';
 
 export default function MyNavBar({ scrollToggle }) {
     const [showOffcanvas, setShowOffcanvas] = useState(false);
@@ -77,6 +77,16 @@ export default function MyNavBar({ scrollToggle }) {
                             to={`/insights`}
                         >
                             Insights
+                        </NavLink>
+                        <NavLink
+                            onClick={() => {
+                                scrollToTop();
+                            }}
+                            aria-label="Close"
+                            className={`nav-link nav__link__style`}
+                            to={`/about-us`}
+                        >
+                            About Us
                         </NavLink>
                         <NavLink
                             onClick={() => {
@@ -159,6 +169,17 @@ export default function MyNavBar({ scrollToggle }) {
                                 className={`nav-link nav__link__style`}
                                 to={`/insights`}>
                                 Insights
+                                <NavLink
+                                    onClick={() => {
+                                        scrollToTop();
+                                        closeOffcanvas();
+                                    }}
+                                    aria-label="Close"
+                                    className={`nav-link nav__link__style`}
+                                    to={`/about-us`}
+                                >
+                                    About Us
+                                </NavLink>
                             </NavLink>
                             <NavLink
                                 onClick={() => {

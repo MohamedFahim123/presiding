@@ -1,0 +1,47 @@
+.aboutUsSliderSec__handler {
+  padding: 60px 0;
+  background-color: #f9f9f9;
+}
+.imgsContainer {
+  min-height: 80vh;
+}
+.firstImg {
+  width: 70%;
+  height: 70%;
+  position: relative;
+  z-index: 2;
+  border-radius: 20px;
+  object-fit: cover;
+}
+.secondImg {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 55%;
+  height: 60%;
+  z-index: 4;
+  border-radius: 20px;
+  object-fit: cover;
+}
+.slide h6 {
+  margin-top: 50px;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--main-green-color);
+}
+.slide h2 {
+  font-size: 50px;
+  color: var(--main-blue-color-text);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.1;
+  max-width: 90%;
+  margin: 20px 0 30px;
+}
+.slide p {
+  font-size: 22px;
+  line-height: 1.68;
+  max-width: 90%;
+  margin: 0 0 20px;
+}

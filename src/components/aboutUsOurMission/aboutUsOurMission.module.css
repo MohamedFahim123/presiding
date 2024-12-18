@@ -1,0 +1,19 @@
+.aboutUsMission__handler {
+    padding: 60px 0;
+}
+.cardImage {
+    max-width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+.cardTitle {
+    color: var(--main-blue-color-text);
+    font-weight: bold;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+.cardText {
+    color: #898989;
+    font-size: 20px;
+}

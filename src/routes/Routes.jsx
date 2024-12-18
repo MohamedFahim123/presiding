@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import MyLayout from "../components/myLayoutSec/MyLayout";
+import AboutUs from "../pages/aboutUs/AboutUs";
 import ApplyForAJob from "../pages/applyForAJob/ApplyForAJob";
 import ClientPortal from "../pages/clientPortal/ClientPortal";
 import ContactUs from "../pages/contactUs/ContactUs";
@@ -30,7 +31,8 @@ export const Routes = createBrowserRouter([
             { path: 'careers/apply/:JobId', element: <ApplyForAJob /> },
             { path: 'careers/fill-application-form', element: <FillApplicationForm plicationForm /> },
             { path: 'contact-us', element: <ContactUs /> },
-            { path: 'client-portal',element: <ClientPortal />}
+            { path: 'about-us', element: <AboutUs /> },
+            { path: 'client-portal', element: <ClientPortal /> }
         ],
     },
 ]);

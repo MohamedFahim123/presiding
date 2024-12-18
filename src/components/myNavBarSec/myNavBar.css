@@ -197,7 +197,9 @@
     overflow-y: auto;
     max-height: 100vh;
 }
-
+.navbar-expand-lg .navbar-nav {
+    gap: 10px !important;
+}
 /* start ersposnive */
 @media screen and (max-width: 993px) {
     .Navbar__offCanvas__none__on__lg {
