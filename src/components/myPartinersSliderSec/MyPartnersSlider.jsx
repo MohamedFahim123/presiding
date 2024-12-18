@@ -5,6 +5,7 @@ import "swiper/css/autoplay";
 import Autoplay from "../../../node_modules/swiper/modules/autoplay.mjs";
 import { baseUrl } from "../../functions/baseUrl";
 import { useFetch } from "../../hooks/useFetch";
+import '../myHomeIndustriesSec/myHomeIndustries.css';
 
 export default function MyPartnersSlider() {
     const [currData] = useFetch(`${baseUrl}/parteners`);
