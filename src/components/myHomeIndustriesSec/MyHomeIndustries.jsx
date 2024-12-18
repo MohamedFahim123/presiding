@@ -38,7 +38,7 @@ export default function MyHomeIndustries() {
                 <span className={styles.myHomeIndustries__textTopHead}>Industries</span>
               </p>
               <h3 className={`mb-4`}>Exploring business world through our services</h3>
-              <p>
+              <p className={styles.myHomeIndustries__textToptext}>
                 Presiding offers its clients a diverse and rich portfolio of business management services. Our team of professional practitioners and experts works in partnership with our clients to deliver contextualized high quality services that fit the best international standards.
               </p>
             </div>

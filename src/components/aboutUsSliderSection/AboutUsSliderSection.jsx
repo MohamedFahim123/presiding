@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 
 export default function AboutUsSliderSection() {
     return (
@@ -16,13 +16,18 @@ export default function AboutUsSliderSection() {
                         <img className={styles.firstImg} src={img1} alt="first about image" />
                         <img className={styles.secondImg} src={img2} alt="second about image" />
                     </div>
+
                     <Swiper
                         className={`${styles.customSwiper} mySwiper cursorGrap col-lg-7 ps-4 h-100 position-relative`}
-                        modules={[Autoplay]}
+                        modules={[Autoplay, Navigation]}
                         autoplay={{
                             delay: 2500,
                             pauseOnMouseEnter: true,
                             disableOnInteraction: false,
+                        }}
+                        navigation={{
+                            prevEl: `.${styles.customPrevButton}`,
+                            nextEl: `.${styles.customNextButton}`,
                         }}
                         slidesPerView={1}
                         spaceBetween={20}
@@ -53,8 +58,10 @@ export default function AboutUsSliderSection() {
                             <p>At our consulting firm, we are dedicated to delivering insightful and innovative solutions tailored to each client’s unique needs. Our unwavering commitment is to drive our clients’ success, treating their objectives as our own.</p>
                         </SwiperSlide>
                     </Swiper>
+                    <div className={styles.customPrevButton}><i className="bi bi-arrow-left"></i></div>
+                    <div className={styles.customNextButton}><i className="bi bi-arrow-right"></i></div>
                 </div>
             </div>
         </div>
     );
-};
+}

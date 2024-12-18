@@ -1,6 +1,9 @@
 .aboutUsSliderSec__handler {
   padding: 60px 0;
   background-color: #f9f9f9;
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
 }
 .imgsContainer {
   min-height: 80vh;
@@ -44,4 +47,35 @@
   line-height: 1.68;
   max-width: 90%;
   margin: 0 0 20px;
+}
+.customPrevButton,
+.customNextButton {
+  position: absolute;
+  bottom: 60px;
+  width: fit-content;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 20px;
+  color: #858383;
+  border: 1px solid #858383;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 15px;
+  transition: all 0.3s ease-in-out;
+}
+
+.customPrevButton:hover,
+.customNextButton:hover {
+  background-color: #858383;
+  color: #ffffff;
+}
+
+.customPrevButton {
+  right: 180px;
+}
+
+.customNextButton {
+  right: 110px;
 }

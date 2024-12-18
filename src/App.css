@@ -181,13 +181,6 @@
 .underLined:hover {
   text-decoration: underline;
 }
-/* .myPartener__slider__handler {
-  padding: 20px 0;
-}
-.partenerSlide__item img {
-  height: 90px;
-  object-fit: cover;
-} */
 @media (max-width: 768px) {
   .insightSectionHandler .col-lg-4 {
     width: 60% !important;

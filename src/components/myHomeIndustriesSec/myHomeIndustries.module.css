@@ -1,19 +1,39 @@
 .myHomeIndustries__handler {
   margin-top: 60px;
   padding: 60px 0;
-  background-color: var(--main-blue-color-bg);
+  background: url('../../assets/home-overview/applyForAJobImage.avif');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   color: #ffffff;
 }
+.myHomeIndustries__handler::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
 .myHomeIndustries__text h3 {
+  position: relative;
+  z-index: 1;
   font-size: 35px;
   text-transform: uppercase;
   letter-spacing: 1.1px;
 }
 .myHomeIndustries__textTopHead {
+  position: relative;
+  z-index: 1;
   text-transform: uppercase;
   padding: 3px 10px;
   background-color: #ffffff2b;
   font-size: 13px;
+}
+.myHomeIndustries__textToptext {
+  position: relative;
+  z-index: 1;
 }
 .industrySlide__info {
   margin-bottom: 40px;
