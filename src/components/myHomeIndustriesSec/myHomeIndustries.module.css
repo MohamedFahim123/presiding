@@ -75,3 +75,8 @@
 .customNextButton {
   right: 90px;
 }
+@media (max-width: 991px) {
+  .myHomeIndustries__text {
+    margin-bottom: 30px;
+  }
+}

@@ -169,17 +169,17 @@ export default function MyNavBar({ scrollToggle }) {
                                 className={`nav-link nav__link__style`}
                                 to={`/insights`}>
                                 Insights
-                                <NavLink
-                                    onClick={() => {
-                                        scrollToTop();
-                                        closeOffcanvas();
-                                    }}
-                                    aria-label="Close"
-                                    className={`nav-link nav__link__style`}
-                                    to={`/about-us`}
-                                >
-                                    About Us
-                                </NavLink>
+                            </NavLink>
+                            <NavLink
+                                onClick={() => {
+                                    scrollToTop();
+                                    closeOffcanvas();
+                                }}
+                                aria-label="Close"
+                                className={`nav-link nav__link__style`}
+                                to={`/about-us`}
+                            >
+                                About Us
                             </NavLink>
                             <NavLink
                                 onClick={() => {
