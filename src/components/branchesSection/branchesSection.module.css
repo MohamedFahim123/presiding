@@ -1,0 +1,19 @@
+.branches__handler {
+  padding: 60px 0;
+  background-color: #f9f9f9;
+}
+.branch__card h4{
+    color: var(--main-green-color);
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+.flagImg{
+    width: 40px;
+    height: 25px;
+    object-fit: fill;
+    margin-inline-end: 5px;
+}
+.email_link {
+    color: #212529;
+    text-decoration: underline;
+}

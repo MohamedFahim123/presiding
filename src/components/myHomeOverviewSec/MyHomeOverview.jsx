@@ -4,6 +4,7 @@ import { baseUrl } from '../../functions/baseUrl';
 import { useFetch } from '../../hooks/useFetch';
 import { useRef } from 'react';
 import { motion, useInView } from "framer-motion";
+import { Link } from 'react-router-dom';
 
 export default function MyHomeOverview() {
     const [currData] = useFetch(`${baseUrl}/sections`);
@@ -46,7 +47,7 @@ export default function MyHomeOverview() {
                             </div>
                         </div>
                         <div className='overview_item d-flex flex-column justify-content-between h-100'>
-                            <div className="item_small" onClick={() => window.location.href = currData?.sections[3]?.link}>
+                            <Link to={'/branches'} className="item_small">
                                 <div className="overflow bg_color"></div>
                                 <img loading='lazy' src={currData?.sections ? currData?.sections[3]?.image : ''} alt="background 3" />
                                 <div className="overview_info hasIcon">
@@ -55,7 +56,7 @@ export default function MyHomeOverview() {
                                     </p>
                                     <i className="bi bi-arrow-bar-right"></i>
                                 </div>
-                            </div>
+                            </Link>
                             <div className="item_small" onClick={() => window.location.href = currData?.sections[4]?.link}>
                                 <img loading='lazy' src={currData?.sections ? currData?.sections[4]?.image : ''} alt="background 4" />
                                 <div className="overview_info hasIcon">

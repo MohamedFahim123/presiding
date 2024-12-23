@@ -7,7 +7,7 @@ import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 
-export default function AboutUsSliderSection() {
+export default function AboutUsSliderSection1() {
     return (
         <div className={styles.aboutUsSliderSec__handler}>
             <div className="container">

@@ -68,7 +68,7 @@ export default function MyHomeIndustries() {
               }}
             >
               {chunkedData?.map((industryChunk, idx) => (
-                <SwiperSlide key={idx}>
+                <SwiperSlide key={idx} className="pt-4">
                   <div className="row">
                     {industryChunk?.map((el) => (
                       <div

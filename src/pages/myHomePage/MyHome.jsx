@@ -61,7 +61,7 @@ export default function MyHome() {
             <MyHomeOverview />
             <MyHomeServices />
             <MyHomePodacast />
-            <MyHomeOurMission />
+            <MyHomeOurMission currPage={'home'} />
             <MyHomeIndustries />
             <MyPartnersSlider />
             <MyHomeInsights />

@@ -3,8 +3,9 @@ import MyMainHeader from '../myMainHeaderSec/MyMainHeader';
 import { useRef } from 'react';
 import { motion, useInView } from "framer-motion";
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-export default function MyHomeOurMission() {
+export default function MyHomeOurMission({ currPage }) {
     const scrollRef = useRef(null);
     const isInView = useInView(scrollRef, { once: true });
 
@@ -16,7 +17,7 @@ export default function MyHomeOurMission() {
             transition={{ duration: 0.8 }}
             style={{ margin: '0 auto' }}
         >
-            <div className='ourMission__handler'>
+            <div className={`ourMission__handler ${currPage === 'about' && 'pb-5 mb-4'}`}>
                 <div className="container">
                     <div className="mission_header">
                         <MyMainHeader
@@ -34,12 +35,15 @@ export default function MyHomeOurMission() {
                                     <p className='mb-4'>
                                         By combining deep expertise across Finance, Management, CSR, Oil & Gas, and Training Services, we deliver tailored solutions that meet the highest standards. At Presiding, we don’t just offer services; we provide leadership that drives real value and lasting impact for our clients.
                                     </p>
-                                    <p className='d-flex justify-content-end'>
-                                        <Link to={'/about-us'} className='underLined'>
-                                            More About Us
+                                    {
+                                        currPage === 'home' &&
+                                        <p className='d-flex justify-content-end'>
+                                            <Link to={'/about-us'} className='underLined'>
+                                                More About Us
+                                            </Link>
                                             <i className="bi bi-arrow-bar-right cursorPointer ms-1"></i>
-                                        </Link>
-                                    </p>
+                                        </p>
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -47,5 +51,8 @@ export default function MyHomeOurMission() {
                 </div>
             </div>
         </motion.div>
-    )
+    );
+};
+MyHomeOurMission.propTypes = {
+    currPage: PropTypes.string.isRequired,
 }

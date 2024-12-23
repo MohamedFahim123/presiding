@@ -13,6 +13,7 @@ import SubServicesPage from "../pages/mySubServicesPage/SubServicesPage";
 import NotFound from "../pages/notFound/NotFound";
 import SingleCareer from "../pages/singleCareerPage/SingleCareer";
 import SingleInsightPage from "../pages/singleInsightPage/SingleInsightPage";
+import Pranches from "../pages/pranches/Pranches";
 
 export const Routes = createBrowserRouter([
     {
@@ -32,7 +33,8 @@ export const Routes = createBrowserRouter([
             { path: 'careers/fill-application-form', element: <FillApplicationForm plicationForm /> },
             { path: 'contact-us', element: <ContactUs /> },
             { path: 'about-us', element: <AboutUs /> },
-            { path: 'client-portal', element: <ClientPortal /> }
+            { path: 'client-portal', element: <ClientPortal /> },
+            { path: 'branches', element: <Pranches /> }
         ],
     },
 ]);
