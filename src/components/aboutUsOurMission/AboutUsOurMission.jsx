@@ -10,42 +10,45 @@ export default function AboutUsOurMission() {
         {
             id: 1,
             imageSrc: img1,
-            title: 'Trusted business',
-            text: 'We Deliver success to your business.',
+            title: 'Results-Oriented',
+            text: 'We are committed to delivering solutions that are not only strategic but also executable, ensuring tangible business success.',
         },
         {
             id: 2,
             imageSrc: img2,
-            title: 'Expertise in Action',
-            text: 'We assist our clients to set right strategy.',
+            title: 'Local Expertise',
+            text: 'As a local firm, we bring unparalleled insight into the regional market and industry dynamics, tailoring our services to fit the unique needs of our clients.',
         },
         {
             id: 3,
             imageSrc: img3,
-            title: 'Recognized Excellence',
-            text: 'We see challenges as opportunities.',
+            title: 'Integrity',
+            text: 'We uphold the highest ethical standards, building trust and long-term relationships with our clients and stakeholders.',
         },
         {
             id: 4,
             imageSrc: img4,
-            title: 'Always Ready to Help',
-            text: 'We Deliver success to your business.',
+            title: 'Collaboration',
+            text: 'We work hand-in-hand with our clients, fostering partnerships that align with their goals and create impactful outcomes.',
         },
-    ]
+    ];
+
     return (
         <div className={styles.aboutUsMission__handler}>
             <div className="container">
                 <div className="row">
                     <MyMainHeader
-                        secHead='OUR MISSION'
-                        secText='HELPING ENTITIES STAND OUT'
+                        secHead='OUR VALUES'
+                        secText='Driven by Results, Grounded in Integrity'
                     />
                     {
                         contentArr?.map(el => (
-                            <div key={el?.id} className="col-lg-3 col-md-4 mt-4 px-3 text-center d-flex flex-column justify-content-center align-items-center">
+                            <div key={el?.id} className="col-md-6 mt-4 px-3 text-center d-flex justify-content-between my-3 py-2">
                                 <img className={styles.cardImage} src={el?.imageSrc} alt={el?.title} />
-                                <h4 className={styles.cardTitle}>{el?.title}</h4>
-                                <p className={styles.cardText}>{el?.text}</p>
+                                <div className="text-start ps-4">
+                                    <h4 className={styles.cardTitle}>{el?.title}</h4>
+                                    <p className={styles.cardText}>{el?.text}</p>
+                                </div>
                             </div>
                         ))
                     }

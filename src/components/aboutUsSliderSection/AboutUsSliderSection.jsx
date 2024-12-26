@@ -11,16 +11,16 @@ export default function AboutUsSliderSection() {
                         <img className={styles.firstImg} src={img1} alt="first about image" />
                         <img className={styles.secondImg} src={img2} alt="second about image" />
                     </div>
-                    <div className="col-lg-7">
+                    <div className="col-lg-7 ps-5">
                         <div className={styles.slide}>
-                            <h6>Our Mission</h6>
-                            <h2>Empowering Success Through Insightful Solutions</h2>
-                            <p>At our consulting firm, we are dedicated to delivering insightful and innovative solutions tailored to each client’s unique needs. Our unwavering commitment is to drive our clients’ success, treating their objectives as our own.</p>
+                            <h4>Our Mission</h4>
+                            <h2>Turning Insight into Action</h2>
+                            <p>Our mission is to redefine management consulting by being the catalyst that transforms insights into actions. We stand apart by embedding ourselves into our clients’ realities, crafting executable strategies that address their unique challenges, and ensuring every engagement leads to measurable and sustainable success. Our commitment is not to deliver ideas but to realize results.</p>
                         </div>
                         <div className={styles.slide}>
-                            <h6>Our Vission</h6>
-                            <h2>Empowering Success Through Insightful Solutions</h2>
-                            <p>At our consulting firm, we are dedicated to delivering insightful and innovative solutions tailored to each client’s unique needs. Our unwavering commitment is to drive our clients’ success, treating their objectives as our own.</p>
+                            <h4>Our Vision</h4>
+                            <h2>Empowering Transformation</h2>
+                            <p>To be the leading partner in driving transformative business success, empowering organizations to thrive in dynamic markets with innovative strategies and sustainable solutions.</p>
                         </div>
                     </div>
                 </div>

@@ -13,7 +13,6 @@
   height: 70%;
   position: relative;
   z-index: 2;
-  border-radius: 20px;
   object-fit: cover;
 }
 .secondImg {
@@ -23,12 +22,10 @@
   width: 55%;
   height: 60%;
   z-index: 4;
-  border-radius: 20px;
   object-fit: cover;
 }
-.slide h6 {
+.slide h4 {
   margin-top: 50px;
-  font-size: 14px;
   font-weight: 400;
   text-transform: uppercase;
   color: var(--main-green-color);
