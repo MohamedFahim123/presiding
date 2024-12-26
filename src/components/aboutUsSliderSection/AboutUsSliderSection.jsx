@@ -2,7 +2,7 @@ import styles from './aboutUsSliderSection.module.css';
 import img1 from '../../assets/aboutUs/img5.png';
 import img2 from '../../assets/aboutUs/img6.png';
 
-export default function AboutUsSliderSection2() {
+export default function AboutUsSliderSection() {
     return (
         <div className={styles.aboutUsSliderSec__handler}>
             <div className="container">
