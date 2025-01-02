@@ -19,7 +19,8 @@
 .myHomeIndustries__text h3 {
   position: relative;
   z-index: 1;
-  font-size: 35px;
+  font-size: 38px;
+  line-height: 1.5  ;
   text-transform: uppercase;
   letter-spacing: 1.1px;
 }
@@ -32,8 +33,10 @@
   font-size: 13px;
 }
 .myHomeIndustries__textToptext {
+  font-size: 18px;
   position: relative;
   z-index: 1;
+  line-height: 1.86;
 }
 .industrySlide__info {
   margin-bottom: 40px;

@@ -37,9 +37,11 @@ export default function MyHomeIndustries() {
               <p className={`mb-3`}>
                 <span className={styles.myHomeIndustries__textTopHead}>Industries</span>
               </p>
-              <h3 className={`mb-4`}>Exploring business world through our services</h3>
+              <h3 className={`mb-4`}>
+                Empowering Industries, Unlocking Potential
+              </h3>
               <p className={styles.myHomeIndustries__textToptext}>
-                Presiding offers its clients a diverse and rich portfolio of business management services. Our team of professional practitioners and experts works in partnership with our clients to deliver contextualized high quality services that fit the best international standards.
+                This aligns with the tone and style of the provided content while showcasing a broader range of industries. Let me know if you{"'"}d like further adjustments!
               </p>
             </div>
             <Swiper
@@ -70,15 +72,17 @@ export default function MyHomeIndustries() {
               {chunkedData?.map((industryChunk, idx) => (
                 <SwiperSlide key={idx} className="pt-4">
                   <div className="row">
-                    {industryChunk?.map((el) => (
-                      <div
-                        key={el?.id}
-                        className={`col-6 d-flex flex-column align-items-center gap-3 ${styles.industrySlide__info}`}
-                      >
-                        <img src={el?.image} alt="icon" className="img-fluid" />
-                        <h4>{el?.title}</h4>
-                      </div>
-                    ))}
+                    {
+                      industryChunk?.map((el) => (
+                        <div
+                          key={el?.id}
+                          className={`col-6 d-flex flex-column align-items-center gap-3 ${styles.industrySlide__info}`}
+                        >
+                          <img src={el?.image} alt="icon" className="img-fluid" />
+                          <h4>{el?.title}</h4>
+                        </div>
+                      ))
+                    }
                   </div>
                 </SwiperSlide>
               ))}

@@ -9,25 +9,25 @@ export default function AboutUsOurMission() {
     const contentArr = [
         {
             id: 1,
-            imageSrc: img1,
+            imageSrc: img4,
             title: 'Results-Oriented',
             text: 'We are committed to delivering solutions that are not only strategic but also executable, ensuring tangible business success.',
         },
         {
             id: 2,
-            imageSrc: img2,
+            imageSrc: img3,
             title: 'Local Expertise',
             text: 'As a local firm, we bring unparalleled insight into the regional market and industry dynamics, tailoring our services to fit the unique needs of our clients.',
         },
         {
             id: 3,
-            imageSrc: img3,
+            imageSrc: img2,
             title: 'Integrity',
             text: 'We uphold the highest ethical standards, building trust and long-term relationships with our clients and stakeholders.',
         },
         {
             id: 4,
-            imageSrc: img4,
+            imageSrc: img1,
             title: 'Collaboration',
             text: 'We work hand-in-hand with our clients, fostering partnerships that align with their goals and create impactful outcomes.',
         },
