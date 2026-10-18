@@ -2,13 +2,10 @@ import { useForm } from 'react-hook-form'
 import './myNewsLetter.css'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { NewsLetterShema } from '../../validation/NewsLetter'
-import axios from 'axios';
-import { baseUrl } from '../../functions/baseUrl';
 import toast from 'react-hot-toast';
 export default function MyNewsLetter() {
     const {
         register,
-        setError,
         handleSubmit,
         formState: { errors, isSubmitting }
     } = useForm({
@@ -19,25 +16,8 @@ export default function MyNewsLetter() {
     });
 
     const onSubmit = async (data) => {
-        const toastId = toast.loading('Loading...')
-        try {
-            const res = await axios.post(`${baseUrl}/subscribe`, data, {
-                headers: {
-                    "Content-Type": 'application/json',
-                    Accept: 'application/json',
-                },
-            });
-            toast.success(res?.data?.message || 'submitted successfully!', {
-                id: toastId,
-                duration: 1000,
-            });
-        } catch (error) {
-            setError('email', { message: error?.response?.data?.errors?.email[0] })
-            toast.error(error?.response?.data?.message || 'something went wrong!', {
-                id: toastId,
-                duration: 1000,
-            });
-        };
+        void data;
+        toast.success('Demo mode: your subscription was saved for this preview.');
     };
 
     return (

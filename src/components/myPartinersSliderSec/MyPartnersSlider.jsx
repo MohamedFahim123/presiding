@@ -6,6 +6,7 @@ import Autoplay from "../../../node_modules/swiper/modules/autoplay.mjs";
 import { baseUrl } from "../../functions/baseUrl";
 import { useFetch } from "../../hooks/useFetch";
 import '../myHomeIndustriesSec/myHomeIndustries.css';
+import presidingLogo from '../../assets/footer-images/Presiding-logo.png';
 
 export default function MyPartnersSlider() {
     const [currData] = useFetch(`${baseUrl}/parteners`);
@@ -48,7 +49,7 @@ export default function MyPartnersSlider() {
                         {
                             currData?.parteners?.map((partiner, index) => (
                                 <SwiperSlide key={index} className="partenerSlide__item">
-                                    <img src={partiner?.image} alt="logo" />
+                                    <img src={partiner?.image || presidingLogo} alt={`${partiner?.name || 'Partner'} logo`} />
                                 </SwiperSlide>
                             ))
                         }

@@ -1,18 +1,13 @@
-import axios from "axios";
+import { getMockData } from "../data/mockData";
 
-export const postDataToApi = async (url,data,setRes,setToastMessage,setLoading) => {
+export const postDataToApi = async (url, data, setRes, setToastMessage, setLoading) => {
     try {
-        setLoading(true);
-        const response = await axios.post(url, data,{
-            headers: {
-                "Content-Type": 'application/json',
-                Accept: 'application/json',
-            }
-        });
-        setRes(response?.data?.data);
-        setToastMessage(response?.data?.message);
+        setLoading?.(true);
+        setRes(getMockData(url, data));
+        setToastMessage?.(null);
     } catch (error) {
-        setToastMessage(error?.response?.data?.message);
-    };
-    setLoading(false);
+        setToastMessage?.(error?.message || 'Unable to load mock data.');
+    } finally {
+        setLoading?.(false);
+    }
 };

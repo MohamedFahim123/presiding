@@ -78,7 +78,7 @@ export default function MyHomeIndustries() {
                           key={el?.id}
                           className={`col-6 d-flex flex-column align-items-center gap-3 ${styles.industrySlide__info}`}
                         >
-                          <img src={el?.image} alt="icon" className="img-fluid" />
+                          <img src={el?.image} alt={el?.title} className="img-fluid" loading="lazy" />
                           <h4>{el?.title}</h4>
                         </div>
                       ))

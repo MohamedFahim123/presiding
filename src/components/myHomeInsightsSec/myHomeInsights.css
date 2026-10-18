@@ -5,6 +5,19 @@
 }
 .insightSlide__item {
   overflow: hidden;
+  height: 300px;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(10, 33, 55, 0.15);
+}
+.insightSlide__item > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.insightSlide__item:hover > img {
+  transform: scale(1.04);
 }
 .insighSlide__info {
   padding: 15px;
@@ -76,6 +89,9 @@
   }
 }
 @media screen and (max-width: 600px) {
+  .insightSlide__item {
+    height: 260px;
+  }
   .insightsSlider__handler .col-md-4 {
     width: 100%;
   }

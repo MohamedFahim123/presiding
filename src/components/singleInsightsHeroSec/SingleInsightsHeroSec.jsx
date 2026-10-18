@@ -2,30 +2,10 @@ import styles from './singleInsightsHeroSec.module.css';
 import viewIcon from '../../assets/insightsPage/fluent-mdl2_view.svg';
 import downloadIcon from '../../assets/insightsPage/material-symbols-light_download-sharp.svg';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
 import toast from 'react-hot-toast';
 
-export default function SingleInsightsHeroSec({ bgImage, title, attachment }) {
-    const [pdfUrl] = useState(attachment);
-    const handleDownload = async () => {
-        try {
-            const response = await fetch(attachment);
-            if (!response.ok) {
-                throw new Error(`Failed to fetch file. Status: ${response.status}`);
-            };
-            const blob = await response.blob();
-            const url = window.URL.createObjectURL(blob);
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = `${title || 'Document'}-Full-Report.pdf`;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            window.URL.revokeObjectURL(url);
-        } catch (error) {
-            toast.error('Error downloading the file.');
-        };
-    };
+export default function SingleInsightsHeroSec({ bgImage, title }) {
+    const showDemoNotice = () => toast('Report files are not included in this UI-only preview.');
 
 
     return (
@@ -40,12 +20,12 @@ export default function SingleInsightsHeroSec({ bgImage, title, attachment }) {
                             <div className={`${styles.btnContainer} ps-4 mt-5`}>
                                 <button
                                     className={`${styles.downloadBtn} btn btn-primary d-flex align-items-center gap-2`}
-                                    onClick={() => window.open(pdfUrl, '_blank')}
+                                    onClick={showDemoNotice}
                                 >
                                     <img src={viewIcon} alt="View icon" className="icon" />
                                     View Online
                                 </button>
-                                <button onClick={handleDownload} className={styles.veiwBtn}>
+                                <button onClick={showDemoNotice} className={styles.veiwBtn}>
                                     Download Full Report
                                     <img src={downloadIcon} alt="download icon" />
                                 </button>
@@ -56,7 +36,7 @@ export default function SingleInsightsHeroSec({ bgImage, title, attachment }) {
                         <div
                             className={`${styles.imgContainer} w-100 h-100`}
                             style={{
-                                backgroundImage: `url(${bgImage || 'https://via.placeholder.com/600x400'})`,
+                                backgroundImage: bgImage ? `url(${bgImage})` : 'none',
                                 backgroundSize: 'cover',
                                 backgroundPosition: 'center',
                             }}

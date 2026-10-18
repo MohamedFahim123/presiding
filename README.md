@@ -1,8 +1,11 @@
-# React + Vite
+# Presiding UI Preview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This React/Vite project is configured as a UI-only preview. Page content and form options come from local mock data; it does not require or send requests to a backend. Form submissions show a demo confirmation and are not saved.
 
-Currently, two official plugins are available:
+## Run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Install dependencies with `npm install`, then start the development server with `npm run dev`.
+
+## Edit preview content
+
+Update `src/data/mockData.js` to change mock services, sub-services, insights, jobs, locations, and form dropdown options. Mock API paths are resolved locally by the data helpers in `src/functions/`.

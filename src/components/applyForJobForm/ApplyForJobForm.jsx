@@ -6,8 +6,6 @@ import { useCitizenShipStore } from "../../store/useCitizenShipStore";
 import { useAvailabilitiesStore } from "../../store/useAvailabilitiesStore";
 import { useLangStore } from "../../store/useLangStore";
 import CustomSelect from "../../custom/CustomSelect";
-import axios from "axios";
-import { baseUrl } from "../../functions/baseUrl";
 import toast from "react-hot-toast";
 import { useCountriesStore } from "../../store/useCountriesStore";
 import PersonalInformationInputs from "../PersonalInformationInputs/PersonalInformationInputs";
@@ -18,7 +16,7 @@ import AttachMentsInputs from "../AttachMentsInputs/AttachMentsInputs";
 import ApplyBtn from "../ApplyBtn/ApplyBtn";
 
 export default function ApplyForJobForm({ jobId }) {
-    const { register, control, setValue, setError, reset, watch, handleSubmit, formState: { errors, isSubmitting } } = useForm({
+    const { register, control, setValue, reset, watch, handleSubmit, formState: { errors, isSubmitting } } = useForm({
         defaultValues: {
             full_name: '',
             email: '',
@@ -97,69 +95,13 @@ export default function ApplyForJobForm({ jobId }) {
 
     const onSubmit = async (data) => {
         const toastId = toast.loading('loading...');
-        data.job_id = jobId;
-        data.professional_experience = data.professional_experience.map((exp) => ({
-            ...exp,
-            present: exp.present ? 'yes' : 'no',
-        }));
-        const formData = new FormData();
-        Object.keys(data).forEach((key) => {
-            if (key === 'professional_experience') {
-                data.professional_experience.forEach((exp, index) => {
-                    formData.append(`professional_experience[${index}][position]`, exp.position);
-                    formData.append(`professional_experience[${index}][company]`, exp.company);
-                    formData.append(`professional_experience[${index}][start_date]`, exp.start_date);
-                    formData.append(`professional_experience[${index}][end_data]`, exp.end_data);
-                    formData.append(`professional_experience[${index}][industry_id]`, exp.industry_id);
-                    formData.append(`professional_experience[${index}][present]`, exp.present ? 'yes' : 'no');
-                });
-            } else if (key === 'languages') {
-                data.languages.forEach((language, index) => {
-                    formData.append(`languages[${index}][languages_id]`, language.languages_id);
-                    formData.append(`languages[${index}][level]`, language.level);
-                });
-            } else if (key !== 'cv' && key !== 'cover_letter' && !Array.isArray(data[key])) {
-                formData.append(key, data[key]);
-            } else if (key !== 'cv' && key !== 'cover_letter' && Array.isArray(data[key])) {
-                data[key].forEach((item, index) => {
-                    formData.append(`${key}[${index}]`, item);
-                });
-            } else if (key === 'cv' || key === 'cover_letter') {
-                formData.append(key, data[key][0]);
-            };
+        void data;
+        void jobId;
+        reset();
+        toast.success('Demo mode: your application was submitted locally.', {
+            id: toastId,
+            duration: 1800,
         });
-        await axios.post(`${baseUrl}/apply-job`, formData, {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'multipart/form-data',
-            },
-        })
-            .then(res => {
-                reset();
-                toast.success(res?.data?.message || 'Applied Successfully!', {
-                    id: toastId,
-                    duration: 1000,
-                });
-            })
-            .catch(err => {
-                Object.keys(err?.response?.data?.errors).forEach((field) => {
-                    err?.response?.data?.errors[field]?.forEach((message) => {
-                        toast.error(message, {
-                            duration: 2000,
-                        });
-                    });
-                });
-                Object.keys(err?.response?.data?.errors).forEach((field) => {
-                    setError(field, {
-                        type: 'server',
-                        message: err?.response?.data?.errors[field][0],
-                    });
-                });
-                toast.error(err?.response?.data?.message || 'Something went Wrong!', {
-                    id: toastId,
-                    duration: 1000,
-                });
-            });
     };
 
     return (

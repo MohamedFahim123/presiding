@@ -1,5 +1,4 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -13,7 +12,6 @@ import MyLoader from "../../components/myLoaderSec/MyLoader";
 import PersonalInformationInputs from "../../components/PersonalInformationInputs/PersonalInformationInputs";
 import ProfessionalExperienceInputs from "../../components/ProfessionalExperienceInputs/ProfessionalExperienceInputs";
 import CustomCrudFields from "../../custom/CustomCrudFields";
-import { baseUrl } from "../../functions/baseUrl";
 import { useCitizenShipStore } from "../../store/useCitizenShipStore";
 import { useCountriesStore } from "../../store/useCountriesStore";
 import { useIndustriesStore } from "../../store/useIndustriesStore";
@@ -25,7 +23,7 @@ import { useYearsOfExpStore } from "../../store/useYearsOfExpStore";
 import { FillApplicationFormShema } from "../../validation/FillApllication";
 
 export default function FillApplicationForm() {
-    const { register, control, setError, setValue, watch, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm({
+    const { register, control, setValue, watch, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm({
         defaultValues: {
             full_name: '',
             email: '',
@@ -125,67 +123,13 @@ export default function FillApplicationForm() {
     const onSubmit = async (data) => {
         data.job_type_id = checkedPreferredJobTypes?.map(job => job?.id);
         data.project_type_id = checkedPreferredTypes?.map(type => type?.id);
-        console.log(data)
+        void data;
         const toastId = toast.loading('loading...');
-        const formData = new FormData();
-        Object.keys(data).forEach((key) => {
-            if (key === 'professional_experience') {
-                data.professional_experience.forEach((exp, index) => {
-                    formData.append(`professional_experience[${index}][position]`, exp.position);
-                    formData.append(`professional_experience[${index}][company]`, exp.company);
-                    formData.append(`professional_experience[${index}][start_date]`, exp.start_date);
-                    formData.append(`professional_experience[${index}][end_date]`, exp.end_date);
-                    formData.append(`professional_experience[${index}][present]`, exp.present ? 'yes' : 'no');
-                    formData.append(`professional_experience[${index}][industry_id]`, exp.industry_id);
-                });
-            } else if (key === 'languages') {
-                data.languages.forEach((language, index) => {
-                    formData.append(`languages[${index}][languages_id]`, language.languages_id);
-                    formData.append(`languages[${index}][level]`, language.level);
-                });
-            } else if (key !== 'cv' && !Array.isArray(data[key])) {
-                formData.append(key, data[key]);
-            } else if (key !== 'cv' && Array.isArray(data[key])) {
-                data[key].forEach((item, index) => {
-                    formData.append(`${key}[${index}]`, item);
-                });
-            } else if (key === 'cv') {
-                formData.append(`${key}`, data[key][0]);
-            };
+        reset();
+        toast.success('Demo mode: your talent profile was submitted locally.', {
+            id: toastId,
+            duration: 1800,
         });
-        await axios.post(`${baseUrl}/fill-application`, formData, {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'multipart/form-data',
-            },
-        })
-            .then(res => {
-                console.log(res?.data);
-                toast.success(res?.data?.message || 'Form Filled Successfully!', {
-                    id: toastId,
-                    duration: 1000
-                });
-                reset();
-            })
-            .catch(err => {
-                Object.keys(err?.response?.data?.errors).forEach((field) => {
-                    err?.response?.data?.errors[field]?.forEach((message) => {
-                        toast.error(message, {
-                            duration: 2000,
-                        });
-                    });
-                });
-                Object.keys(err?.response?.data?.errors).forEach((field) => {
-                    setError(field, {
-                        type: 'server',
-                        message: err?.response?.data?.errors[field][0],
-                    });
-                });
-                toast.error(err?.response?.data?.message || 'Something Went Wrong please try Again', {
-                    id: toastId,
-                    duration: 1000,
-                });
-            });
     };
 
     if (

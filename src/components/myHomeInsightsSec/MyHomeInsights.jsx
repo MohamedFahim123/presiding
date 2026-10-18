@@ -5,7 +5,6 @@ import { baseUrl } from '../../functions/baseUrl';
 import { useRef } from 'react';
 import { motion, useInView } from "framer-motion";
 import { NavLink } from 'react-router-dom';
-import img from "../../assets/home-insights/WhatsApp Image 2024-10-27 at 17.53.26_a6394369.jpg";
 
 export default function MyHomeInsights() {
     const [currData] = useFetch(`${baseUrl}/home-blogs`);
@@ -34,7 +33,7 @@ export default function MyHomeInsights() {
                                 currData?.blogs?.map((blog) => (
                                     <div key={blog?.id} className="col-md-4 mt-4">
                                         <div className="insightSlide__item position-relative">
-                                            <img src={img} alt="blog cover" />
+                                            <img src={blog?.image} alt={blog?.title || 'Business insight'} loading="lazy" />
                                             <div className="insightSlide__link">
                                                 <NavLink className={'nav-link'} to={`insights/${blog?.id}`}>
                                                     <span>read more </span>
